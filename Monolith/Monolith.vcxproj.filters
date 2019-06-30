@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="engine\model\universe.cpp">
+      <Filter>engine\model</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\window\gamewindow.cpp">
+      <Filter>engine\window</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\gameengine.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\window\gamewindowdata.cpp">
+      <Filter>engine\window</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="system\types.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="precomp.h" />
+    <ClInclude Include="engine\model\universe.h">
+      <Filter>engine\model</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\window\gamewindow.h">
+      <Filter>engine\window</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\gameengine.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\window\gamewindowdata.h">
+      <Filter>engine\window</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="system">
+      <UniqueIdentifier>{885c0e44-9eca-46aa-a689-55b6280e9fdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine">
+      <UniqueIdentifier>{0e21c706-48c0-4c4e-b7d6-9ca11b4dc73a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\model">
+      <UniqueIdentifier>{d0996005-e5c9-4063-8669-10cc50563f12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\window">
+      <UniqueIdentifier>{e88b8403-40e3-498c-952d-9266f37959f3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
