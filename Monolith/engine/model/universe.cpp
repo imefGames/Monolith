@@ -3,4 +3,11 @@
 
 namespace Monolith
 {
+    void Universe::Init()
+    {
+    }
+
+    void Universe::Shutdown()
+    {
+    }
 }

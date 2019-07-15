@@ -4,15 +4,15 @@
 
 namespace Monolith
 {
-    class World;
+    class Entity;
 
-    class Universe
+    class World
     {
     public:
         void Init();
         void Shutdown();
 
     private:
-        std::vector<World*> m_Worlds;
+        std::vector<Entity*> m_Entities;
     };
 }

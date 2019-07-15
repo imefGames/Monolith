@@ -128,7 +128,9 @@
     <ClCompile Include="core\vector2.cpp" />
     <ClCompile Include="engine\gameengine.cpp" />
     <ClCompile Include="engine\input\inputevents.cpp" />
+    <ClCompile Include="engine\model\entity.cpp" />
     <ClCompile Include="engine\model\universe.cpp" />
+    <ClCompile Include="engine\model\world.cpp" />
     <ClCompile Include="engine\window\gamewindow.cpp" />
     <ClCompile Include="engine\window\gamewindowdata.cpp" />
     <ClCompile Include="main.cpp" />
@@ -137,7 +139,9 @@
     <ClInclude Include="core\vector2.h" />
     <ClInclude Include="engine\gameengine.h" />
     <ClInclude Include="engine\input\inputevents.h" />
+    <ClInclude Include="engine\model\entity.h" />
     <ClInclude Include="engine\model\universe.h" />
+    <ClInclude Include="engine\model\world.h" />
     <ClInclude Include="engine\window\gamewindow.h" />
     <ClInclude Include="engine\window\gamewindowdata.h" />
     <ClInclude Include="precomp.h" />

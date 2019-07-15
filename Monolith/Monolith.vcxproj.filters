@@ -20,6 +20,12 @@
     <ClCompile Include="core\vector2.cpp">
       <Filter>core</Filter>
     </ClCompile>
+    <ClCompile Include="engine\model\world.cpp">
+      <Filter>engine\model</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\model\entity.cpp">
+      <Filter>engine\model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\types.h">
@@ -43,6 +49,12 @@
     </ClInclude>
     <ClInclude Include="core\vector2.h">
       <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\model\world.h">
+      <Filter>engine\model</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\model\entity.h">
+      <Filter>engine\model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
