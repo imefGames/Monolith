@@ -2,7 +2,6 @@
 #include <engine/window/gamewindow.h>
 
 #include <engine/input/inputevents.h>
-#include <graphics/renderingcontext.h>
 
 #include <Windows.h>
 
