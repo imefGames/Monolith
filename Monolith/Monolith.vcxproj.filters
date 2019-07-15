@@ -14,10 +14,16 @@
     <ClCompile Include="engine\window\gamewindowdata.cpp">
       <Filter>engine\window</Filter>
     </ClCompile>
+    <ClCompile Include="engine\input\inputevents.cpp">
+      <Filter>engine\input</Filter>
+    </ClCompile>
+    <ClCompile Include="core\vector2.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="system\types.h">
-      <Filter>system</Filter>
+    <ClInclude Include="core\types.h">
+      <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="precomp.h" />
     <ClInclude Include="engine\model\universe.h">
@@ -32,11 +38,14 @@
     <ClInclude Include="engine\window\gamewindowdata.h">
       <Filter>engine\window</Filter>
     </ClInclude>
+    <ClInclude Include="engine\input\inputevents.h">
+      <Filter>engine\input</Filter>
+    </ClInclude>
+    <ClInclude Include="core\vector2.h">
+      <Filter>core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="system">
-      <UniqueIdentifier>{885c0e44-9eca-46aa-a689-55b6280e9fdb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="engine">
       <UniqueIdentifier>{0e21c706-48c0-4c4e-b7d6-9ca11b4dc73a}</UniqueIdentifier>
     </Filter>
@@ -45,6 +54,12 @@
     </Filter>
     <Filter Include="engine\window">
       <UniqueIdentifier>{e88b8403-40e3-498c-952d-9266f37959f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core">
+      <UniqueIdentifier>{885c0e44-9eca-46aa-a689-55b6280e9fdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\input">
+      <UniqueIdentifier>{e8b4ffe5-26d1-421d-9ba2-27a8ede08593}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
