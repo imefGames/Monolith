@@ -26,6 +26,12 @@
     <ClCompile Include="engine\model\entity.cpp">
       <Filter>engine\model</Filter>
     </ClCompile>
+    <ClCompile Include="engine\flow\floworchestrator.cpp">
+      <Filter>engine\flow</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\model\gamesystem.cpp">
+      <Filter>engine\model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\types.h">
@@ -56,6 +62,15 @@
     <ClInclude Include="engine\model\entity.h">
       <Filter>engine\model</Filter>
     </ClInclude>
+    <ClInclude Include="engine\flow\floworchestrator.h">
+      <Filter>engine\flow</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\model\gamesystem.h">
+      <Filter>engine\model</Filter>
+    </ClInclude>
+    <ClInclude Include="core\singleton.h">
+      <Filter>core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="engine">
@@ -72,6 +87,9 @@
     </Filter>
     <Filter Include="engine\input">
       <UniqueIdentifier>{e8b4ffe5-26d1-421d-9ba2-27a8ede08593}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\flow">
+      <UniqueIdentifier>{f0ac7d9c-1d2f-46b4-bf64-d52cce9b9f57}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

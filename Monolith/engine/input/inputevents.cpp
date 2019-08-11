@@ -3,6 +3,11 @@
 
 namespace Monolith
 {
+    InputEvents::InputEvents()
+    {
+        Reset();
+    }
+
     void InputEvents::Reset()
     {
         m_MouseEvent = EMouseInputEvent::None;

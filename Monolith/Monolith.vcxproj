@@ -126,9 +126,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core\vector2.cpp" />
+    <ClCompile Include="engine\flow\floworchestrator.cpp" />
     <ClCompile Include="engine\gameengine.cpp" />
     <ClCompile Include="engine\input\inputevents.cpp" />
     <ClCompile Include="engine\model\entity.cpp" />
+    <ClCompile Include="engine\model\gamesystem.cpp" />
     <ClCompile Include="engine\model\universe.cpp" />
     <ClCompile Include="engine\model\world.cpp" />
     <ClCompile Include="engine\window\gamewindow.cpp" />
@@ -136,10 +138,13 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="core\singleton.h" />
     <ClInclude Include="core\vector2.h" />
+    <ClInclude Include="engine\flow\floworchestrator.h" />
     <ClInclude Include="engine\gameengine.h" />
     <ClInclude Include="engine\input\inputevents.h" />
     <ClInclude Include="engine\model\entity.h" />
+    <ClInclude Include="engine\model\gamesystem.h" />
     <ClInclude Include="engine\model\universe.h" />
     <ClInclude Include="engine\model\world.h" />
     <ClInclude Include="engine\window\gamewindow.h" />

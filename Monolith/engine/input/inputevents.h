@@ -13,6 +13,8 @@ namespace Monolith
     class InputEvents
     {
     public:
+        InputEvents();
+
         inline EMouseInputEvent GetMouseEvent() const { return m_MouseEvent; }
         inline void SetMouseEvent(EMouseInputEvent mouseInputEvent) { m_MouseEvent = mouseInputEvent; }
         inline const Vec2& GetMousePosition() const { return m_MousePosition; }
