@@ -16,4 +16,8 @@ namespace Monolith
     void GameSystem::Update(f32 deltaTime)
     {
     }
+
+    void GameSystem::Render(RenderingContext& renderingContext)
+    {
+    }
 }

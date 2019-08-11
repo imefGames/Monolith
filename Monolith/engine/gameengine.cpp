@@ -40,6 +40,7 @@ namespace Monolith
             RenderingHelper::StartFrame(renderingContext);
             InputHelper::ProcessInputEvents(inputEvents);
             m_Universe.Update(deltaTime);
+            m_Universe.Render(renderingContext);
             RenderingHelper::EndFrame(renderingContext);
 
             auto frameEnd = std::chrono::steady_clock::now();

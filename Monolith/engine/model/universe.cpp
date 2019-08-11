@@ -38,5 +38,21 @@ namespace Monolith
         {
             currentSystem->Update(deltaTime);
         }
+        for (World* currentWorld : m_Worlds)
+        {
+            currentWorld->Update(deltaTime);
+        }
+    }
+
+    void Universe::Render(RenderingContext& renderingContext)
+    {
+        for (GameSystem* currentSystem : m_Systems)
+        {
+            currentSystem->Render(renderingContext);
+        }
+        for (World* currentWorld : m_Worlds)
+        {
+            currentWorld->Render(renderingContext);
+        }
     }
 }
