@@ -4,6 +4,7 @@ namespace Monolith
 {
     class GameWindowData;
     class InputEvents;
+    class RenderingContext;
 
     class GameWindow
     {
@@ -15,5 +16,6 @@ namespace Monolith
         void Shutdown();
 
         void PollInputEvents(InputEvents& inputEvents);
+        void SetupRenderingContext(RenderingContext& renderingContext);
     };
 }

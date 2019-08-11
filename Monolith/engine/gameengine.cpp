@@ -4,6 +4,8 @@
 #include <engine/flow/floworchestrator.h>
 #include <engine/input/inputevents.h>
 #include <engine/input/inputprocessor.h>
+#include <engine/rendering/gamerenderer.h>
+#include <engine/rendering/renderingcontext.h>
 
 #include <chrono>
 
@@ -24,6 +26,7 @@ namespace Monolith
     void GameEngine::RunGameLoop()
     {
         InputEvents inputEvents;
+        RenderingContext renderingContext;
 
         f32 deltaTime{ 0.033f };
         auto previousTime = std::chrono::steady_clock::now();
@@ -32,9 +35,12 @@ namespace Monolith
             auto frameStart = std::chrono::steady_clock::now();
 
             m_GameWindow.PollInputEvents(inputEvents);
+            m_GameWindow.SetupRenderingContext(renderingContext);
+
+            RenderingHelper::StartFrame(renderingContext);
             InputHelper::ProcessInputEvents(inputEvents);
             m_Universe.Update(deltaTime);
-            //Render
+            RenderingHelper::EndFrame(renderingContext);
 
             auto frameEnd = std::chrono::steady_clock::now();
             std::chrono::duration<f32, std::milli> duration(std::chrono::duration_cast<std::chrono::duration<f32, std::milli>>(frameEnd - frameStart));

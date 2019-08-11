@@ -134,6 +134,8 @@
     <ClCompile Include="engine\model\gamesystem.cpp" />
     <ClCompile Include="engine\model\universe.cpp" />
     <ClCompile Include="engine\model\world.cpp" />
+    <ClCompile Include="engine\rendering\gamerenderer.cpp" />
+    <ClCompile Include="engine\rendering\renderingcontext.cpp" />
     <ClCompile Include="engine\window\gamewindow.cpp" />
     <ClCompile Include="engine\window\gamewindowdata.cpp" />
     <ClCompile Include="main.cpp" />
@@ -149,6 +151,8 @@
     <ClInclude Include="engine\model\gamesystem.h" />
     <ClInclude Include="engine\model\universe.h" />
     <ClInclude Include="engine\model\world.h" />
+    <ClInclude Include="engine\rendering\gamerenderer.h" />
+    <ClInclude Include="engine\rendering\renderingcontext.h" />
     <ClInclude Include="engine\window\gamewindow.h" />
     <ClInclude Include="engine\window\gamewindowdata.h" />
     <ClInclude Include="precomp.h" />

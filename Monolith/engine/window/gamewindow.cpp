@@ -2,6 +2,7 @@
 #include <engine/window/gamewindow.h>
 
 #include <engine/input/inputevents.h>
+#include <engine/rendering/renderingcontext.h>
 
 #include <Windows.h>
 
@@ -56,6 +57,11 @@ namespace Monolith
                 }
             }
         }
+    }
+
+    void GameWindow::SetupRenderingContext(RenderingContext& renderingContext)
+    {
+        //TODO
     }
 
     namespace GameWindowHelperInternal

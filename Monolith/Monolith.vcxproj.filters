@@ -35,6 +35,12 @@
     <ClCompile Include="engine\input\inputprocessor.cpp">
       <Filter>engine\input</Filter>
     </ClCompile>
+    <ClCompile Include="engine\rendering\renderingcontext.cpp">
+      <Filter>engine\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\rendering\gamerenderer.cpp">
+      <Filter>engine\rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\types.h">
@@ -77,6 +83,12 @@
     <ClInclude Include="engine\input\inputprocessor.h">
       <Filter>engine\input</Filter>
     </ClInclude>
+    <ClInclude Include="engine\rendering\renderingcontext.h">
+      <Filter>engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\gamerenderer.h">
+      <Filter>engine\rendering</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="engine">
@@ -96,6 +108,9 @@
     </Filter>
     <Filter Include="engine\flow">
       <UniqueIdentifier>{f0ac7d9c-1d2f-46b4-bf64-d52cce9b9f57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\rendering">
+      <UniqueIdentifier>{5d5385fa-c720-441a-9d96-2e8bc96a7d55}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
