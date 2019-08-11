@@ -3,6 +3,8 @@
 
 #include <engine/rendering/renderingcontext.h>
 
+#include <Windows.h>
+
 namespace Monolith
 {
     void GameRenderer::OnInit()
@@ -17,12 +19,35 @@ namespace Monolith
 
     void GameRenderer::StartFrame(RenderingContext& renderingContext)
     {
-        //TODO
+        u32 bufferSize{ renderingContext.m_CanvasWidth * renderingContext.m_CanvasHeight };
+        if (bufferSize > renderingContext.m_CanvasBuffer.size())
+        {
+            renderingContext.m_CanvasBuffer.resize(bufferSize);
+        }
+
+        renderingContext.CleanBuffer();
     }
 
     void GameRenderer::EndFrame(RenderingContext& renderingContext)
     {
-        //TODO
+        HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
+        CONSOLE_CURSOR_INFO cursorInfo;
+        GetConsoleCursorInfo(out, &cursorInfo);
+        cursorInfo.bVisible = false;
+        SetConsoleCursorInfo(out, &cursorInfo);
+
+        COORD pos = { 0, 0 };
+        HANDLE output = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleCursorPosition(output, pos);
+
+        for (u32 j = 0; j < renderingContext.m_CanvasHeight; ++j)
+        {
+            for (u32 i = 0; i < renderingContext.m_CanvasWidth; ++i)
+            {
+                putc(renderingContext.m_CanvasBuffer[i + j * static_cast<u64>(renderingContext.m_CanvasWidth)], stdout);
+            }
+            putc('\n', stdout);
+        }
     }
 
     namespace RenderingHelper

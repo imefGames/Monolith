@@ -15,5 +15,7 @@ namespace Monolith
     protected:
         virtual void OnInit() {}
         virtual void OnShutdown() {}
+        virtual void OnUpdate(f32 deltaTime) {}
+        virtual void OnRender(RenderingContext& renderingContext) {}
     };
 }

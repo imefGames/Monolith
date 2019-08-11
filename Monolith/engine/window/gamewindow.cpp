@@ -61,7 +61,13 @@ namespace Monolith
 
     void GameWindow::SetupRenderingContext(RenderingContext& renderingContext)
     {
-        //TODO
+        CONSOLE_SCREEN_BUFFER_INFO csbi;
+        u32 columns, rows;
+        GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+        columns = csbi.srWindow.Right - csbi.srWindow.Left;
+        rows = csbi.srWindow.Bottom - csbi.srWindow.Top;
+
+        renderingContext.SetWindowSize(columns, rows);
     }
 
     namespace GameWindowHelperInternal
@@ -79,10 +85,12 @@ namespace Monolith
                     if (mouseEvent.dwButtonState == FROM_LEFT_1ST_BUTTON_PRESSED)
                     {
                         inputEvents.SetMouseEvent(EMouseInputEvent::LClick);
+                        inputEvents.SetMousePosition(Vec2{ static_cast<u32>(mouseEvent.dwMousePosition.X), static_cast<u32>(mouseEvent.dwMousePosition.Y) });
                     }
                     else if (mouseEvent.dwButtonState == RIGHTMOST_BUTTON_PRESSED)
                     {
                         inputEvents.SetMouseEvent(EMouseInputEvent::RClick);
+                        inputEvents.SetMousePosition(Vec2{ static_cast<u32>(mouseEvent.dwMousePosition.X), static_cast<u32>(mouseEvent.dwMousePosition.Y) });
                     }
                     else
                     {
