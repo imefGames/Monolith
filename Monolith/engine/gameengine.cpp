@@ -3,6 +3,7 @@
 
 #include <engine/flow/floworchestrator.h>
 #include <engine/input/inputevents.h>
+#include <engine/input/inputprocessor.h>
 
 #include <chrono>
 
@@ -31,7 +32,7 @@ namespace Monolith
             auto frameStart = std::chrono::steady_clock::now();
 
             m_GameWindow.PollInputEvents(inputEvents);
-            //Handle Events
+            InputHelper::ProcessInputEvents(inputEvents);
             m_Universe.Update(deltaTime);
             //Render
 

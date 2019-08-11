@@ -8,10 +8,11 @@ namespace Monolith
     class FlowOrchestrator : public GameSystem, public Singleton<FlowOrchestrator>
     {
     public:
-        FlowOrchestrator();
-        ~FlowOrchestrator();
-
         bool IsGameRunning() const;
+
+    protected:
+        void OnInit() override;
+        void OnShutdown() override;
     };
 
     namespace FlowHelper

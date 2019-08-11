@@ -32,6 +32,9 @@
     <ClCompile Include="engine\model\gamesystem.cpp">
       <Filter>engine\model</Filter>
     </ClCompile>
+    <ClCompile Include="engine\input\inputprocessor.cpp">
+      <Filter>engine\input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\types.h">
@@ -70,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="core\singleton.h">
       <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\input\inputprocessor.h">
+      <Filter>engine\input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

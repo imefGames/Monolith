@@ -5,10 +5,12 @@ namespace Monolith
 {
     void GameSystem::Init()
     {
+        OnInit();
     }
 
     void GameSystem::Shutdown()
     {
+        OnShutdown();
     }
 
     void GameSystem::Update(f32 deltaTime)

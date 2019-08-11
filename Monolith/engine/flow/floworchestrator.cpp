@@ -3,20 +3,19 @@
 
 namespace Monolith
 {
-    FlowOrchestrator::FlowOrchestrator()
-        : GameSystem{}
+    void FlowOrchestrator::OnInit()
     {
         RegisterInstance(this);
     }
 
-    FlowOrchestrator::~FlowOrchestrator()
+    void FlowOrchestrator::OnShutdown()
     {
         UnregisterInstance(this);
     }
 
     bool FlowOrchestrator::IsGameRunning() const
     {
-        return false;
+        return true;
     }
 
     namespace FlowHelper
