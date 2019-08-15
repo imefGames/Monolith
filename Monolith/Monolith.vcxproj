@@ -91,6 +91,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -125,6 +126,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="core\assert.cpp" />
+    <ClCompile Include="core\serialization\json\jsonnode.cpp" />
+    <ClCompile Include="core\serialization\json\jsonparser.cpp" />
     <ClCompile Include="core\vector2.cpp" />
     <ClCompile Include="engine\flow\floworchestrator.cpp" />
     <ClCompile Include="engine\gameengine.cpp" />
@@ -141,6 +145,9 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="core\assert.h" />
+    <ClInclude Include="core\serialization\json\jsonnode.h" />
+    <ClInclude Include="core\serialization\json\jsonparser.h" />
     <ClInclude Include="core\singleton.h" />
     <ClInclude Include="core\vector2.h" />
     <ClInclude Include="engine\flow\floworchestrator.h" />

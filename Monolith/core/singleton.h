@@ -8,13 +8,13 @@ namespace Monolith
     public:
         void RegisterInstance(T* instance)
         {
-            //TODO: assert
+            Report::Assert(ms_Instance == nullptr, "[Singleton] The singleton already has an instance.");
             ms_Instance = instance;
         }
 
         void UnregisterInstance(T* instance)
         {
-            //TODO: assert
+            Report::Assert(ms_Instance == nullptr, "[Singleton] Trying to unregister the wrong instance.");
             ms_Instance = nullptr;
         }
 

@@ -17,7 +17,7 @@ namespace Monolith
 
     void InputProcessor::ProcessInputEvents(const InputEvents& inputEvents)
     {
-        //TODO
+        Report::Assert(false, "[InputProcessor::ProcessInputEvents] Not yet implemented");
     }
 
     namespace InputHelper

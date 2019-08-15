@@ -41,6 +41,15 @@
     <ClCompile Include="engine\rendering\gamerenderer.cpp">
       <Filter>engine\rendering</Filter>
     </ClCompile>
+    <ClCompile Include="core\serialization\json\jsonparser.cpp">
+      <Filter>core\serialization\json</Filter>
+    </ClCompile>
+    <ClCompile Include="core\serialization\json\jsonnode.cpp">
+      <Filter>core\serialization\json</Filter>
+    </ClCompile>
+    <ClCompile Include="core\assert.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\types.h">
@@ -89,6 +98,15 @@
     <ClInclude Include="engine\rendering\gamerenderer.h">
       <Filter>engine\rendering</Filter>
     </ClInclude>
+    <ClInclude Include="core\serialization\json\jsonparser.h">
+      <Filter>core\serialization\json</Filter>
+    </ClInclude>
+    <ClInclude Include="core\serialization\json\jsonnode.h">
+      <Filter>core\serialization\json</Filter>
+    </ClInclude>
+    <ClInclude Include="core\assert.h">
+      <Filter>core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="engine">
@@ -111,6 +129,12 @@
     </Filter>
     <Filter Include="engine\rendering">
       <UniqueIdentifier>{5d5385fa-c720-441a-9d96-2e8bc96a7d55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\serialization">
+      <UniqueIdentifier>{c6c28f24-b050-400f-a71c-94eaa67ca2b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\serialization\json">
+      <UniqueIdentifier>{5f388cfa-fb9f-4c31-a078-7cf8ae31bcd6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
