@@ -1,5 +1,6 @@
 #pragma once
 
+#include <core/instantiation/classinstantiator.h>
 #include <engine/model/universe.h>
 #include <engine/window/gamewindow.h>
 
@@ -16,6 +17,7 @@ namespace Monolith
         void RunGameLoop();
 
     private:
+        ClassInstatiator m_ClassInstatiator;
         GameWindow m_GameWindow;
         Universe m_Universe;
     };

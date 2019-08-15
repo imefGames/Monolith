@@ -13,6 +13,7 @@ namespace Monolith
 {
     void GameEngine::Init(const GameWindowData& gameWindowData)
     {
+        m_ClassInstatiator.Init();
         m_GameWindow.Init(gameWindowData);
         m_Universe.Init();
     }
@@ -21,6 +22,7 @@ namespace Monolith
     {
         m_Universe.Shutdown();
         m_GameWindow.Shutdown();
+        m_ClassInstatiator.Shutdown();
     }
 
     void GameEngine::RunGameLoop()

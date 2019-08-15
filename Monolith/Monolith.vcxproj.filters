@@ -50,6 +50,12 @@
     <ClCompile Include="core\assert.cpp">
       <Filter>core</Filter>
     </ClCompile>
+    <ClCompile Include="core\serialization\objectserializer.cpp">
+      <Filter>core\serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="core\instantiation\classinstantiator.cpp">
+      <Filter>core\instantiation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\types.h">
@@ -107,6 +113,12 @@
     <ClInclude Include="core\assert.h">
       <Filter>core</Filter>
     </ClInclude>
+    <ClInclude Include="core\serialization\objectserializer.h">
+      <Filter>core\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="core\instantiation\classinstantiator.h">
+      <Filter>core\instantiation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="engine">
@@ -135,6 +147,9 @@
     </Filter>
     <Filter Include="core\serialization\json">
       <UniqueIdentifier>{5f388cfa-fb9f-4c31-a078-7cf8ae31bcd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\instantiation">
+      <UniqueIdentifier>{f13be2ee-098e-4f53-aaef-6bc637f5cf7d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
