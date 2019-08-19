@@ -56,6 +56,15 @@
     <ClCompile Include="core\instantiation\classinstantiator.cpp">
       <Filter>core\instantiation</Filter>
     </ClCompile>
+    <ClCompile Include="core\instantiation\classinstatiator.gen.cpp">
+      <Filter>core\instantiation</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\data\universeinitdata.cpp">
+      <Filter>engine\data</Filter>
+    </ClCompile>
+    <ClCompile Include="core\io\filereader.cpp">
+      <Filter>core\io</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\types.h">
@@ -119,6 +128,12 @@
     <ClInclude Include="core\instantiation\classinstantiator.h">
       <Filter>core\instantiation</Filter>
     </ClInclude>
+    <ClInclude Include="engine\data\universeinitdata.h">
+      <Filter>engine\data</Filter>
+    </ClInclude>
+    <ClInclude Include="core\io\filereader.h">
+      <Filter>core\io</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="engine">
@@ -151,5 +166,14 @@
     <Filter Include="core\instantiation">
       <UniqueIdentifier>{f13be2ee-098e-4f53-aaef-6bc637f5cf7d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="engine\data">
+      <UniqueIdentifier>{fbd1fe73-cc4b-46bc-8a8b-003ccb902b57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\io">
+      <UniqueIdentifier>{b0bf0f55-1995-4db4-af57-8f76a78016f4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="gamedata.json" />
   </ItemGroup>
 </Project>

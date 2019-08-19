@@ -1,6 +1,7 @@
 #include <precomp.h>
 #include <engine/model/universe.h>
 
+#include <engine/data/universeinitdata.h>
 #include <engine/flow/floworchestrator.h>
 #include <engine/input/inputprocessor.h>
 #include <engine/rendering/gamerenderer.h>
@@ -9,7 +10,7 @@
 
 namespace Monolith
 {
-    void Universe::Init()
+    void Universe::Init(const UniverseInitData& universeInitData)
     {
         //TODO: add systems from data
         m_Systems.push_back(new FlowOrchestrator());

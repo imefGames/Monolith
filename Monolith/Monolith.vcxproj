@@ -128,10 +128,13 @@
   <ItemGroup>
     <ClCompile Include="core\assert.cpp" />
     <ClCompile Include="core\instantiation\classinstantiator.cpp" />
+    <ClCompile Include="core\instantiation\classinstatiator.gen.cpp" />
+    <ClCompile Include="core\io\filereader.cpp" />
     <ClCompile Include="core\serialization\json\jsonnode.cpp" />
     <ClCompile Include="core\serialization\json\jsonparser.cpp" />
     <ClCompile Include="core\serialization\objectserializer.cpp" />
     <ClCompile Include="core\vector2.cpp" />
+    <ClCompile Include="engine\data\universeinitdata.cpp" />
     <ClCompile Include="engine\flow\floworchestrator.cpp" />
     <ClCompile Include="engine\gameengine.cpp" />
     <ClCompile Include="engine\input\inputevents.cpp" />
@@ -149,11 +152,13 @@
   <ItemGroup>
     <ClInclude Include="core\assert.h" />
     <ClInclude Include="core\instantiation\classinstantiator.h" />
+    <ClInclude Include="core\io\filereader.h" />
     <ClInclude Include="core\serialization\json\jsonnode.h" />
     <ClInclude Include="core\serialization\json\jsonparser.h" />
     <ClInclude Include="core\serialization\objectserializer.h" />
     <ClInclude Include="core\singleton.h" />
     <ClInclude Include="core\vector2.h" />
+    <ClInclude Include="engine\data\universeinitdata.h" />
     <ClInclude Include="engine\flow\floworchestrator.h" />
     <ClInclude Include="engine\gameengine.h" />
     <ClInclude Include="engine\input\inputevents.h" />
@@ -168,6 +173,9 @@
     <ClInclude Include="engine\window\gamewindowdata.h" />
     <ClInclude Include="precomp.h" />
     <ClInclude Include="core\types.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="gamedata.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

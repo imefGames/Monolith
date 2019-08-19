@@ -17,6 +17,8 @@ namespace Monolith
         void RunGameLoop();
 
     private:
+        static const char* K_GAME_FILE_NAME;
+
         ClassInstatiator m_ClassInstatiator;
         GameWindow m_GameWindow;
         Universe m_Universe;
