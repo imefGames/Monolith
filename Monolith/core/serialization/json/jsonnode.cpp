@@ -12,6 +12,13 @@ namespace Monolith
         return m_ChildNodes.size();
     }
 
+    JSonNode& JSonNode::AddSubNode()
+    {
+        JSonNode newNode;
+        m_ChildNodes.push_back(newNode);
+        return m_ChildNodes.back();
+    }
+
     const JSonNode& JSonNode::operator[](u32 index) const
     {
         return (index < m_ChildNodes.size() ? m_ChildNodes[index] : ms_NullNode);

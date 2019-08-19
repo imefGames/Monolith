@@ -1,2 +1,13 @@
 {
+    "GameSystems": [
+        {
+            "ClassID": 1
+        },
+        {
+            "ClassID": 2
+        },
+        {
+            "ClassID": 3
+        }
+    ]
 }

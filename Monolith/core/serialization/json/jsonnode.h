@@ -11,7 +11,11 @@ namespace Monolith
     public:
         u64 GetSubNodeCount() const;
         inline std::string_view GetName() const { return m_Name; }
+        inline void SetName(std::string_view name) { m_Name = name; }
         inline std::string_view GetContentBuffer() const { return m_ContentBuffer; }
+        inline void SetContentBuffer(std::string_view contentBuffer) { m_ContentBuffer = contentBuffer; }
+
+        JSonNode& AddSubNode();
 
         const JSonNode& operator[](u32 index) const;
         const JSonNode& operator[](const char* nodeName) const;

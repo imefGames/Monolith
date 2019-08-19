@@ -26,6 +26,7 @@ namespace Monolith
         {
             JSonHelper::LoadObject(serializer.GetNode(), object);
         }
+
         template <class T>
         void LoadObject(const ObjectSerializer& serializer, T*& object)
         {
