@@ -30,12 +30,6 @@ namespace Monolith
 
     namespace JSonHelper
     {
-        template <class T>
-        void LoadObject(const JSonNode& node, T& object)
-        {
-            Report::Assert(false, "[JSonHelper::LoadObject] Not yet implemented");
-        }
-
         void LoadObject(const JSonNode& node, s32& loadedS32);
         void LoadObject(const JSonNode& node, u32& loadedU32);
         void LoadObject(const JSonNode& node, f32& loadedF32);

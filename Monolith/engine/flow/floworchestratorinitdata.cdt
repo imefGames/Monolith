@@ -1,0 +1,14 @@
+﻿<ClassModel>
+    <ClassName>FlowOrchestratorInitData</ClassName>
+    <ParentClass>GameSystemInitData</ParentClass>
+    <ClassProperties>
+    </ClassProperties>
+    <ClassMethods>
+        <ClassMethodModel>
+            <MethodReturnType>GameSystem*</MethodReturnType>
+            <MethodName>InstanciateGameSystem</MethodName>
+            <IsConst>true</IsConst>
+            <IsOverride>true</IsOverride>
+        </ClassMethodModel>
+    </ClassMethods>
+</ClassModel>

@@ -134,16 +134,21 @@
     <ClCompile Include="core\serialization\json\jsonparser.cpp" />
     <ClCompile Include="core\serialization\objectserializer.cpp" />
     <ClCompile Include="core\vector2.cpp" />
-    <ClCompile Include="engine\data\universeinitdata.cpp" />
     <ClCompile Include="engine\flow\floworchestrator.cpp" />
+    <ClCompile Include="engine\flow\floworchestratorinitdata.cpp" />
     <ClCompile Include="engine\gameengine.cpp" />
     <ClCompile Include="engine\input\inputevents.cpp" />
     <ClCompile Include="engine\input\inputprocessor.cpp" />
+    <ClCompile Include="engine\input\inputprocessorinitdata.cpp" />
+    <ClCompile Include="engine\model\data\gamesysteminitdata.cpp" />
+    <ClCompile Include="engine\model\data\universeinitdata.cpp" />
     <ClCompile Include="engine\model\entity.cpp" />
     <ClCompile Include="engine\model\gamesystem.cpp" />
+    <ClCompile Include="engine\model\object.cpp" />
     <ClCompile Include="engine\model\universe.cpp" />
     <ClCompile Include="engine\model\world.cpp" />
     <ClCompile Include="engine\rendering\gamerenderer.cpp" />
+    <ClCompile Include="engine\rendering\gamerendererinitdata.cpp" />
     <ClCompile Include="engine\rendering\renderingcontext.cpp" />
     <ClCompile Include="engine\window\gamewindow.cpp" />
     <ClCompile Include="engine\window\gamewindowdata.cpp" />
@@ -158,16 +163,21 @@
     <ClInclude Include="core\serialization\objectserializer.h" />
     <ClInclude Include="core\singleton.h" />
     <ClInclude Include="core\vector2.h" />
-    <ClInclude Include="engine\data\universeinitdata.h" />
     <ClInclude Include="engine\flow\floworchestrator.h" />
+    <ClInclude Include="engine\flow\floworchestratorinitdata.h" />
     <ClInclude Include="engine\gameengine.h" />
     <ClInclude Include="engine\input\inputevents.h" />
     <ClInclude Include="engine\input\inputprocessor.h" />
+    <ClInclude Include="engine\input\inputprocessorinitdata.h" />
+    <ClInclude Include="engine\model\data\gamesysteminitdata.h" />
+    <ClInclude Include="engine\model\data\universeinitdata.h" />
     <ClInclude Include="engine\model\entity.h" />
     <ClInclude Include="engine\model\gamesystem.h" />
+    <ClInclude Include="engine\model\object.h" />
     <ClInclude Include="engine\model\universe.h" />
     <ClInclude Include="engine\model\world.h" />
     <ClInclude Include="engine\rendering\gamerenderer.h" />
+    <ClInclude Include="engine\rendering\gamerendererinitdata.h" />
     <ClInclude Include="engine\rendering\renderingcontext.h" />
     <ClInclude Include="engine\window\gamewindow.h" />
     <ClInclude Include="engine\window\gamewindowdata.h" />
@@ -175,6 +185,11 @@
     <ClInclude Include="core\types.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="engine\flow\floworchestratorinitdata.cdt" />
+    <None Include="engine\input\inputprocessorinitdata.cdt" />
+    <None Include="engine\model\data\gamesysteminitdata.cdt" />
+    <None Include="engine\model\data\universeinitdata.cdt" />
+    <None Include="engine\rendering\gamerendererinitdata.cdt" />
     <None Include="gamedata.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

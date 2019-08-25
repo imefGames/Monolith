@@ -1,0 +1,24 @@
+﻿<ClassModel>
+    <ClassName>UniverseInitData</ClassName>
+    <ClassProperties>
+        <ClassPropertyModel>
+            <PropertyName>GameSystems</PropertyName>
+            <PropertyType>GameSystemInitDataArray</PropertyType>
+            <MustBeDeleted>true</MustBeDeleted>
+            <NoAccessors>true</NoAccessors>
+        </ClassPropertyModel>
+    </ClassProperties>
+    <ClassMethods>
+        <ClassMethodModel>
+            <MethodReturnType>void</MethodReturnType>
+            <MethodName>InstanciateGameSystems</MethodName>
+            <IsConst>true</IsConst>
+            <MethodArguments>
+                <ClassPropertyModel>
+                    <PropertyName>gameSystems</PropertyName>
+                    <PropertyType>GameSystemOutputArray</PropertyType>
+                </ClassPropertyModel>
+            </MethodArguments>
+        </ClassMethodModel>
+    </ClassMethods>
+</ClassModel>

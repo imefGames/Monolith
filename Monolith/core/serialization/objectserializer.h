@@ -22,17 +22,11 @@ namespace Monolith
     namespace ObjectSerializationHelper
     {
         template <class T>
-        void LoadObject(const ObjectSerializer& serializer, T& object)
-        {
-            JSonHelper::LoadObject(serializer.GetNode(), object);
-        }
-
-        template <class T>
         void LoadObject(const ObjectSerializer& serializer, T*& object)
         {
-            u64 classIdentifier;
+            u32 classIdentifier;
             ObjectSerializationHelper::LoadObject(serializer["ClassID"], classIdentifier);
-            object = ClassInstatiator::Instantiate(classIdentifier);
+            object = ClassInstatiator::Instantiate<T>(classIdentifier);
             if (object != nullptr)
             {
                 ObjectSerializationHelper::LoadObject(serializer, *object);
@@ -43,13 +37,18 @@ namespace Monolith
         void LoadObject(const ObjectSerializer& serializer, std::vector<T>& objectVector)
         {
             objectVector.reserve(serializer.GetNode().GetSubNodeCount());
-            for (const JSonNode& subNode : serializer.GetNode())
+            for (u32 i = 0; i < serializer.GetNode().GetSubNodeCount(); ++i)
             {
-                ObjectSerializer subSerializer{ subNode };
+                ObjectSerializer subSerializer{ serializer.GetNode()[i] };
                 T newObject{};
                 ObjectSerializationHelper::LoadObject(subSerializer, newObject);
                 objectVector.push_back(newObject);
             }
         }
+
+        void LoadObject(const ObjectSerializer& serializer, s32& loadedS32);
+        void LoadObject(const ObjectSerializer& serializer, u32& loadedU32);
+        void LoadObject(const ObjectSerializer& serializer, f32& loadedF32);
+        void LoadObject(const ObjectSerializer& serializer, std::string& loadedString);
     }
 }

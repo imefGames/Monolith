@@ -1,0 +1,13 @@
+﻿<ClassModel>
+    <ClassName>GameSystemInitData</ClassName>
+    <ClassProperties>
+    </ClassProperties>
+    <ClassMethods>
+        <ClassMethodModel>
+            <MethodReturnType>GameSystem*</MethodReturnType>
+            <MethodName>InstanciateGameSystem</MethodName>
+            <IsConst>true</IsConst>
+            <IsVirtual>true</IsVirtual>
+        </ClassMethodModel>
+    </ClassMethods>
+</ClassModel>

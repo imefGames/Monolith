@@ -4,10 +4,10 @@
 #include <core/io/filereader.h>
 #include <core/serialization/objectserializer.h>
 #include <core/serialization/json/jsonparser.h>
-#include <engine/data/universeinitdata.h>
 #include <engine/flow/floworchestrator.h>
 #include <engine/input/inputevents.h>
 #include <engine/input/inputprocessor.h>
+#include <engine/model/data/universeinitdata.h>
 #include <engine/rendering/gamerenderer.h>
 #include <engine/rendering/renderingcontext.h>
 

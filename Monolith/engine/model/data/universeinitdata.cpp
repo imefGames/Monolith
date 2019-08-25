@@ -1,0 +1,36 @@
+#include <precomp.h>
+#include <engine/model/data/universeinitdata.h>
+
+#include <core/serialization/objectserializer.h>
+#include <engine/model/data/gamesysteminitdata.h>
+
+namespace Monolith
+{
+#pragma region GeneratedCodeSource
+    UniverseInitData::UniverseInitData()
+        : super{}
+        , m_GameSystems{  }
+    {
+    }
+
+    UniverseInitData::~UniverseInitData()
+    {
+        ObjectHelper::Delete(m_GameSystems);
+    }
+
+    void UniverseInitData::LoadObject(const ObjectSerializer& serializer)
+    {
+        super::LoadObject(serializer);
+        ObjectSerializationHelper::LoadObject(serializer["GameSystems"], m_GameSystems);
+    }
+#pragma endregion //GeneratedCodeSource
+
+    void UniverseInitData::InstanciateGameSystems(GameSystemOutputArray gameSystems) const
+    {
+        gameSystems.reserve(m_GameSystems.size());
+        for (const GameSystemInitData* initData : m_GameSystems)
+        {
+            gameSystems.push_back(initData->InstanciateGameSystem());
+        }
+    }
+}

@@ -59,11 +59,26 @@
     <ClCompile Include="core\instantiation\classinstatiator.gen.cpp">
       <Filter>core\instantiation</Filter>
     </ClCompile>
-    <ClCompile Include="engine\data\universeinitdata.cpp">
-      <Filter>engine\data</Filter>
-    </ClCompile>
     <ClCompile Include="core\io\filereader.cpp">
       <Filter>core\io</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\model\object.cpp">
+      <Filter>engine\model</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\model\data\universeinitdata.cpp">
+      <Filter>engine\model\data</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\model\data\gamesysteminitdata.cpp">
+      <Filter>engine\model\data</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\input\inputprocessorinitdata.cpp">
+      <Filter>engine\input</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\flow\floworchestratorinitdata.cpp">
+      <Filter>engine\flow</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\rendering\gamerendererinitdata.cpp">
+      <Filter>engine\rendering</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,11 +143,26 @@
     <ClInclude Include="core\instantiation\classinstantiator.h">
       <Filter>core\instantiation</Filter>
     </ClInclude>
-    <ClInclude Include="engine\data\universeinitdata.h">
-      <Filter>engine\data</Filter>
-    </ClInclude>
     <ClInclude Include="core\io\filereader.h">
       <Filter>core\io</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\model\object.h">
+      <Filter>engine\model</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\model\data\universeinitdata.h">
+      <Filter>engine\model\data</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\model\data\gamesysteminitdata.h">
+      <Filter>engine\model\data</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\input\inputprocessorinitdata.h">
+      <Filter>engine\input</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\flow\floworchestratorinitdata.h">
+      <Filter>engine\flow</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\gamerendererinitdata.h">
+      <Filter>engine\rendering</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -166,14 +196,29 @@
     <Filter Include="core\instantiation">
       <UniqueIdentifier>{f13be2ee-098e-4f53-aaef-6bc637f5cf7d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="engine\data">
-      <UniqueIdentifier>{fbd1fe73-cc4b-46bc-8a8b-003ccb902b57}</UniqueIdentifier>
-    </Filter>
     <Filter Include="core\io">
       <UniqueIdentifier>{b0bf0f55-1995-4db4-af57-8f76a78016f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\model\data">
+      <UniqueIdentifier>{50ac50ce-443c-4e1d-ae60-eedaa7e55114}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="gamedata.json" />
+    <None Include="engine\model\data\universeinitdata.cdt">
+      <Filter>engine\model\data</Filter>
+    </None>
+    <None Include="engine\model\data\gamesysteminitdata.cdt">
+      <Filter>engine\model\data</Filter>
+    </None>
+    <None Include="engine\input\inputprocessorinitdata.cdt">
+      <Filter>engine\input</Filter>
+    </None>
+    <None Include="engine\flow\floworchestratorinitdata.cdt">
+      <Filter>engine\flow</Filter>
+    </None>
+    <None Include="engine\rendering\gamerendererinitdata.cdt">
+      <Filter>engine\rendering</Filter>
+    </None>
   </ItemGroup>
 </Project>
