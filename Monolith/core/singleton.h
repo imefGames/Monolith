@@ -14,7 +14,7 @@ namespace Monolith
 
         void UnregisterInstance(T* instance)
         {
-            Report::Assert(ms_Instance == nullptr, "[Singleton] Trying to unregister the wrong instance.");
+            Report::Assert(ms_Instance == instance, "[Singleton] Trying to unregister the wrong instance.");
             ms_Instance = nullptr;
         }
 

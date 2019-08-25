@@ -4,6 +4,7 @@
 #include <engine/model/gamesystem.h>
 #include <engine/model/world.h>
 #include <engine/model/data/universeinitdata.h>
+#include <algorithm>
 
 namespace Monolith
 {
@@ -18,11 +19,11 @@ namespace Monolith
 
     void Universe::Shutdown()
     {
-        for (GameSystem* currentSystem : m_Systems)
+        std::for_each(m_Systems.rbegin(), m_Systems.rend(), [](GameSystem* currentSystem)
         {
             currentSystem->Shutdown();
             delete currentSystem;
-        }
+        });
         m_Systems.clear();
     }
 
