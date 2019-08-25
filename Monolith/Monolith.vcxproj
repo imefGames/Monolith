@@ -161,6 +161,7 @@
     <ClInclude Include="core\serialization\json\jsonnode.h" />
     <ClInclude Include="core\serialization\json\jsonparser.h" />
     <ClInclude Include="core\serialization\objectserializer.h" />
+    <ClInclude Include="core\signal.hpp" />
     <ClInclude Include="core\singleton.h" />
     <ClInclude Include="core\vector2.h" />
     <ClInclude Include="engine\flow\floworchestrator.h" />

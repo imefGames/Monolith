@@ -164,6 +164,9 @@
     <ClInclude Include="engine\rendering\gamerendererinitdata.h">
       <Filter>engine\rendering</Filter>
     </ClInclude>
+    <ClInclude Include="core\signal.hpp">
+      <Filter>core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="engine">

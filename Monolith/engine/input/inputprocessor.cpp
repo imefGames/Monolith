@@ -12,12 +12,22 @@ namespace Monolith
 
     void InputProcessor::OnShutdown()
     {
+        m_MouseClickedSignal.DisconnectAll();
         UnregisterInstance(this);
     }
 
     void InputProcessor::ProcessInputEvents(const InputEvents& inputEvents)
     {
-        //TODO
+        EMouseInputEvent mouseEvent{ inputEvents.GetMouseEvent() };
+        Vec2 mousePosition{ inputEvents.GetMousePosition() };
+        if (mouseEvent == EMouseInputEvent::LClick)
+        {
+            m_MouseClickedSignal.Emit(EMouseButton::Left, mousePosition.GetX(), mousePosition.GetY());
+        }
+        else if (mouseEvent == EMouseInputEvent::RClick)
+        {
+            m_MouseClickedSignal.Emit(EMouseButton::Right, mousePosition.GetX(), mousePosition.GetY());
+        }
     }
 
     namespace InputHelper
