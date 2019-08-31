@@ -1,28 +1,27 @@
 ﻿<ClassModel>
-    <ClassName>FlowOrchestratorInitData</ClassName>
-    <ParentClass>GameSystemInitData</ParentClass>
+    <ClassName>FlowTransitionData</ClassName>
     <ClassProperties>
         <ClassPropertyModel>
-            <PropertyName>StartupStateID</PropertyName>
+            <PropertyName>DestinationStateID</PropertyName>
             <PropertyType>u32</PropertyType>
             <PropertyDefaultValue>u32Max</PropertyDefaultValue>
         </ClassPropertyModel>
         <ClassPropertyModel>
-            <PropertyName>States</PropertyName>
-            <PropertyType>FlowStateDataArray</PropertyType>
+            <PropertyName>FlowConditions</PropertyName>
+            <PropertyType>FlowConditionInitDataArray</PropertyType>
+            <MustBeDeleted>true</MustBeDeleted>
             <NoAccessors>true</NoAccessors>
         </ClassPropertyModel>
     </ClassProperties>
     <ClassMethods>
         <ClassMethodModel>
-            <MethodReturnType>GameSystem*</MethodReturnType>
-            <MethodName>InstanciateGameSystem</MethodName>
+            <MethodReturnType>FlowTransition*</MethodReturnType>
+            <MethodName>InstanciateFlowTransition</MethodName>
             <IsConst>true</IsConst>
-            <IsOverride>true</IsOverride>
         </ClassMethodModel>
         <ClassMethodModel>
-            <MethodReturnType>FlowStateDataOutputArray</MethodReturnType>
-            <MethodName>GetStates</MethodName>
+            <MethodReturnType>FlowConditionInitDataOutputArray</MethodReturnType>
+            <MethodName>GetFlowConditions</MethodName>
             <IsConst>true</IsConst>
         </ClassMethodModel>
     </ClassMethods>

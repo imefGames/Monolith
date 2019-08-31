@@ -9,6 +9,8 @@ namespace Monolith
 #pragma region GeneratedCodeSource
     FlowOrchestratorInitData::FlowOrchestratorInitData()
         : super{}
+        , m_StartupStateID{ u32Max }
+        , m_States{  }
     {
     }
 
@@ -19,11 +21,18 @@ namespace Monolith
     void FlowOrchestratorInitData::LoadObject(const ObjectSerializer& serializer)
     {
         super::LoadObject(serializer);
+        ObjectSerializationHelper::LoadObject(serializer["StartupStateID"], m_StartupStateID);
+        ObjectSerializationHelper::LoadObject(serializer["States"], m_States);
     }
 #pragma endregion //GeneratedCodeSource
 
     GameSystem* FlowOrchestratorInitData::InstanciateGameSystem() const
     {
         return new FlowOrchestrator();
+    }
+
+    FlowStateDataOutputArray FlowOrchestratorInitData::GetStates() const
+    {
+        return m_States;
     }
 }

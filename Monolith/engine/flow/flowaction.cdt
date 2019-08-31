@@ -1,0 +1,13 @@
+﻿<ClassModel>
+    <ClassName>FlowActionData</ClassName>
+    <ClassProperties>
+    </ClassProperties>
+    <ClassMethods>
+        <ClassMethodModel>
+            <MethodReturnType>FlowAction*</MethodReturnType>
+            <MethodName>InstanciateFlowAction</MethodName>
+            <IsConst>true</IsConst>
+            <IsVirtual>true</IsVirtual>
+        </ClassMethodModel>
+    </ClassMethods>
+</ClassModel>

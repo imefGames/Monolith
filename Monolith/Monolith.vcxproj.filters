@@ -80,6 +80,21 @@
     <ClCompile Include="engine\rendering\gamerendererinitdata.cpp">
       <Filter>engine\rendering</Filter>
     </ClCompile>
+    <ClCompile Include="engine\flow\flowstate.cpp">
+      <Filter>engine\flow</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\flow\flowcondition.cpp">
+      <Filter>engine\flow</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\flow\flowaction.cpp">
+      <Filter>engine\flow</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\flow\flowtransition.cpp">
+      <Filter>engine\flow</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\flow\flowstatecontext.cpp">
+      <Filter>engine\flow</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\types.h">
@@ -167,6 +182,21 @@
     <ClInclude Include="core\signal.hpp">
       <Filter>core</Filter>
     </ClInclude>
+    <ClInclude Include="engine\flow\flowstate.h">
+      <Filter>engine\flow</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\flow\flowcondition.h">
+      <Filter>engine\flow</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\flow\flowaction.h">
+      <Filter>engine\flow</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\flow\flowtransition.h">
+      <Filter>engine\flow</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\flow\flowstatecontext.h">
+      <Filter>engine\flow</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="engine">
@@ -222,6 +252,18 @@
     </None>
     <None Include="engine\rendering\gamerendererinitdata.cdt">
       <Filter>engine\rendering</Filter>
+    </None>
+    <None Include="engine\flow\flowstate.cdt">
+      <Filter>engine\flow</Filter>
+    </None>
+    <None Include="engine\flow\flowcondition.cdt">
+      <Filter>engine\flow</Filter>
+    </None>
+    <None Include="engine\flow\flowaction.cdt">
+      <Filter>engine\flow</Filter>
+    </None>
+    <None Include="engine\flow\flowtransition.cdt">
+      <Filter>engine\flow</Filter>
     </None>
   </ItemGroup>
 </Project>

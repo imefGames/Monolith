@@ -1,0 +1,13 @@
+﻿<ClassModel>
+    <ClassName>FlowConditionData</ClassName>
+    <ClassProperties>
+    </ClassProperties>
+    <ClassMethods>
+        <ClassMethodModel>
+            <MethodReturnType>FlowCondition*</MethodReturnType>
+            <MethodName>InstanciateFlowCondition</MethodName>
+            <IsConst>true</IsConst>
+            <IsVirtual>true</IsVirtual>
+        </ClassMethodModel>
+    </ClassMethods>
+</ClassModel>
