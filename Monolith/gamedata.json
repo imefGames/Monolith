@@ -14,5 +14,5 @@
             "ClassID": 1580459700
         }
     ],
-    "StartupWorld": "World.json"
+    "StartupWorld": "minesweeper/titlepage.json"
 }

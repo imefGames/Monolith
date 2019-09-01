@@ -247,6 +247,9 @@
     <Filter Include="engine\model\data">
       <UniqueIdentifier>{50ac50ce-443c-4e1d-ae60-eedaa7e55114}</UniqueIdentifier>
     </Filter>
+    <Filter Include="minesweeper">
+      <UniqueIdentifier>{f697bcf7-7e85-4b73-a0d5-e001d97070af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="gamedata.json" />
@@ -282,6 +285,9 @@
     </None>
     <None Include="engine\model\data\entityinitdata.cdt">
       <Filter>engine\model\data</Filter>
+    </None>
+    <None Include="minesweeper\titlepage.json">
+      <Filter>minesweeper</Filter>
     </None>
   </ItemGroup>
 </Project>

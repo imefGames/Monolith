@@ -212,6 +212,7 @@
     <None Include="engine\model\data\worldinitdata.cdt" />
     <None Include="engine\rendering\gamerendererinitdata.cdt" />
     <None Include="gamedata.json" />
+    <None Include="minesweeper\titlepage.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
