@@ -1,0 +1,12 @@
+﻿<ClassModel>
+    <ClassName>EntityInitData</ClassName>
+    <ClassProperties>
+    </ClassProperties>
+    <ClassMethods>
+        <ClassMethodModel>
+            <MethodReturnType>Entity*</MethodReturnType>
+            <MethodName>InstanciateEntity</MethodName>
+            <IsConst>true</IsConst>
+        </ClassMethodModel>
+    </ClassMethods>
+</ClassModel>

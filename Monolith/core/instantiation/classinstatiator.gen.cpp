@@ -10,8 +10,10 @@
 #include <engine/flow/flowstate.h>
 #include <engine/flow/flowtransition.h>
 #include <engine/input/inputprocessorinitdata.h>
+#include <engine/model/data/entityinitdata.h>
 #include <engine/model/data/gamesysteminitdata.h>
 #include <engine/model/data/universeinitdata.h>
+#include <engine/model/data/worldinitdata.h>
 #include <engine/rendering/gamerendererinitdata.h>
 
 namespace Monolith
@@ -33,8 +35,10 @@ namespace Monolith
         m_ClassInstantiators[1260209217] = ClassInstantiatorInternal::InstantiateClass<FlowStateData>;
         m_ClassInstantiators[1645509430] = ClassInstantiatorInternal::InstantiateClass<FlowTransitionData>;
         m_ClassInstantiators[4168157516] = ClassInstantiatorInternal::InstantiateClass<InputProcessorInitData>;
+        m_ClassInstantiators[2914255181] = ClassInstantiatorInternal::InstantiateClass<EntityInitData>;
         m_ClassInstantiators[2331519880] = ClassInstantiatorInternal::InstantiateClass<GameSystemInitData>;
         m_ClassInstantiators[909029241] = ClassInstantiatorInternal::InstantiateClass<UniverseInitData>;
+        m_ClassInstantiators[2938514964] = ClassInstantiatorInternal::InstantiateClass<WorldInitData>;
         m_ClassInstantiators[1580459700] = ClassInstantiatorInternal::InstantiateClass<GameRendererInitData>;
     }
 

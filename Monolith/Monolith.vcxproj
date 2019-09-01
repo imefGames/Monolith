@@ -145,8 +145,10 @@
     <ClCompile Include="engine\input\inputevents.cpp" />
     <ClCompile Include="engine\input\inputprocessor.cpp" />
     <ClCompile Include="engine\input\inputprocessorinitdata.cpp" />
+    <ClCompile Include="engine\model\data\entityinitdata.cpp" />
     <ClCompile Include="engine\model\data\gamesysteminitdata.cpp" />
     <ClCompile Include="engine\model\data\universeinitdata.cpp" />
+    <ClCompile Include="engine\model\data\worldinitdata.cpp" />
     <ClCompile Include="engine\model\entity.cpp" />
     <ClCompile Include="engine\model\gamesystem.cpp" />
     <ClCompile Include="engine\model\object.cpp" />
@@ -180,8 +182,10 @@
     <ClInclude Include="engine\input\inputevents.h" />
     <ClInclude Include="engine\input\inputprocessor.h" />
     <ClInclude Include="engine\input\inputprocessorinitdata.h" />
+    <ClInclude Include="engine\model\data\entityinitdata.h" />
     <ClInclude Include="engine\model\data\gamesysteminitdata.h" />
     <ClInclude Include="engine\model\data\universeinitdata.h" />
+    <ClInclude Include="engine\model\data\worldinitdata.h" />
     <ClInclude Include="engine\model\entity.h" />
     <ClInclude Include="engine\model\gamesystem.h" />
     <ClInclude Include="engine\model\object.h" />
@@ -202,8 +206,10 @@
     <None Include="engine\flow\flowstate.cdt" />
     <None Include="engine\flow\flowtransition.cdt" />
     <None Include="engine\input\inputprocessorinitdata.cdt" />
+    <None Include="engine\model\data\entityinitdata.cdt" />
     <None Include="engine\model\data\gamesysteminitdata.cdt" />
     <None Include="engine\model\data\universeinitdata.cdt" />
+    <None Include="engine\model\data\worldinitdata.cdt" />
     <None Include="engine\rendering\gamerendererinitdata.cdt" />
     <None Include="gamedata.json" />
   </ItemGroup>

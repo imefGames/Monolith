@@ -1,5 +1,6 @@
 #pragma once
 
+#include <string>
 #include <vector>
 
 namespace Monolith
@@ -18,7 +19,9 @@ namespace Monolith
         void Render(RenderingContext& renderingContext);
 
     private:
+        World* LoadWorld(const std::string& worldPath) const;
+
         std::vector<GameSystem*> m_Systems;
-        std::vector<World*> m_Worlds;
+        World* m_CurrentWorld;
     };
 }

@@ -1,0 +1,23 @@
+﻿<ClassModel>
+    <ClassName>WorldInitData</ClassName>
+    <ClassProperties>
+        <ClassPropertyModel>
+            <PropertyName>Entities</PropertyName>
+            <PropertyType>EntityDataArray</PropertyType>
+            <MustBeDeleted>true</MustBeDeleted>
+            <NoAccessors>true</NoAccessors>
+        </ClassPropertyModel>
+    </ClassProperties>
+    <ClassMethods>
+        <ClassMethodModel>
+            <MethodReturnType>World*</MethodReturnType>
+            <MethodName>InstanciateWorld</MethodName>
+            <IsConst>true</IsConst>
+        </ClassMethodModel>
+        <ClassMethodModel>
+            <MethodReturnType>EntityDataOutputArray</MethodReturnType>
+            <MethodName>GetEntities</MethodName>
+            <IsConst>true</IsConst>
+        </ClassMethodModel>
+    </ClassMethods>
+</ClassModel>

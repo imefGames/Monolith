@@ -7,6 +7,10 @@
             <MustBeDeleted>true</MustBeDeleted>
             <NoAccessors>true</NoAccessors>
         </ClassPropertyModel>
+        <ClassPropertyModel>
+            <PropertyName>StartupWorld</PropertyName>
+            <PropertyType>std::string</PropertyType>
+        </ClassPropertyModel>
     </ClassProperties>
     <ClassMethods>
         <ClassMethodModel>

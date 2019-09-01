@@ -20,6 +20,8 @@ namespace Monolith
 
         void LoadObject(const ObjectSerializer& serializer) override;
 
+        std::string GetStartupWorld() const { return m_StartupWorld; }
+        void SetStartupWorld(std::string newValue) { m_StartupWorld = newValue; }
 
         void InstanciateGameSystems(GameSystemOutputArray gameSystems) const;
 
@@ -27,6 +29,7 @@ namespace Monolith
         using super = Object;
 
         GameSystemInitDataArray m_GameSystems;
+        std::string m_StartupWorld;
     };
 #pragma endregion //GeneratedCodeHeader
 }

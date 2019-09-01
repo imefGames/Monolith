@@ -3,6 +3,10 @@
 
 namespace Monolith
 {
+    Entity::Entity(const EntityInitData& entityInitData)
+    {
+    }
+
     void Entity::Init()
     {
     }

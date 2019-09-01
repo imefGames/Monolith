@@ -1,9 +1,13 @@
 #include <precomp.h>
 #include <engine/model/universe.h>
 
+#include <core/io/filereader.h>
+#include <core/serialization/objectserializer.h>
+#include <core/serialization/json/jsonparser.h>
 #include <engine/model/gamesystem.h>
 #include <engine/model/world.h>
 #include <engine/model/data/universeinitdata.h>
+#include <engine/model/data/worldinitdata.h>
 #include <algorithm>
 
 namespace Monolith
@@ -15,10 +19,22 @@ namespace Monolith
         {
             currentSystem->Init();
         }
+
+        m_CurrentWorld = LoadWorld(universeInitData.GetStartupWorld());
+
+        if (m_CurrentWorld != nullptr)
+        {
+            m_CurrentWorld->Init();
+        }
     }
 
     void Universe::Shutdown()
     {
+        if (m_CurrentWorld != nullptr)
+        {
+            m_CurrentWorld->Shutdown();
+        }
+
         std::for_each(m_Systems.rbegin(), m_Systems.rend(), [](GameSystem* currentSystem)
         {
             currentSystem->Shutdown();
@@ -33,9 +49,10 @@ namespace Monolith
         {
             currentSystem->Update(deltaTime);
         }
-        for (World* currentWorld : m_Worlds)
+        
+        if (m_CurrentWorld != nullptr)
         {
-            currentWorld->Update(deltaTime);
+            m_CurrentWorld->Update(deltaTime);
         }
     }
 
@@ -45,9 +62,24 @@ namespace Monolith
         {
             currentSystem->Render(renderingContext);
         }
-        for (World* currentWorld : m_Worlds)
+
+        if (m_CurrentWorld != nullptr)
         {
-            currentWorld->Render(renderingContext);
+            m_CurrentWorld->Render(renderingContext);
         }
+    }
+
+    World* Universe::LoadWorld(const std::string& worldPath) const
+    {
+        std::string worldData;
+        FileReader gameDataReader{ worldPath.c_str() };
+        gameDataReader.ReadFullFile(worldData);
+
+        JSonParser parser{ worldData };
+        ObjectSerializer worldDataSerializer{ parser.GetRootNode() };
+
+        WorldInitData worldInitData;
+        ObjectSerializationHelper::LoadObject(worldDataSerializer, worldInitData);
+        return worldInitData.InstanciateWorld();
     }
 }

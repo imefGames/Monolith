@@ -10,6 +10,7 @@ namespace Monolith
     UniverseInitData::UniverseInitData()
         : super{}
         , m_GameSystems{  }
+        , m_StartupWorld{  }
     {
     }
 
@@ -22,6 +23,7 @@ namespace Monolith
     {
         super::LoadObject(serializer);
         ObjectSerializationHelper::LoadObject(serializer["GameSystems"], m_GameSystems);
+        ObjectSerializationHelper::LoadObject(serializer["StartupWorld"], m_StartupWorld);
     }
 #pragma endregion //GeneratedCodeSource
 

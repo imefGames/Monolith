@@ -95,6 +95,12 @@
     <ClCompile Include="engine\flow\flowstatecontext.cpp">
       <Filter>engine\flow</Filter>
     </ClCompile>
+    <ClCompile Include="engine\model\data\worldinitdata.cpp">
+      <Filter>engine\model\data</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\model\data\entityinitdata.cpp">
+      <Filter>engine\model\data</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\types.h">
@@ -197,6 +203,12 @@
     <ClInclude Include="engine\flow\flowstatecontext.h">
       <Filter>engine\flow</Filter>
     </ClInclude>
+    <ClInclude Include="engine\model\data\worldinitdata.h">
+      <Filter>engine\model\data</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\model\data\entityinitdata.h">
+      <Filter>engine\model\data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="engine">
@@ -264,6 +276,12 @@
     </None>
     <None Include="engine\flow\flowtransition.cdt">
       <Filter>engine\flow</Filter>
+    </None>
+    <None Include="engine\model\data\worldinitdata.cdt">
+      <Filter>engine\model\data</Filter>
+    </None>
+    <None Include="engine\model\data\entityinitdata.cdt">
+      <Filter>engine\model\data</Filter>
     </None>
   </ItemGroup>
 </Project>
