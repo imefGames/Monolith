@@ -1,7 +1,11 @@
 {
     "GameSystems": [
         {
-            "ClassID": 2898161564
+            "ClassID": 2898161564,
+            "StartupStateID": -1,
+            "State": [
+
+            ]
         },
         {
             "ClassID": 4168157516

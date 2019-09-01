@@ -55,6 +55,8 @@ namespace Monolith
         void Exit();
         void Update(FlowStateContext& context);
 
+        inline u32 GetStateID() const { return m_StateID; }
+
     private:
         void InitActionList(std::vector<FlowAction*>& actions, const std::vector<FlowActionData*>& actionsData) const;
         void InitTransitionList(std::vector<FlowTransition*>& transitions, const std::vector<FlowTransitionData>& transitionsData) const;

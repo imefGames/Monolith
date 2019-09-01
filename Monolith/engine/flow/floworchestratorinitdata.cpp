@@ -28,7 +28,7 @@ namespace Monolith
 
     GameSystem* FlowOrchestratorInitData::InstanciateGameSystem() const
     {
-        return new FlowOrchestrator();
+        return new FlowOrchestrator{ *this };
     }
 
     FlowStateDataOutputArray FlowOrchestratorInitData::GetStates() const
