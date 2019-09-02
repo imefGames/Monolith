@@ -101,6 +101,9 @@
     <ClCompile Include="engine\model\data\entityinitdata.cpp">
       <Filter>engine\model\data</Filter>
     </ClCompile>
+    <ClCompile Include="engine\flow\actions\gotoworldflowaction.cpp">
+      <Filter>engine\flow\actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\types.h">
@@ -212,6 +215,9 @@
     <ClInclude Include="core\math.h">
       <Filter>core</Filter>
     </ClInclude>
+    <ClInclude Include="engine\flow\actions\gotoworldflowaction.h">
+      <Filter>engine\flow\actions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="engine">
@@ -250,6 +256,9 @@
     <Filter Include="engine\model\data">
       <UniqueIdentifier>{50ac50ce-443c-4e1d-ae60-eedaa7e55114}</UniqueIdentifier>
     </Filter>
+    <Filter Include="engine\flow\actions">
+      <UniqueIdentifier>{0d44405b-41d6-4dd2-babc-3d66367cfef4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="gamedata.json" />
@@ -285,6 +294,9 @@
     </None>
     <None Include="engine\model\data\entityinitdata.cdt">
       <Filter>engine\model\data</Filter>
+    </None>
+    <None Include="engine\flow\actions\gotoworldflowaction.cdt">
+      <Filter>engine\flow\actions</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -1,0 +1,18 @@
+﻿<ClassModel>
+    <ClassName>GoToWorldFlowActionData</ClassName>
+    <ParentClass>FlowActionData</ParentClass>
+    <ClassProperties>
+        <ClassPropertyModel>
+            <PropertyName>DestinationWorld</PropertyName>
+            <PropertyType>std::string</PropertyType>
+        </ClassPropertyModel>
+    </ClassProperties>
+    <ClassMethods>
+        <ClassMethodModel>
+            <MethodReturnType>FlowAction*</MethodReturnType>
+            <MethodName>InstantiateFlowAction</MethodName>
+            <IsConst>true</IsConst>
+            <IsOverride>true</IsOverride>
+        </ClassMethodModel>
+    </ClassMethods>
+</ClassModel>

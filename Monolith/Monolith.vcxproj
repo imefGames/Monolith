@@ -134,6 +134,7 @@
     <ClCompile Include="core\serialization\json\jsonparser.cpp" />
     <ClCompile Include="core\serialization\objectserializer.cpp" />
     <ClCompile Include="core\vector2.cpp" />
+    <ClCompile Include="engine\flow\actions\gotoworldflowaction.cpp" />
     <ClCompile Include="engine\flow\flowaction.cpp" />
     <ClCompile Include="engine\flow\flowcondition.cpp" />
     <ClCompile Include="engine\flow\floworchestrator.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="core\signal.hpp" />
     <ClInclude Include="core\singleton.h" />
     <ClInclude Include="core\vector2.h" />
+    <ClInclude Include="engine\flow\actions\gotoworldflowaction.h" />
     <ClInclude Include="engine\flow\flowaction.h" />
     <ClInclude Include="engine\flow\flowcondition.h" />
     <ClInclude Include="engine\flow\floworchestrator.h" />
@@ -201,6 +203,7 @@
     <ClInclude Include="core\types.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="engine\flow\actions\gotoworldflowaction.cdt" />
     <None Include="engine\flow\flowaction.cdt" />
     <None Include="engine\flow\flowcondition.cdt" />
     <None Include="engine\flow\floworchestratorinitdata.cdt" />
