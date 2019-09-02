@@ -46,7 +46,7 @@ namespace Monolith
 
         if (pixelY < m_CanvasHeight)
         {
-            for (u32 i = 0; i < text.size() && pixelX + i < m_CanvasWidth; ++i)
+            for (u64 i = 0; i < text.size() && pixelX + i < m_CanvasWidth; ++i)
             {
                 m_CanvasBuffer[pixelX + i + pixelY * static_cast<u64>(m_CanvasWidth)] = text[i];
             }
