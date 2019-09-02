@@ -101,6 +101,9 @@
     <ClCompile Include="engine\model\data\entityinitdata.cpp">
       <Filter>engine\model\data</Filter>
     </ClCompile>
+    <ClCompile Include="engine\flow\actions\gotoworldflowaction.cpp">
+      <Filter>engine\flow\actions</Filter>
+    </ClCompile>
     <ClCompile Include="minesweeper\systems\minesweepergamesystem.cpp">
       <Filter>minesweeper\systems</Filter>
     </ClCompile>
@@ -221,6 +224,12 @@
     <ClInclude Include="core\math.h">
       <Filter>core</Filter>
     </ClInclude>
+    <ClInclude Include="engine\flow\actions\gotoworldflowaction.h">
+      <Filter>engine\flow\actions</Filter>
+    </ClInclude>
+    <ClInclude Include="core\math.h">
+      <Filter>core</Filter>
+    </ClInclude>
     <ClInclude Include="minesweeper\systems\minesweepergamesystem.h">
       <Filter>minesweeper\systems</Filter>
     </ClInclude>
@@ -315,6 +324,9 @@
     </None>
     <None Include="engine\model\data\entityinitdata.cdt">
       <Filter>engine\model\data</Filter>
+    </None>
+    <None Include="engine\flow\actions\gotoworldflowaction.cdt">
+      <Filter>engine\flow\actions</Filter>
     </None>
     <None Include="minesweeper\titlepage.json">
       <Filter>minesweeper</Filter>

@@ -25,12 +25,7 @@ namespace Monolith
             currentSystem->Init();
         }
 
-        m_CurrentWorld = LoadWorld(universeInitData.GetStartupWorld());
-
-        if (m_CurrentWorld != nullptr)
-        {
-            m_CurrentWorld->Init();
-        }
+        GoToWorld(universeInitData.GetStartupWorld());
     }
 
     void Universe::Shutdown()
@@ -71,6 +66,22 @@ namespace Monolith
         if (m_CurrentWorld != nullptr)
         {
             m_CurrentWorld->Render(renderingContext);
+        }
+    }
+
+    void Universe::GoToWorld(const std::string& destinationWorld)
+    {
+        if (m_CurrentWorld != nullptr)
+        {
+            m_CurrentWorld->Shutdown();
+            delete m_CurrentWorld;
+        }
+
+        m_CurrentWorld = LoadWorld(destinationWorld);
+
+        if (m_CurrentWorld != nullptr)
+        {
+            m_CurrentWorld->Init();
         }
     }
 

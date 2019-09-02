@@ -1,5 +1,6 @@
 #pragma once
 
+#include <core/singleton.h>
 #include <string>
 #include <vector>
 
@@ -10,7 +11,7 @@ namespace Monolith
     class UniverseInitData;
     class World;
 
-    class Universe
+    class Universe : public Singleton<Universe>
     {
     public:
         Universe();
@@ -19,6 +20,8 @@ namespace Monolith
         void Shutdown();
         void Update(f32 deltaTime);
         void Render(RenderingContext& renderingContext);
+
+        void GoToWorld(const std::string& destinationWorld);
 
     private:
         World* LoadWorld(const std::string& worldPath) const;
