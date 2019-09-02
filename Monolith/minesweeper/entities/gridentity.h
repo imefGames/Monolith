@@ -2,6 +2,7 @@
 
 #include <engine/model/entity.h>
 #include <engine/model/data/entityinitdata.h>
+#include <vector>
 
 namespace Monolith
 {
@@ -39,10 +40,22 @@ namespace Monolith
         void Render(RenderingContext& renderingContext) override;
 
     private:
-        void OnMouseClick(EMouseButton mouseButton, Vec2 clickPosition);
-        void HandleCellClick(u32 cellX, u32 cellY);
+        struct CellStatus
+        {
+            s8 m_Value = ' ';
+            bool m_visible = false;
+        };
 
-        Vec2 m_GridSize;
+        void OnMouseClick(EMouseButton mouseButton, Vec2 clickPosition);
+        void RevealCell(u32 cellX, u32 cellY);
+        CellStatus& GetCell(u32 cellX, u32 cellY);
+        void GenerateGrid();
+        void UpdateGameState();
+
+        u32 m_GridSizeX;
+        u32 m_GridSizeY;
         u32 m_MouseClickSlotID;
+        std::vector<CellStatus> m_Cells;
+        CellStatus m_NullCell;
     };
 }

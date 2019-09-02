@@ -28,7 +28,9 @@ namespace Monolith
     {
         TitlePage,
         InGame,
-        Exit
+        Exit,
+        Victory,
+        Failure
     };
 
     class MinesweeperGameSystem : public GameSystem, public Singleton<MinesweeperGameSystem>
