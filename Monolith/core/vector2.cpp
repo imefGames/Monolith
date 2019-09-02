@@ -3,7 +3,7 @@
 
 namespace Monolith
 {
-    Vec2::Vec2(u32 x, u32 y)
+    Vec2::Vec2(f32 x, f32 y)
         : m_X{ x }
         , m_Y{ y }
     {

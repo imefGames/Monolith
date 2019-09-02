@@ -20,14 +20,14 @@ namespace Monolith
     public:
         void ProcessInputEvents(const InputEvents& inputEvents);
 
-        inline Signal<EMouseButton, u32, u32>& GetMouseClickedSignal() { return m_MouseClickedSignal; }
+        inline Signal<EMouseButton, Vec2>& GetMouseClickedSignal() { return m_MouseClickedSignal; }
 
     protected:
         void OnInit() override;
         void OnShutdown() override;
 
     private:
-        Signal<EMouseButton, u32, u32> m_MouseClickedSignal;
+        Signal<EMouseButton, Vec2> m_MouseClickedSignal;
     };
 
     namespace InputHelper

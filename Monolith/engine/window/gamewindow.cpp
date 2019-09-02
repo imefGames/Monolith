@@ -85,12 +85,12 @@ namespace Monolith
                     if (mouseEvent.dwButtonState == FROM_LEFT_1ST_BUTTON_PRESSED)
                     {
                         inputEvents.SetMouseEvent(EMouseInputEvent::LClick);
-                        inputEvents.SetMousePosition(Vec2{ static_cast<u32>(mouseEvent.dwMousePosition.X), static_cast<u32>(mouseEvent.dwMousePosition.Y) });
+                        inputEvents.SetMousePosition(Vec2{ static_cast<f32>(mouseEvent.dwMousePosition.X), static_cast<f32>(mouseEvent.dwMousePosition.Y) });
                     }
                     else if (mouseEvent.dwButtonState == RIGHTMOST_BUTTON_PRESSED)
                     {
                         inputEvents.SetMouseEvent(EMouseInputEvent::RClick);
-                        inputEvents.SetMousePosition(Vec2{ static_cast<u32>(mouseEvent.dwMousePosition.X), static_cast<u32>(mouseEvent.dwMousePosition.Y) });
+                        inputEvents.SetMousePosition(Vec2{ static_cast<f32>(mouseEvent.dwMousePosition.X), static_cast<f32>(mouseEvent.dwMousePosition.Y) });
                     }
                     else
                     {
@@ -102,7 +102,7 @@ namespace Monolith
                 case MOUSE_MOVED:
                 {
                     inputEvents.SetMouseEvent(EMouseInputEvent::Move);
-                    inputEvents.SetMousePosition(Vec2{ static_cast<u32>(mouseEvent.dwMousePosition.X), static_cast<u32>(mouseEvent.dwMousePosition.Y) });
+                    inputEvents.SetMousePosition(Vec2{ static_cast<f32>(mouseEvent.dwMousePosition.X), static_cast<f32>(mouseEvent.dwMousePosition.Y) });
                     break;
                 }
             }
