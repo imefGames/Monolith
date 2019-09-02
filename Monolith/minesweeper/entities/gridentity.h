@@ -14,12 +14,15 @@ namespace Monolith
 
         void LoadObject(const ObjectSerializer& serializer) override;
 
+        Vec2 GetGridSize() const { return m_GridSize; }
+        void SetGridSize(Vec2 newValue) { m_GridSize = newValue; }
 
         Entity* InstantiateEntity() const override;
 
     private:
         using super = EntityInitData;
 
+        Vec2 m_GridSize;
     };
 #pragma endregion //GeneratedCodeHeader
 
@@ -27,5 +30,13 @@ namespace Monolith
     {
     public:
         GridEntity(const GridEntityInitData& gridEntityInitData);
+
+        void Init() override;
+        void Shutdown() override;
+        void Update(f32 deltaTime) override;
+        void Render(RenderingContext& renderingContext) override;
+
+    private:
+        Vec2 m_GridSize;
     };
 }

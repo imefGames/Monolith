@@ -2,6 +2,10 @@
     <ClassName>GridEntityInitData</ClassName>
     <ParentClass>EntityInitData</ParentClass>
     <ClassProperties>
+        <ClassPropertyModel>
+            <PropertyName>GridSize</PropertyName>
+            <PropertyType>Vec2</PropertyType>
+        </ClassPropertyModel>
     </ClassProperties>
     <ClassMethods>
         <ClassMethodModel>

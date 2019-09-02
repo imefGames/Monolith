@@ -1,7 +1,15 @@
 {
     "Entities": [
         {
-            "ClassID": 3695653038
+            "ClassID": 3695653038,
+            "Position": {
+                "X": 1,
+                "Y": 1
+            },
+            "GridSize": {
+                "X": 10,
+                "Y": 10
+            }
         }
     ]
 }
