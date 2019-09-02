@@ -19,6 +19,8 @@ namespace Monolith
 
     void Universe::Init(const UniverseInitData& universeInitData)
     {
+        RegisterInstance(this);
+
         universeInitData.InstantiateGameSystems(m_Systems);
         for (GameSystem* currentSystem : m_Systems)
         {
@@ -39,6 +41,8 @@ namespace Monolith
             delete currentSystem;
         });
         m_Systems.clear();
+
+        UnregisterInstance(this);
     }
 
     void Universe::Update(f32 deltaTime)
