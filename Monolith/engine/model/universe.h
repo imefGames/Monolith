@@ -13,6 +13,8 @@ namespace Monolith
     class Universe
     {
     public:
+        Universe();
+
         void Init(const UniverseInitData& universeInitData);
         void Shutdown();
         void Update(f32 deltaTime);
