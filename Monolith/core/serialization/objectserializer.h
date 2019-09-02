@@ -40,9 +40,8 @@ namespace Monolith
             for (u32 i = 0; i < serializer.GetNode().GetSubNodeCount(); ++i)
             {
                 ObjectSerializer subSerializer{ serializer.GetNode()[i] };
-                T newObject{};
-                ObjectSerializationHelper::LoadObject(subSerializer, newObject);
-                objectVector.push_back(newObject);
+                objectVector.push_back(T{});
+                ObjectSerializationHelper::LoadObject(subSerializer, objectVector.back());
             }
         }
 
