@@ -16,6 +16,7 @@
 #include <engine/model/data/universeinitdata.h>
 #include <engine/model/data/worldinitdata.h>
 #include <engine/rendering/gamerendererinitdata.h>
+#include <minesweeper/entities/gamestatebuttonentity.h>
 #include <minesweeper/entities/gridentity.h>
 #include <minesweeper/flow/gamestateflowcondition.h>
 #include <minesweeper/systems/minesweepergamesystem.h>
@@ -45,6 +46,7 @@ namespace Monolith
         m_ClassInstantiators[909029241] = ClassInstantiatorInternal::InstantiateClass<UniverseInitData>;
         m_ClassInstantiators[2938514964] = ClassInstantiatorInternal::InstantiateClass<WorldInitData>;
         m_ClassInstantiators[1580459700] = ClassInstantiatorInternal::InstantiateClass<GameRendererInitData>;
+        m_ClassInstantiators[1442012994] = ClassInstantiatorInternal::InstantiateClass<GameStateButtonEntityInitData>;
         m_ClassInstantiators[3695653038] = ClassInstantiatorInternal::InstantiateClass<GridEntityInitData>;
         m_ClassInstantiators[2476956763] = ClassInstantiatorInternal::InstantiateClass<GameStateFlowConditionData>;
         m_ClassInstantiators[4271893737] = ClassInstantiatorInternal::InstantiateClass<MinesweeperGameSystemInitData>;

@@ -101,9 +101,6 @@
     <ClCompile Include="engine\model\data\entityinitdata.cpp">
       <Filter>engine\model\data</Filter>
     </ClCompile>
-    <ClCompile Include="engine\flow\actions\gotoworldflowaction.cpp">
-      <Filter>engine\flow\actions</Filter>
-    </ClCompile>
     <ClCompile Include="minesweeper\systems\minesweepergamesystem.cpp">
       <Filter>minesweeper\systems</Filter>
     </ClCompile>
@@ -111,6 +108,10 @@
       <Filter>minesweeper\flow</Filter>
     </ClCompile>
     <ClCompile Include="minesweeper\entities\gridentity.cpp">
+      <Filter>minesweeper\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\flow\actions\gotoworldflowaction.cpp" />
+    <ClCompile Include="minesweeper\entities\gamestatebuttonentity.cpp">
       <Filter>minesweeper\entities</Filter>
     </ClCompile>
   </ItemGroup>
@@ -224,9 +225,6 @@
     <ClInclude Include="core\math.h">
       <Filter>core</Filter>
     </ClInclude>
-    <ClInclude Include="engine\flow\actions\gotoworldflowaction.h">
-      <Filter>engine\flow\actions</Filter>
-    </ClInclude>
     <ClInclude Include="core\math.h">
       <Filter>core</Filter>
     </ClInclude>
@@ -237,6 +235,10 @@
       <Filter>minesweeper\flow</Filter>
     </ClInclude>
     <ClInclude Include="minesweeper\entities\gridentity.h">
+      <Filter>minesweeper\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\flow\actions\gotoworldflowaction.h" />
+    <ClInclude Include="minesweeper\entities\gamestatebuttonentity.h">
       <Filter>minesweeper\entities</Filter>
     </ClInclude>
   </ItemGroup>
@@ -325,9 +327,6 @@
     <None Include="engine\model\data\entityinitdata.cdt">
       <Filter>engine\model\data</Filter>
     </None>
-    <None Include="engine\flow\actions\gotoworldflowaction.cdt">
-      <Filter>engine\flow\actions</Filter>
-    </None>
     <None Include="minesweeper\titlepage.json">
       <Filter>minesweeper</Filter>
     </None>
@@ -338,6 +337,10 @@
       <Filter>minesweeper\flow</Filter>
     </None>
     <None Include="minesweeper\entities\gridentity.cdt">
+      <Filter>minesweeper\entities</Filter>
+    </None>
+    <None Include="engine\flow\actions\gotoworldflowaction.cdt" />
+    <None Include="minesweeper\entities\gamestatebuttonentity.cdt">
       <Filter>minesweeper\entities</Filter>
     </None>
   </ItemGroup>

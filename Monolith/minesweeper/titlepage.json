@@ -10,6 +10,15 @@
                 "X": 10,
                 "Y": 10
             }
+        },
+        {
+            "ClassID": 1442012994,
+            "Position": {
+                "X": 14,
+                "Y": 1
+            },
+            "ButtonText": "X",
+            "GameStateID": 2
         }
     ]
 }
