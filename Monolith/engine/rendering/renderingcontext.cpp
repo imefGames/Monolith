@@ -39,6 +39,20 @@ namespace Monolith
         }
     }
 
+    void RenderingContext::DrawText(const Vec2& textPosition, const std::string& text)
+    {
+        u32 pixelX{ static_cast<u32>(textPosition.GetX()) };
+        u32 pixelY{ static_cast<u32>(textPosition.GetY()) };
+
+        if (pixelY < m_CanvasHeight)
+        {
+            for (u32 i = 0; i < text.size() && pixelX + i < m_CanvasWidth; ++i)
+            {
+                m_CanvasBuffer[pixelX + pixelY * static_cast<u64>(m_CanvasWidth)] = text[i];
+            }
+        }
+    }
+
     void RenderingContext::DrawRectangle(const Vec2& topLeftPosition, const Vec2& bottomRightPosition)
     {
         u32 topLeftX{ static_cast<u32>(topLeftPosition.GetX()) };
