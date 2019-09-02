@@ -101,6 +101,18 @@
     <ClCompile Include="engine\model\data\entityinitdata.cpp">
       <Filter>engine\model\data</Filter>
     </ClCompile>
+    <ClCompile Include="minesweeper\systems\minesweepergamesystem.cpp">
+      <Filter>minesweeper\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="minesweeper\flow\gamestateflowcondition.cpp">
+      <Filter>minesweeper\flow</Filter>
+    </ClCompile>
+    <ClCompile Include="minesweeper\entities\gridentity.cpp">
+      <Filter>minesweeper\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="minesweeper\entities\gamestatebuttonentity.cpp">
+      <Filter>minesweeper\entities</Filter>
+    </ClCompile>
     <ClCompile Include="engine\flow\actions\gotoworldflowaction.cpp">
       <Filter>engine\flow\actions</Filter>
     </ClCompile>
@@ -215,6 +227,21 @@
     <ClInclude Include="core\math.h">
       <Filter>core</Filter>
     </ClInclude>
+    <ClInclude Include="core\math.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="minesweeper\systems\minesweepergamesystem.h">
+      <Filter>minesweeper\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="minesweeper\flow\gamestateflowcondition.h">
+      <Filter>minesweeper\flow</Filter>
+    </ClInclude>
+    <ClInclude Include="minesweeper\entities\gridentity.h">
+      <Filter>minesweeper\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="minesweeper\entities\gamestatebuttonentity.h">
+      <Filter>minesweeper\entities</Filter>
+    </ClInclude>
     <ClInclude Include="engine\flow\actions\gotoworldflowaction.h">
       <Filter>engine\flow\actions</Filter>
     </ClInclude>
@@ -256,8 +283,20 @@
     <Filter Include="engine\model\data">
       <UniqueIdentifier>{50ac50ce-443c-4e1d-ae60-eedaa7e55114}</UniqueIdentifier>
     </Filter>
+    <Filter Include="minesweeper">
+      <UniqueIdentifier>{f697bcf7-7e85-4b73-a0d5-e001d97070af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="minesweeper\flow">
+      <UniqueIdentifier>{864d85ab-f82d-480b-9f20-8b1e4556a0db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="minesweeper\entities">
+      <UniqueIdentifier>{1b4af0fb-cc0c-4876-b1d7-51d0c917a76f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="minesweeper\systems">
+      <UniqueIdentifier>{03854afe-00f5-4bb0-87a2-e79a06cf93f5}</UniqueIdentifier>
+    </Filter>
     <Filter Include="engine\flow\actions">
-      <UniqueIdentifier>{0d44405b-41d6-4dd2-babc-3d66367cfef4}</UniqueIdentifier>
+      <UniqueIdentifier>{e97ca13e-b961-4a6d-88f5-061c51687925}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -295,8 +334,26 @@
     <None Include="engine\model\data\entityinitdata.cdt">
       <Filter>engine\model\data</Filter>
     </None>
+    <None Include="minesweeper\titlepage.json">
+      <Filter>minesweeper</Filter>
+    </None>
+    <None Include="minesweeper\systems\minesweepergamesystem.cdt">
+      <Filter>minesweeper\systems</Filter>
+    </None>
+    <None Include="minesweeper\flow\gamestateflowcondition.cdt">
+      <Filter>minesweeper\flow</Filter>
+    </None>
+    <None Include="minesweeper\entities\gridentity.cdt">
+      <Filter>minesweeper\entities</Filter>
+    </None>
+    <None Include="minesweeper\entities\gamestatebuttonentity.cdt">
+      <Filter>minesweeper\entities</Filter>
+    </None>
     <None Include="engine\flow\actions\gotoworldflowaction.cdt">
       <Filter>engine\flow\actions</Filter>
+    </None>
+    <None Include="minesweeper\gamegrid.json">
+      <Filter>minesweeper</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -1,0 +1,19 @@
+﻿<ClassModel>
+    <ClassName>GameStateFlowConditionData</ClassName>
+    <ParentClass>FlowConditionData</ParentClass>
+    <ClassProperties>
+        <ClassPropertyModel>
+            <PropertyName>ExpectedState</PropertyName>
+            <PropertyDefaultValue>0</PropertyDefaultValue>
+            <PropertyType>u32</PropertyType>
+        </ClassPropertyModel>
+    </ClassProperties>
+    <ClassMethods>
+        <ClassMethodModel>
+            <MethodReturnType>FlowCondition*</MethodReturnType>
+            <MethodName>InstantiateFlowCondition</MethodName>
+            <IsConst>true</IsConst>
+            <IsOverride>true</IsOverride>
+        </ClassMethodModel>
+    </ClassMethods>
+</ClassModel>

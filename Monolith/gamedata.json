@@ -2,9 +2,61 @@
     "GameSystems": [
         {
             "ClassID": 2898161564,
-            "StartupStateID": -1,
+            "StartupStateID": 0,
             "States": [
-
+                {
+                    "StateID": 0,
+                    "OnEnterActions": [
+                        {
+                            "ClassID": 4093385860,
+                            "DestinationWorld": "minesweeper/titlepage.json"
+                        }
+                    ],
+                    "OnExitActions": [],
+                    "OnUpdateActions": [],
+                    "Transitions": [
+                        {
+                            "DestinationStateID": 1,
+                            "FlowConditions": [
+                                {
+                                    "ClassID": 2476956763,
+                                    "ExpectedState": 1
+                                }
+                            ]
+                        },
+                        {
+                            "DestinationStateID": -1,
+                            "FlowConditions": [
+                                {
+                                    "ClassID": 2476956763,
+                                    "ExpectedState": 2
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "StateID": 1,
+                    "OnEnterActions": [
+                        {
+                            "ClassID": 4093385860,
+                            "DestinationWorld": "minesweeper/gamegrid.json"
+                        }
+                    ],
+                    "OnExitActions": [],
+                    "OnUpdateActions": [],
+                    "Transitions": [
+                        {
+                            "DestinationStateID": 0,
+                            "FlowConditions": [
+                                {
+                                    "ClassID": 2476956763,
+                                    "ExpectedState": 0
+                                }
+                            ]
+                        }
+                    ]
+                }
             ]
         },
         {
@@ -12,7 +64,9 @@
         },
         {
             "ClassID": 1580459700
+        },
+        {
+            "ClassID": 4271893737
         }
-    ],
-    "StartupWorld": "minesweeper/titlepage.json"
+    ]
 }

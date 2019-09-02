@@ -1,0 +1,14 @@
+﻿<ClassModel>
+    <ClassName>MinesweeperGameSystemInitData</ClassName>
+    <ParentClass>GameSystemInitData</ParentClass>
+    <ClassProperties>
+    </ClassProperties>
+    <ClassMethods>
+        <ClassMethodModel>
+            <MethodReturnType>GameSystem*</MethodReturnType>
+            <MethodName>InstantiateGameSystem</MethodName>
+            <IsConst>true</IsConst>
+            <IsOverride>true</IsOverride>
+        </ClassMethodModel>
+    </ClassMethods>
+</ClassModel>

@@ -161,6 +161,10 @@
     <ClCompile Include="engine\window\gamewindow.cpp" />
     <ClCompile Include="engine\window\gamewindowdata.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="minesweeper\entities\gamestatebuttonentity.cpp" />
+    <ClCompile Include="minesweeper\entities\gridentity.cpp" />
+    <ClCompile Include="minesweeper\flow\gamestateflowcondition.cpp" />
+    <ClCompile Include="minesweeper\systems\minesweepergamesystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\assert.h" />
@@ -199,6 +203,10 @@
     <ClInclude Include="engine\rendering\renderingcontext.h" />
     <ClInclude Include="engine\window\gamewindow.h" />
     <ClInclude Include="engine\window\gamewindowdata.h" />
+    <ClInclude Include="minesweeper\entities\gamestatebuttonentity.h" />
+    <ClInclude Include="minesweeper\entities\gridentity.h" />
+    <ClInclude Include="minesweeper\flow\gamestateflowcondition.h" />
+    <ClInclude Include="minesweeper\systems\minesweepergamesystem.h" />
     <ClInclude Include="precomp.h" />
     <ClInclude Include="core\types.h" />
   </ItemGroup>
@@ -216,6 +224,12 @@
     <None Include="engine\model\data\worldinitdata.cdt" />
     <None Include="engine\rendering\gamerendererinitdata.cdt" />
     <None Include="gamedata.json" />
+    <None Include="minesweeper\entities\gamestatebuttonentity.cdt" />
+    <None Include="minesweeper\entities\gridentity.cdt" />
+    <None Include="minesweeper\flow\gamestateflowcondition.cdt" />
+    <None Include="minesweeper\gamegrid.json" />
+    <None Include="minesweeper\systems\minesweepergamesystem.cdt" />
+    <None Include="minesweeper\titlepage.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

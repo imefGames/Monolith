@@ -1,0 +1,23 @@
+﻿<ClassModel>
+    <ClassName>GameStateButtonEntityInitData</ClassName>
+    <ParentClass>EntityInitData</ParentClass>
+    <ClassProperties>
+        <ClassPropertyModel>
+            <PropertyName>ButtonText</PropertyName>
+            <PropertyType>std::string</PropertyType>
+        </ClassPropertyModel>
+        <ClassPropertyModel>
+            <PropertyName>GameStateID</PropertyName>
+            <PropertyType>u32</PropertyType>
+            <PropertyDefaultValue>0</PropertyDefaultValue>
+        </ClassPropertyModel>
+    </ClassProperties>
+    <ClassMethods>
+        <ClassMethodModel>
+            <MethodReturnType>Entity*</MethodReturnType>
+            <MethodName>InstantiateEntity</MethodName>
+            <IsConst>true</IsConst>
+            <IsOverride>true</IsOverride>
+        </ClassMethodModel>
+    </ClassMethods>
+</ClassModel>

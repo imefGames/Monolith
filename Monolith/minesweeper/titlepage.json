@@ -1,0 +1,22 @@
+{
+    "Entities": [
+        {
+            "ClassID": 1442012994,
+            "Position": {
+                "X": 1,
+                "Y": 1
+            },
+            "ButtonText": "Start",
+            "GameStateID": 1
+        },
+        {
+            "ClassID": 1442012994,
+            "Position": {
+                "X": 1,
+                "Y": 5
+            },
+            "ButtonText": "Exit",
+            "GameStateID": 2
+        }
+    ]
+}
