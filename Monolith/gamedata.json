@@ -23,7 +23,7 @@
                                     "ExpectedState": 1
                                 }
                             ]
-                        }
+                        },
                         {
                             "DestinationStateID": -1,
                             "FlowConditions": [
