@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <string>
 
 namespace Monolith
 {
@@ -14,6 +15,7 @@ namespace Monolith
 
         void DrawPoint(const Vec2& pixelPosition);
         void DrawCharacter(const Vec2& pixelPosition, s8 character);
+        void DrawText(const Vec2& textPosition, const std::string& text);
         void DrawRectangle(const Vec2& topLeftPosition, const Vec2& bottomRightPosition);
 
     private:
