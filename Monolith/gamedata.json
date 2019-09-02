@@ -6,7 +6,12 @@
             "States": [
                 {
                     "StateID": 0,
-                    "OnEnterActions": [],
+                    "OnEnterActions": [
+                        {
+                            "ClassID": 4093385860,
+                            "DestinationWorld": "minesweeper/titlepage.json"
+                        }
+                    ],
                     "OnExitActions": [],
                     "OnUpdateActions": [],
                     "Transitions": [
@@ -32,6 +37,5 @@
         {
             "ClassID": 4271893737
         }
-    ],
-    "StartupWorld": "minesweeper/titlepage.json"
+    ]
 }
