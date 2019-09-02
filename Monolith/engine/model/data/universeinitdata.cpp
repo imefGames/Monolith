@@ -27,12 +27,12 @@ namespace Monolith
     }
 #pragma endregion //GeneratedCodeSource
 
-    void UniverseInitData::InstanciateGameSystems(GameSystemOutputArray gameSystems) const
+    void UniverseInitData::InstantiateGameSystems(GameSystemOutputArray gameSystems) const
     {
         gameSystems.reserve(m_GameSystems.size());
         for (const GameSystemInitData* initData : m_GameSystems)
         {
-            gameSystems.push_back(initData->InstanciateGameSystem());
+            gameSystems.push_back(initData->InstantiateGameSystem());
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Monolith
         void LoadObject(const ObjectSerializer& serializer) override;
 
 
-        World* InstanciateWorld() const;
+        World* InstantiateWorld() const;
         EntityDataOutputArray GetEntities() const;
 
     private:

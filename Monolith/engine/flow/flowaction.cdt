@@ -5,7 +5,7 @@
     <ClassMethods>
         <ClassMethodModel>
             <MethodReturnType>FlowAction*</MethodReturnType>
-            <MethodName>InstanciateFlowAction</MethodName>
+            <MethodName>InstantiateFlowAction</MethodName>
             <IsConst>true</IsConst>
             <IsVirtual>true</IsVirtual>
         </ClassMethodModel>

@@ -14,7 +14,7 @@ namespace Monolith
 {
     void Universe::Init(const UniverseInitData& universeInitData)
     {
-        universeInitData.InstanciateGameSystems(m_Systems);
+        universeInitData.InstantiateGameSystems(m_Systems);
         for (GameSystem* currentSystem : m_Systems)
         {
             currentSystem->Init();
@@ -80,6 +80,6 @@ namespace Monolith
 
         WorldInitData worldInitData;
         ObjectSerializationHelper::LoadObject(worldDataSerializer, worldInitData);
-        return worldInitData.InstanciateWorld();
+        return worldInitData.InstantiateWorld();
     }
 }

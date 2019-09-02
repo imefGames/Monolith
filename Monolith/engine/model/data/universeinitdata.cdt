@@ -15,7 +15,7 @@
     <ClassMethods>
         <ClassMethodModel>
             <MethodReturnType>void</MethodReturnType>
-            <MethodName>InstanciateGameSystems</MethodName>
+            <MethodName>InstantiateGameSystems</MethodName>
             <IsConst>true</IsConst>
             <MethodArguments>
                 <ClassPropertyModel>

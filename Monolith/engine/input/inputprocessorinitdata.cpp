@@ -22,7 +22,7 @@ namespace Monolith
     }
 #pragma endregion //GeneratedCodeSource
 
-    GameSystem* InputProcessorInitData::InstanciateGameSystem() const
+    GameSystem* InputProcessorInitData::InstantiateGameSystem() const
     {
         return new InputProcessor();
     }

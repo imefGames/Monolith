@@ -13,7 +13,7 @@ namespace Monolith
         m_Entities.reserve(entityDataArray.size());
         for (const EntityInitData* entityData : entityDataArray)
         {
-            m_Entities.push_back(entityData->InstanciateEntity());
+            m_Entities.push_back(entityData->InstantiateEntity());
         }
     }
 

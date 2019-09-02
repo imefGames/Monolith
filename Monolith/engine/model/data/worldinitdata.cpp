@@ -26,7 +26,7 @@ namespace Monolith
     }
 #pragma endregion //GeneratedCodeSource
 
-    World* WorldInitData::InstanciateWorld() const
+    World* WorldInitData::InstantiateWorld() const
     {
         return new World{ *this };
     }

@@ -37,7 +37,7 @@ namespace Monolith
     }
 #pragma endregion //GeneratedCodeSource
 
-    FlowState* FlowStateData::InstanciateFlowState() const
+    FlowState* FlowStateData::InstantiateFlowState() const
     {
         return new FlowState{ *this };
     }
@@ -118,7 +118,7 @@ namespace Monolith
         actions.reserve(actionsData.size());
         for (const FlowActionData* actionData : actionsData)
         {
-            actions.push_back(actionData->InstanciateFlowAction());
+            actions.push_back(actionData->InstantiateFlowAction());
         }
     }
 
@@ -127,7 +127,7 @@ namespace Monolith
         transitions.reserve(transitionsData.size());
         for (const FlowTransitionData& transitionData : transitionsData)
         {
-            transitions.push_back(transitionData.InstanciateFlowTransition());
+            transitions.push_back(transitionData.InstantiateFlowTransition());
         }
     }
 

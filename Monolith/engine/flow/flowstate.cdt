@@ -33,7 +33,7 @@
     <ClassMethods>
         <ClassMethodModel>
             <MethodReturnType>FlowState*</MethodReturnType>
-            <MethodName>InstanciateFlowState</MethodName>
+            <MethodName>InstantiateFlowState</MethodName>
             <IsConst>true</IsConst>
         </ClassMethodModel>
         <ClassMethodModel>
