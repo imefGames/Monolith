@@ -35,6 +35,12 @@ namespace Monolith
             JSonHelper::LoadObject(serializer.GetNode(), loadedF32);
         }
 
+        void LoadObject(const ObjectSerializer& serializer, Vec2& loadedVec2)
+        {
+            LoadObject(serializer["X"], loadedVec2.GetX());
+            LoadObject(serializer["Y"], loadedVec2.GetY());
+        }
+
         void LoadObject(const ObjectSerializer& serializer, std::string& loadedString)
         {
             JSonHelper::LoadObject(serializer.GetNode(), loadedString);
