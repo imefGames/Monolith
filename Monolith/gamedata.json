@@ -12,7 +12,12 @@
                     "Transitions": [
                         {
                             "DestinationStateID": -1,
-                            "FlowConditions": []
+                            "FlowConditions": [
+                                {
+                                    "ClassID": 2476956763,
+                                    "ExpectedState": 2
+                                }
+                            ]
                         }
                     ]
                 }
@@ -23,6 +28,9 @@
         },
         {
             "ClassID": 1580459700
+        },
+        {
+            "ClassID": 4271893737
         }
     ],
     "StartupWorld": "minesweeper/titlepage.json"

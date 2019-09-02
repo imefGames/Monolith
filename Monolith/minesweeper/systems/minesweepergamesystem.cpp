@@ -29,6 +29,17 @@ namespace Monolith
 
 
     MinesweeperGameSystem::MinesweeperGameSystem(const MinesweeperGameSystemInitData& minesweeperGameSystemInitData)
+        : m_GameState{ EMinesweeperGameState::TitlePage }
     {
+    }
+
+    void MinesweeperGameSystem::OnInit()
+    {
+        RegisterInstance(this);
+    }
+
+    void MinesweeperGameSystem::OnShutdown()
+    {
+        UnregisterInstance(this);
     }
 }
