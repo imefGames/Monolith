@@ -12,6 +12,11 @@
 
 namespace Monolith
 {
+    Universe::Universe()
+        : m_CurrentWorld{ nullptr }
+    {
+    }
+
     void Universe::Init(const UniverseInitData& universeInitData)
     {
         universeInitData.InstantiateGameSystems(m_Systems);
