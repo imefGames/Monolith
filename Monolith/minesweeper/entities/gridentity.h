@@ -5,6 +5,8 @@
 
 namespace Monolith
 {
+    enum class EMouseButton;
+
 #pragma region GeneratedCodeHeader
     class GridEntityInitData : public EntityInitData
     {
@@ -37,6 +39,10 @@ namespace Monolith
         void Render(RenderingContext& renderingContext) override;
 
     private:
+        void OnMouseClick(EMouseButton mouseButton, Vec2 clickPosition);
+        void HandleCellClick(u32 cellX, u32 cellY);
+
         Vec2 m_GridSize;
+        u32 m_MouseClickSlotID;
     };
 }
