@@ -16,7 +16,7 @@ namespace Monolith
         void LoadObject(const ObjectSerializer& serializer) override;
 
 
-        FlowCondition* InstanciateFlowCondition() const override;
+        FlowCondition* InstantiateFlowCondition() const override;
 
     private:
         using super = FlowConditionData;

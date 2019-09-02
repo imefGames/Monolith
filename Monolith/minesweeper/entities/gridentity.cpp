@@ -21,7 +21,7 @@ namespace Monolith
     }
 #pragma endregion //GeneratedCodeSource
 
-    Entity* GridEntityInitData::InstanciateEntity() const
+    Entity* GridEntityInitData::InstantiateEntity() const
     {
         return new GridEntity{ *this };
     }

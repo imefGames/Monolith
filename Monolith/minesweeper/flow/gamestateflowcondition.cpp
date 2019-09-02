@@ -21,7 +21,7 @@ namespace Monolith
     }
 #pragma endregion //GeneratedCodeSource
 
-    FlowCondition* GameStateFlowConditionData::InstanciateFlowCondition() const
+    FlowCondition* GameStateFlowConditionData::InstantiateFlowCondition() const
     {
         return new GameStateFlowCondition{ *this };
     }

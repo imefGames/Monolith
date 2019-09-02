@@ -6,7 +6,7 @@
     <ClassMethods>
         <ClassMethodModel>
             <MethodReturnType>FlowCondition*</MethodReturnType>
-            <MethodName>InstanciateFlowCondition</MethodName>
+            <MethodName>InstantiateFlowCondition</MethodName>
             <IsConst>true</IsConst>
             <IsOverride>true</IsOverride>
         </ClassMethodModel>

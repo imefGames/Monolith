@@ -6,7 +6,7 @@
     <ClassMethods>
         <ClassMethodModel>
             <MethodReturnType>Entity*</MethodReturnType>
-            <MethodName>InstanciateEntity</MethodName>
+            <MethodName>InstantiateEntity</MethodName>
             <IsConst>true</IsConst>
             <IsOverride>true</IsOverride>
         </ClassMethodModel>

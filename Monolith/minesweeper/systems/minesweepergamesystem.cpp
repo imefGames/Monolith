@@ -21,7 +21,7 @@ namespace Monolith
     }
 #pragma endregion //GeneratedCodeSource
 
-    GameSystem* MinesweeperGameSystemInitData::InstanciateGameSystem() const
+    GameSystem* MinesweeperGameSystemInitData::InstantiateGameSystem() const
     {
         return new MinesweeperGameSystem{ *this };
     }

@@ -6,7 +6,7 @@
     <ClassMethods>
         <ClassMethodModel>
             <MethodReturnType>GameSystem*</MethodReturnType>
-            <MethodName>InstanciateGameSystem</MethodName>
+            <MethodName>InstantiateGameSystem</MethodName>
             <IsConst>true</IsConst>
             <IsOverride>true</IsOverride>
         </ClassMethodModel>
