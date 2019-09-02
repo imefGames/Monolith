@@ -19,14 +19,13 @@ namespace Monolith
     void InputProcessor::ProcessInputEvents(const InputEvents& inputEvents)
     {
         EMouseInputEvent mouseEvent{ inputEvents.GetMouseEvent() };
-        Vec2 mousePosition{ inputEvents.GetMousePosition() };
         if (mouseEvent == EMouseInputEvent::LClick)
         {
-            m_MouseClickedSignal.Emit(EMouseButton::Left, mousePosition.GetX(), mousePosition.GetY());
+            m_MouseClickedSignal.Emit(EMouseButton::Left, inputEvents.GetMousePosition());
         }
         else if (mouseEvent == EMouseInputEvent::RClick)
         {
-            m_MouseClickedSignal.Emit(EMouseButton::Right, mousePosition.GetX(), mousePosition.GetY());
+            m_MouseClickedSignal.Emit(EMouseButton::Right, inputEvents.GetMousePosition());
         }
     }
 
