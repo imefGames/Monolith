@@ -227,6 +227,7 @@
     <None Include="minesweeper\entities\gamestatebuttonentity.cdt" />
     <None Include="minesweeper\entities\gridentity.cdt" />
     <None Include="minesweeper\flow\gamestateflowcondition.cdt" />
+    <None Include="minesweeper\gamegrid.json" />
     <None Include="minesweeper\systems\minesweepergamesystem.cdt" />
     <None Include="minesweeper\titlepage.json" />
   </ItemGroup>

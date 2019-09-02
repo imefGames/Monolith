@@ -110,9 +110,11 @@
     <ClCompile Include="minesweeper\entities\gridentity.cpp">
       <Filter>minesweeper\entities</Filter>
     </ClCompile>
-    <ClCompile Include="engine\flow\actions\gotoworldflowaction.cpp" />
     <ClCompile Include="minesweeper\entities\gamestatebuttonentity.cpp">
       <Filter>minesweeper\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\flow\actions\gotoworldflowaction.cpp">
+      <Filter>engine\flow\actions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -237,9 +239,11 @@
     <ClInclude Include="minesweeper\entities\gridentity.h">
       <Filter>minesweeper\entities</Filter>
     </ClInclude>
-    <ClInclude Include="engine\flow\actions\gotoworldflowaction.h" />
     <ClInclude Include="minesweeper\entities\gamestatebuttonentity.h">
       <Filter>minesweeper\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\flow\actions\gotoworldflowaction.h">
+      <Filter>engine\flow\actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -291,6 +295,9 @@
     <Filter Include="minesweeper\systems">
       <UniqueIdentifier>{03854afe-00f5-4bb0-87a2-e79a06cf93f5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="engine\flow\actions">
+      <UniqueIdentifier>{e97ca13e-b961-4a6d-88f5-061c51687925}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="gamedata.json" />
@@ -339,9 +346,14 @@
     <None Include="minesweeper\entities\gridentity.cdt">
       <Filter>minesweeper\entities</Filter>
     </None>
-    <None Include="engine\flow\actions\gotoworldflowaction.cdt" />
     <None Include="minesweeper\entities\gamestatebuttonentity.cdt">
       <Filter>minesweeper\entities</Filter>
+    </None>
+    <None Include="engine\flow\actions\gotoworldflowaction.cdt">
+      <Filter>engine\flow\actions</Filter>
+    </None>
+    <None Include="minesweeper\gamegrid.json">
+      <Filter>minesweeper</Filter>
     </None>
   </ItemGroup>
 </Project>

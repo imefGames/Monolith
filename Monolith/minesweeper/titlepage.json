@@ -1,23 +1,21 @@
 {
     "Entities": [
         {
-            "ClassID": 3695653038,
+            "ClassID": 1442012994,
             "Position": {
                 "X": 1,
                 "Y": 1
             },
-            "GridSize": {
-                "X": 10,
-                "Y": 10
-            }
+            "ButtonText": "Start",
+            "GameStateID": 1
         },
         {
             "ClassID": 1442012994,
             "Position": {
-                "X": 14,
-                "Y": 1
+                "X": 1,
+                "Y": 5
             },
-            "ButtonText": "X",
+            "ButtonText": "Exit",
             "GameStateID": 2
         }
     ]
