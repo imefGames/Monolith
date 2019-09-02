@@ -218,6 +218,9 @@
     <ClInclude Include="engine\model\data\entityinitdata.h">
       <Filter>engine\model\data</Filter>
     </ClInclude>
+    <ClInclude Include="core\math.h">
+      <Filter>core</Filter>
+    </ClInclude>
     <ClInclude Include="minesweeper\systems\minesweepergamesystem.h">
       <Filter>minesweeper\systems</Filter>
     </ClInclude>

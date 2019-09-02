@@ -168,6 +168,7 @@
     <ClInclude Include="core\assert.h" />
     <ClInclude Include="core\instantiation\classinstantiator.h" />
     <ClInclude Include="core\io\filereader.h" />
+    <ClInclude Include="core\math.h" />
     <ClInclude Include="core\serialization\json\jsonnode.h" />
     <ClInclude Include="core\serialization\json\jsonparser.h" />
     <ClInclude Include="core\serialization\objectserializer.h" />
