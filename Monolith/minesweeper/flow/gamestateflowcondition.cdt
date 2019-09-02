@@ -1,0 +1,14 @@
+﻿<ClassModel>
+    <ClassName>GameStateFlowConditionData</ClassName>
+    <ParentClass>FlowConditionData</ParentClass>
+    <ClassProperties>
+    </ClassProperties>
+    <ClassMethods>
+        <ClassMethodModel>
+            <MethodReturnType>FlowCondition*</MethodReturnType>
+            <MethodName>InstanciateFlowCondition</MethodName>
+            <IsConst>true</IsConst>
+            <IsOverride>true</IsOverride>
+        </ClassMethodModel>
+    </ClassMethods>
+</ClassModel>

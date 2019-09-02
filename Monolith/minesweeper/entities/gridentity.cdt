@@ -1,0 +1,14 @@
+﻿<ClassModel>
+    <ClassName>GridEntityInitData</ClassName>
+    <ParentClass>EntityInitData</ParentClass>
+    <ClassProperties>
+    </ClassProperties>
+    <ClassMethods>
+        <ClassMethodModel>
+            <MethodReturnType>Entity*</MethodReturnType>
+            <MethodName>InstanciateEntity</MethodName>
+            <IsConst>true</IsConst>
+            <IsOverride>true</IsOverride>
+        </ClassMethodModel>
+    </ClassMethods>
+</ClassModel>
