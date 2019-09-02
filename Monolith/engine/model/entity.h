@@ -10,9 +10,9 @@ namespace Monolith
     public:
         Entity(const EntityInitData& entityInitData);
 
-        void Init();
-        void Shutdown();
-        void Update(f32 deltaTime);
-        void Render(RenderingContext& renderingContext);
+        virtual void Init();
+        virtual void Shutdown();
+        virtual void Update(f32 deltaTime);
+        virtual void Render(RenderingContext& renderingContext);
     };
 }
