@@ -9,6 +9,7 @@ namespace Monolith
 #pragma region GeneratedCodeSource
     EntityInitData::EntityInitData()
         : super{}
+        , m_Position{  }
     {
     }
 
@@ -19,6 +20,7 @@ namespace Monolith
     void EntityInitData::LoadObject(const ObjectSerializer& serializer)
     {
         super::LoadObject(serializer);
+        ObjectSerializationHelper::LoadObject(serializer["Position"], m_Position);
     }
 #pragma endregion //GeneratedCodeSource
 

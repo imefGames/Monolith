@@ -1,6 +1,10 @@
 ﻿<ClassModel>
     <ClassName>EntityInitData</ClassName>
     <ClassProperties>
+        <ClassPropertyModel>
+            <PropertyName>Position</PropertyName>
+            <PropertyType>Vec2</PropertyType>
+        </ClassPropertyModel>
     </ClassProperties>
     <ClassMethods>
         <ClassMethodModel>

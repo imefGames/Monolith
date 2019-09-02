@@ -49,6 +49,7 @@ namespace Monolith
         void LoadObject(const ObjectSerializer& serializer, s32& loadedS32);
         void LoadObject(const ObjectSerializer& serializer, u32& loadedU32);
         void LoadObject(const ObjectSerializer& serializer, f32& loadedF32);
+        void LoadObject(const ObjectSerializer& serializer, Vec2& loadedVec2);
         void LoadObject(const ObjectSerializer& serializer, std::string& loadedString);
     }
 }
