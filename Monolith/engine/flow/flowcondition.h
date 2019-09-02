@@ -16,7 +16,7 @@ namespace Monolith
         void LoadObject(const ObjectSerializer& serializer) override;
 
 
-        virtual FlowCondition* InstanciateFlowCondition() const;
+        virtual FlowCondition* InstantiateFlowCondition() const;
 
     private:
         using super = Object;

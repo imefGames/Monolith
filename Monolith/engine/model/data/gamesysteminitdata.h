@@ -16,7 +16,7 @@ namespace Monolith
         void LoadObject(const ObjectSerializer& serializer) override;
 
 
-        virtual GameSystem* InstanciateGameSystem() const;
+        virtual GameSystem* InstantiateGameSystem() const;
 
     private:
         using super = Object;

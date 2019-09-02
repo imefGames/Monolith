@@ -26,7 +26,7 @@ namespace Monolith
     }
 #pragma endregion //GeneratedCodeSource
 
-    GameSystem* FlowOrchestratorInitData::InstanciateGameSystem() const
+    GameSystem* FlowOrchestratorInitData::InstantiateGameSystem() const
     {
         return new FlowOrchestrator{ *this };
     }

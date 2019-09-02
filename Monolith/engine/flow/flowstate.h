@@ -28,7 +28,7 @@ namespace Monolith
         u32 GetStateID() const { return m_StateID; }
         void SetStateID(u32 newValue) { m_StateID = newValue; }
 
-        FlowState* InstanciateFlowState() const;
+        FlowState* InstantiateFlowState() const;
         FlowActionInitDataOutputArray GetOnEnterActions() const;
         FlowActionInitDataOutputArray GetOnExitActions() const;
         FlowActionInitDataOutputArray GetOnUpdateActions() const;

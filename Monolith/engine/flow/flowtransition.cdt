@@ -16,7 +16,7 @@
     <ClassMethods>
         <ClassMethodModel>
             <MethodReturnType>FlowTransition*</MethodReturnType>
-            <MethodName>InstanciateFlowTransition</MethodName>
+            <MethodName>InstantiateFlowTransition</MethodName>
             <IsConst>true</IsConst>
         </ClassMethodModel>
         <ClassMethodModel>

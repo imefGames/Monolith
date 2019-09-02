@@ -22,7 +22,7 @@ namespace Monolith
     }
 #pragma endregion //GeneratedCodeSource
 
-    Entity* EntityInitData::InstanciateEntity() const
+    Entity* EntityInitData::InstantiateEntity() const
     {
         return new Entity{ *this };
     }

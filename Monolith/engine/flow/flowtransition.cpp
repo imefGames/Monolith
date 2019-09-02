@@ -27,7 +27,7 @@ namespace Monolith
     }
 #pragma endregion //GeneratedCodeSource
 
-    FlowTransition* FlowTransitionData::InstanciateFlowTransition() const
+    FlowTransition* FlowTransitionData::InstantiateFlowTransition() const
     {
         return new FlowTransition{ *this };
     }
@@ -46,7 +46,7 @@ namespace Monolith
         m_Conditions.reserve(flowConditions.size());
         for (const FlowConditionData* conditionData : flowConditions)
         {
-            m_Conditions.push_back(conditionData->InstanciateFlowCondition());
+            m_Conditions.push_back(conditionData->InstantiateFlowCondition());
         }
     }
 

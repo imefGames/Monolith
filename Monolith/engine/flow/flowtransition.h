@@ -25,7 +25,7 @@ namespace Monolith
         u32 GetDestinationStateID() const { return m_DestinationStateID; }
         void SetDestinationStateID(u32 newValue) { m_DestinationStateID = newValue; }
 
-        FlowTransition* InstanciateFlowTransition() const;
+        FlowTransition* InstantiateFlowTransition() const;
         FlowConditionInitDataOutputArray GetFlowConditions() const;
 
     private:

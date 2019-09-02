@@ -21,7 +21,7 @@ namespace Monolith
     }
 #pragma endregion //GeneratedCodeSource
 
-    GameSystem* GameSystemInitData::InstanciateGameSystem() const
+    GameSystem* GameSystemInitData::InstantiateGameSystem() const
     {
         return nullptr;
     }

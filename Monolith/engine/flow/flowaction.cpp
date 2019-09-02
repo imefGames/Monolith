@@ -21,7 +21,7 @@ namespace Monolith
     }
 #pragma endregion //GeneratedCodeSource
 
-    FlowAction* FlowActionData::InstanciateFlowAction() const
+    FlowAction* FlowActionData::InstantiateFlowAction() const
     {
         return new FlowAction{ *this };
     }

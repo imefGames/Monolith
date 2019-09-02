@@ -15,7 +15,7 @@ namespace Monolith
         m_States.reserve(statesData.size());
         for (const FlowStateData& stateData : statesData)
         {
-            m_States.push_back(stateData.InstanciateFlowState());
+            m_States.push_back(stateData.InstantiateFlowState());
         }
     }
 

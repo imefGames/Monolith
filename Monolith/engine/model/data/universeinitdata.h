@@ -23,7 +23,7 @@ namespace Monolith
         std::string GetStartupWorld() const { return m_StartupWorld; }
         void SetStartupWorld(std::string newValue) { m_StartupWorld = newValue; }
 
-        void InstanciateGameSystems(GameSystemOutputArray gameSystems) const;
+        void InstantiateGameSystems(GameSystemOutputArray gameSystems) const;
 
     private:
         using super = Object;

@@ -16,7 +16,7 @@ namespace Monolith
         void LoadObject(const ObjectSerializer& serializer) override;
 
 
-        virtual Entity* InstanciateEntity() const;
+        virtual Entity* InstantiateEntity() const;
 
     private:
         using super = Object;

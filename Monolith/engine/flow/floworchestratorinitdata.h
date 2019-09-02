@@ -20,7 +20,7 @@ namespace Monolith
         u32 GetStartupStateID() const { return m_StartupStateID; }
         void SetStartupStateID(u32 newValue) { m_StartupStateID = newValue; }
 
-        GameSystem* InstanciateGameSystem() const override;
+        GameSystem* InstantiateGameSystem() const override;
         FlowStateDataOutputArray GetStates() const;
 
     private:
