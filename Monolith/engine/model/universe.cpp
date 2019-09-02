@@ -24,8 +24,6 @@ namespace Monolith
         {
             currentSystem->Init();
         }
-
-        GoToWorld(universeInitData.GetStartupWorld());
     }
 
     void Universe::Shutdown()
