@@ -209,6 +209,9 @@
     <ClInclude Include="engine\model\data\entityinitdata.h">
       <Filter>engine\model\data</Filter>
     </ClInclude>
+    <ClInclude Include="core\math.h">
+      <Filter>core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="engine">

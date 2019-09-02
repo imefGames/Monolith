@@ -12,7 +12,9 @@ namespace Monolith
     public:
         RenderingContext();
 
-        void DrawPoint(u32 pixelX, u32 pixelY);
+        void DrawPoint(const Vec2& pixelPosition);
+        void DrawCharacter(const Vec2& pixelPosition, s8 character);
+        void DrawRectangle(const Vec2& topLeftPosition, const Vec2& bottomRightPosition);
 
     private:
         void SetWindowSize(u32 windowWidth, u32 windowHeight);
