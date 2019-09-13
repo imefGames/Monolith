@@ -2,8 +2,9 @@
 
 #include <engine/gameengine.h>
 #include <engine/window/gamewindowdata.h>
+#include <Windows.h>
 
-Monolith::s32 main()
+int WINAPI WinMain(HINSTANCE instanceHandle, HINSTANCE prevInstanceHandle, PSTR cmdline, int cmdshow)
 {
     Monolith::GameWindowData windowData{};
 

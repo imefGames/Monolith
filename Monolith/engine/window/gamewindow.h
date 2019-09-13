@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Windows.h>
+
 namespace Monolith
 {
     class GameWindowData;
@@ -17,5 +19,10 @@ namespace Monolith
 
         void PollInputEvents(InputEvents& inputEvents);
         void SetupRenderingContext(RenderingContext& renderingContext);
+
+    public:
+        HINSTANCE m_InstanceHandle;
+        HWND m_WindowHandle;
+        LPCSTR m_ApplicationName;
     };
 }

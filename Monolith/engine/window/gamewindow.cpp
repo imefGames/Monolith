@@ -4,17 +4,19 @@
 #include <engine/input/inputevents.h>
 #include <engine/rendering/renderingcontext.h>
 
-#include <Windows.h>
-
 namespace Monolith
 {
     namespace GameWindowHelperInternal
     {
-        void OnKeyEvent(const KEY_EVENT_RECORD& keyEvent, InputEvents& inputEvents);
-        void OnMouseEvent(const MOUSE_EVENT_RECORD& mouseEvent, InputEvents& inputEvents);
+        InputEvents s_InputEvents;
+
+        LRESULT CALLBACK HandleWindowEvents(HWND windowHandle, UINT message, WPARAM wParam, LPARAM lParam);
     }
 
     GameWindow::GameWindow()
+        : m_InstanceHandle{ nullptr }
+        , m_WindowHandle{ nullptr }
+        , m_ApplicationName{ "Monolith" }
     {
     }
 
@@ -24,88 +26,114 @@ namespace Monolith
 
     void GameWindow::Init(const GameWindowData& gameWindowData)
     {
-        HANDLE stdInHandle{ GetStdHandle(STD_INPUT_HANDLE) };
-        SetConsoleMode(stdInHandle, ENABLE_EXTENDED_FLAGS);
-        SetConsoleMode(stdInHandle, ENABLE_WINDOW_INPUT | ENABLE_MOUSE_INPUT);
+        m_InstanceHandle = GetModuleHandle(NULL);
+
+        WNDCLASSEX wc;
+        wc.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
+        wc.lpfnWndProc = GameWindowHelperInternal::HandleWindowEvents;
+        wc.cbClsExtra = 0;
+        wc.cbWndExtra = 0;
+        wc.hInstance = m_InstanceHandle;
+        wc.hIcon = LoadIcon(NULL, IDI_WINLOGO);
+        wc.hIconSm = wc.hIcon;
+        wc.hCursor = LoadCursor(NULL, IDC_ARROW);
+        wc.hbrBackground = static_cast<HBRUSH>(GetStockObject(BLACK_BRUSH));
+        wc.lpszMenuName = NULL;
+        wc.lpszClassName = m_ApplicationName;
+        wc.cbSize = sizeof(WNDCLASSEX);
+        RegisterClassEx(&wc);
+
+        s32 screenWidth = 800;
+        s32 screenHeight = 600;
+        s32 posX = (GetSystemMetrics(SM_CXSCREEN) - screenWidth) / 2;
+        s32 posY = (GetSystemMetrics(SM_CYSCREEN) - screenHeight) / 2;
+
+        m_WindowHandle = CreateWindow(m_ApplicationName, m_ApplicationName, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, screenWidth, screenHeight, NULL, NULL, m_InstanceHandle, NULL);
+
+        ShowWindow(m_WindowHandle, SW_SHOW);
+        SetForegroundWindow(m_WindowHandle);
+        SetFocus(m_WindowHandle);
     }
 
     void GameWindow::Shutdown()
     {
+        DestroyWindow(m_WindowHandle);
+        m_WindowHandle = nullptr;
+        UnregisterClass(m_ApplicationName, m_InstanceHandle);
+        m_InstanceHandle = nullptr;
     }
 
     void GameWindow::PollInputEvents(InputEvents& inputEvents)
     {
-        inputEvents.Reset();
-
-        u32 readEvents;
-        INPUT_RECORD irInBuf[128];
-        ReadConsoleInput(GetStdHandle(STD_INPUT_HANDLE), irInBuf, 128, &readEvents);
-        for (u32 i = 0; i < readEvents; i++)
+        GameWindowHelperInternal::s_InputEvents.Reset();
+        MSG message;
+        if (PeekMessage(&message, NULL, 0, 0, PM_REMOVE))
         {
-            switch (irInBuf[i].EventType)
-            {
-                case KEY_EVENT:
-                {
-                    GameWindowHelperInternal::OnKeyEvent(irInBuf[i].Event.KeyEvent, inputEvents);
-                    break;
-                }
-
-                case MOUSE_EVENT:
-                {
-                    GameWindowHelperInternal::OnMouseEvent(irInBuf[i].Event.MouseEvent, inputEvents);
-                    break;
-                }
-            }
+            TranslateMessage(&message);
+            DispatchMessage(&message);
         }
+        inputEvents = GameWindowHelperInternal::s_InputEvents;
     }
 
     void GameWindow::SetupRenderingContext(RenderingContext& renderingContext)
     {
-        CONSOLE_SCREEN_BUFFER_INFO csbi;
-        u32 columns, rows;
-        GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
-        columns = csbi.srWindow.Right - csbi.srWindow.Left;
-        rows = csbi.srWindow.Bottom - csbi.srWindow.Top;
-
-        renderingContext.SetWindowSize(columns, rows);
+        renderingContext.SetWindowSize(800, 600);
     }
 
     namespace GameWindowHelperInternal
     {
-        void OnKeyEvent(const KEY_EVENT_RECORD& keyEvent, InputEvents& inputEvents)
+        LRESULT CALLBACK HandleWindowEvents(HWND windowHandle, UINT message, WPARAM wParam, LPARAM lParam)
         {
-        }
-
-        void OnMouseEvent(const MOUSE_EVENT_RECORD& mouseEvent, InputEvents& inputEvents)
-        {
-            switch (mouseEvent.dwEventFlags)
+            LRESULT returnValue{};
+            switch (message)
             {
-                case 0:
+                case WM_KEYDOWN:
                 {
-                    if (mouseEvent.dwButtonState == FROM_LEFT_1ST_BUTTON_PRESSED)
-                    {
-                        inputEvents.SetMouseEvent(EMouseInputEvent::LClick);
-                        inputEvents.SetMousePosition(Vec2{ static_cast<f32>(mouseEvent.dwMousePosition.X), static_cast<f32>(mouseEvent.dwMousePosition.Y) });
-                    }
-                    else if (mouseEvent.dwButtonState == RIGHTMOST_BUTTON_PRESSED)
-                    {
-                        inputEvents.SetMouseEvent(EMouseInputEvent::RClick);
-                        inputEvents.SetMousePosition(Vec2{ static_cast<f32>(mouseEvent.dwMousePosition.X), static_cast<f32>(mouseEvent.dwMousePosition.Y) });
-                    }
-                    else
-                    {
-                        // Unhandled
-                    }
+                    //keyboardKeyCode = static_cast<u32>(wParam);
                     break;
                 }
 
-                case MOUSE_MOVED:
+                case WM_KEYUP:
                 {
-                    inputEvents.SetMouseEvent(EMouseInputEvent::Move);
-                    inputEvents.SetMousePosition(Vec2{ static_cast<f32>(mouseEvent.dwMousePosition.X), static_cast<f32>(mouseEvent.dwMousePosition.Y) });
+                    //keyboardKeyCode = static_cast<u32>(wParam);
+                    break;
+                }
+
+                case WM_LBUTTONDOWN:
+                {
+                    s_InputEvents.SetMouseEvent(EMouseInputEvent::LClick);
+                    break;
+                }
+
+                case WM_RBUTTONDOWN:
+                {
+                    s_InputEvents.SetMouseEvent(EMouseInputEvent::RClick);
+                    break;
+                }
+
+                case WM_MOUSEMOVE:
+                {
+                    POINTS mousePosition = MAKEPOINTS(lParam);
+                    s_InputEvents.SetMouseEvent(EMouseInputEvent::Move);
+                    s_InputEvents.SetMousePosition(Vec2{ static_cast<f32>(mousePosition.x), static_cast<f32>(mousePosition.x) });
+                    break;
+                }
+
+                case WM_DESTROY:
+                {
+                    PostQuitMessage(0);
+                    s_InputEvents.SetPressedQuit(true);
+                    break;
+                }
+
+                default:
+                {
+                    returnValue = DefWindowProc(windowHandle, message, wParam, lParam);
                     break;
                 }
             }
+
+            return returnValue;
         }
     }
 }

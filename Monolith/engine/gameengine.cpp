@@ -49,7 +49,7 @@ namespace Monolith
 
         f32 deltaTime{ 0.033f };
         auto previousTime = std::chrono::steady_clock::now();
-        while (FlowHelper::IsGameRunning())
+        while (FlowHelper::IsGameRunning() && !inputEvents.GetPressedQuit())
         {
             auto frameStart = std::chrono::steady_clock::now();
 

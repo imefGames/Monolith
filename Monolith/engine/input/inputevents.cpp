@@ -13,5 +13,6 @@ namespace Monolith
         m_MouseEvent = EMouseInputEvent::None;
         m_MousePosition.GetX() = 0;
         m_MousePosition.GetY() = 0;
+        m_PressedQuit = false;
     }
 }
