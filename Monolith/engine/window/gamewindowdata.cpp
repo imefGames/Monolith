@@ -3,4 +3,10 @@
 
 namespace Monolith
 {
+    GameWindowData::GameWindowData()
+        : m_WindowHandle{ NULL }
+        , m_ScreenWidth{ 0 }
+        , m_ScreenHeight{ 0 }
+    {
+    }
 }

@@ -12,7 +12,7 @@ namespace Monolith
     class GameEngine
     {
     public:
-        void Init(const GameWindowData& gameWindowData);
+        void Init(GameWindowData& gameWindowData);
         void Shutdown();
         void RunGameLoop();
 

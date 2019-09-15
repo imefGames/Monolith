@@ -3,6 +3,7 @@
 
 #include <engine/input/inputevents.h>
 #include <engine/rendering/renderingcontext.h>
+#include <engine/window/gamewindowdata.h>
 
 namespace Monolith
 {
@@ -24,7 +25,7 @@ namespace Monolith
     {
     }
 
-    void GameWindow::Init(const GameWindowData& gameWindowData)
+    void GameWindow::Init(GameWindowData& gameWindowData)
     {
         m_InstanceHandle = GetModuleHandle(NULL);
 
@@ -47,8 +48,11 @@ namespace Monolith
         s32 screenHeight = 600;
         s32 posX = (GetSystemMetrics(SM_CXSCREEN) - screenWidth) / 2;
         s32 posY = (GetSystemMetrics(SM_CYSCREEN) - screenHeight) / 2;
+        gameWindowData.SetScreenWidth(screenWidth);
+        gameWindowData.SetScreenHeight(screenHeight);
 
         m_WindowHandle = CreateWindow(m_ApplicationName, m_ApplicationName, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, screenWidth, screenHeight, NULL, NULL, m_InstanceHandle, NULL);
+        gameWindowData.SetWindowHandle(m_WindowHandle);
 
         ShowWindow(m_WindowHandle, SW_SHOW);
         SetForegroundWindow(m_WindowHandle);

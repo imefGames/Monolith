@@ -20,9 +20,7 @@ namespace Monolith
 
     private:
         void SetWindowSize(u32 windowWidth, u32 windowHeight);
-        void CleanBuffer();
 
-        std::vector<s8> m_CanvasBuffer;
         u32 m_CanvasWidth;
         u32 m_CanvasHeight;
     };

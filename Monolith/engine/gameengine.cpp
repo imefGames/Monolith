@@ -17,7 +17,7 @@ namespace Monolith
 {
     const char* GameEngine::K_GAME_FILE_NAME = "gamedata.json";
 
-    void GameEngine::Init(const GameWindowData& gameWindowData)
+    void GameEngine::Init(GameWindowData& gameWindowData)
     {
         m_ClassInstatiator.Init();
         m_GameWindow.Init(gameWindowData);
@@ -33,10 +33,12 @@ namespace Monolith
         ObjectSerializationHelper::LoadObject(universeDataSerializer, universeInitData);
 
         m_Universe.Init(universeInitData);
+        RenderingHelper::InitGraphics(gameWindowData);
     }
 
     void GameEngine::Shutdown()
     {
+        RenderingHelper::ShutdownGraphics();
         m_Universe.Shutdown();
         m_GameWindow.Shutdown();
         m_ClassInstatiator.Shutdown();

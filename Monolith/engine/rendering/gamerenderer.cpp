@@ -1,12 +1,19 @@
 #include <precomp.h>
 #include <engine/rendering/gamerenderer.h>
 
+#include <engine/rendering/graphicswrapper.h>
 #include <engine/rendering/renderingcontext.h>
+#include <engine/window/gamewindowdata.h>
 
 #include <Windows.h>
 
 namespace Monolith
 {
+    GameRenderer::GameRenderer()
+        : m_GraphicsWrapper{ nullptr }
+    {
+    }
+
     void GameRenderer::OnInit()
     {
         RegisterInstance(this);
@@ -17,37 +24,31 @@ namespace Monolith
         UnregisterInstance(this);
     }
 
+    void GameRenderer::InitGraphics(const GameWindowData& gameWindowData)
+    {
+        const bool K_FULL_SCREEN = false;
+        const bool K_VSYNC_ENABLED = true;
+        const float K_SCREEN_DEPTH = 1000.0f;
+        const float K_SCREEN_NEAR = 0.1f;
+        m_GraphicsWrapper = new GraphicsWrapper{};
+        m_GraphicsWrapper->Init(gameWindowData.GetScreenWidth(), gameWindowData.GetScreenHeight(), K_VSYNC_ENABLED, gameWindowData.GetWindowHandle(), K_FULL_SCREEN, K_SCREEN_DEPTH, K_SCREEN_NEAR);
+    }
+
+    void GameRenderer::ShutdownGraphics()
+    {
+        m_GraphicsWrapper->Shutdown();
+        delete m_GraphicsWrapper;
+        m_GraphicsWrapper = nullptr;
+    }
+
     void GameRenderer::StartFrame(RenderingContext& renderingContext)
     {
-        u32 bufferSize{ renderingContext.m_CanvasWidth * renderingContext.m_CanvasHeight };
-        if (bufferSize > renderingContext.m_CanvasBuffer.size())
-        {
-            renderingContext.m_CanvasBuffer.resize(bufferSize);
-        }
-
-        renderingContext.CleanBuffer();
+        m_GraphicsWrapper->BeginFrame();
     }
 
     void GameRenderer::EndFrame(RenderingContext& renderingContext)
     {
-        HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
-        CONSOLE_CURSOR_INFO cursorInfo;
-        GetConsoleCursorInfo(out, &cursorInfo);
-        cursorInfo.bVisible = false;
-        SetConsoleCursorInfo(out, &cursorInfo);
-
-        COORD pos = { 0, 0 };
-        HANDLE output = GetStdHandle(STD_OUTPUT_HANDLE);
-        SetConsoleCursorPosition(output, pos);
-
-        for (u32 j = 0; j < renderingContext.m_CanvasHeight; ++j)
-        {
-            for (u32 i = 0; i < renderingContext.m_CanvasWidth; ++i)
-            {
-                putc(renderingContext.m_CanvasBuffer[i + j * static_cast<u64>(renderingContext.m_CanvasWidth)], stdout);
-            }
-            putc('\n', stdout);
-        }
+        m_GraphicsWrapper->EndFrame();
     }
 
     namespace RenderingHelper
@@ -67,6 +68,24 @@ namespace Monolith
             if (gameRenderer != nullptr)
             {
                 gameRenderer->EndFrame(renderingContext);
+            }
+        }
+
+        void InitGraphics(const GameWindowData& gameWindowData)
+        {
+            GameRenderer* gameRenderer{ GameRenderer::Get() };
+            if (gameRenderer != nullptr)
+            {
+                gameRenderer->InitGraphics(gameWindowData);
+            }
+        }
+
+        void ShutdownGraphics()
+        {
+            GameRenderer* gameRenderer{ GameRenderer::Get() };
+            if (gameRenderer != nullptr)
+            {
+                gameRenderer->ShutdownGraphics();
             }
         }
     }

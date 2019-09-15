@@ -14,7 +14,7 @@ namespace Monolith
         GameWindow();
         ~GameWindow();
 
-        void Init(const GameWindowData& gameWindowData);
+        void Init(GameWindowData& gameWindowData);
         void Shutdown();
 
         void PollInputEvents(InputEvents& inputEvents);

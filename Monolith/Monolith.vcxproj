@@ -73,7 +73,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(ProjectDir);$(IncludePath);$(DXSDK_DIR)include</IncludePath>
-    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64;$(DXSDK_DIR)Lib\x86</LibraryPath>
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64;$(DXSDK_DIR)Lib\x64</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -157,6 +157,7 @@
     <ClCompile Include="engine\model\object.cpp" />
     <ClCompile Include="engine\model\universe.cpp" />
     <ClCompile Include="engine\model\world.cpp" />
+    <ClCompile Include="engine\rendering\graphicswrapper.cpp" />
     <ClCompile Include="engine\rendering\gamerenderer.cpp" />
     <ClCompile Include="engine\rendering\gamerendererinitdata.cpp" />
     <ClCompile Include="engine\rendering\renderingcontext.cpp" />
@@ -200,6 +201,7 @@
     <ClInclude Include="engine\model\object.h" />
     <ClInclude Include="engine\model\universe.h" />
     <ClInclude Include="engine\model\world.h" />
+    <ClInclude Include="engine\rendering\graphicswrapper.h" />
     <ClInclude Include="engine\rendering\gamerenderer.h" />
     <ClInclude Include="engine\rendering\gamerendererinitdata.h" />
     <ClInclude Include="engine\rendering\renderingcontext.h" />

@@ -116,6 +116,9 @@
     <ClCompile Include="engine\flow\actions\gotoworldflowaction.cpp">
       <Filter>engine\flow\actions</Filter>
     </ClCompile>
+    <ClCompile Include="engine\rendering\graphicswrapper.cpp">
+      <Filter>engine\rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\types.h">
@@ -244,6 +247,9 @@
     </ClInclude>
     <ClInclude Include="engine\flow\actions\gotoworldflowaction.h">
       <Filter>engine\flow\actions</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\graphicswrapper.h">
+      <Filter>engine\rendering</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
