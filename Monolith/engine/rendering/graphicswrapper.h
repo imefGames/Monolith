@@ -26,6 +26,8 @@ namespace Monolith
         void BeginFrame();
         void EndFrame();
 
+        void SetZBufferActive(bool isActive);
+
     private:
         bool m_VSyncEnabled;
         u32 m_VideoCardMemory;

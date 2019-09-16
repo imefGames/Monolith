@@ -320,13 +320,11 @@ namespace Monolith
 
     void GraphicsWrapper::EndFrame()
     {
-        if (m_VSyncEnabled)
-        {
-            m_SwapChain->Present(1, 0);
-        }
-        else
-        {
-            m_SwapChain->Present(0, 0);
-        }
+        m_SwapChain->Present(m_VSyncEnabled ? 1 : 0, 0);
+    }
+
+    void GraphicsWrapper::SetZBufferActive(bool isActive)
+    {
+        m_DeviceContext->OMSetDepthStencilState(m_DepthStencilState, isActive ? 1 : 0);
     }
 }

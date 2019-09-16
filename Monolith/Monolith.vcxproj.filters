@@ -116,6 +116,12 @@
     <ClCompile Include="engine\rendering\graphicswrapper.cpp">
       <Filter>engine\rendering</Filter>
     </ClCompile>
+    <ClCompile Include="core\matrixmath.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\vectormath.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\types.h">
@@ -246,6 +252,15 @@
       <Filter>engine\rendering</Filter>
     </ClInclude>
     <ClInclude Include="core\vectorgeneric.hpp">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\matrixgeneric.hpp">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\matrixmath.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\vectormath.h">
       <Filter>core</Filter>
     </ClInclude>
   </ItemGroup>

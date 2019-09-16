@@ -4,4 +4,5 @@
 #include <core/signal.hpp>
 #include <core/types.h>
 #include <core/math.h>
-#include <core/vectorgeneric.hpp>
+#include <core/matrixmath.h>
+#include <core/vectormath.h>

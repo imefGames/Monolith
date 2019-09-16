@@ -132,9 +132,11 @@
     <ClCompile Include="core\instantiation\classinstantiator.cpp" />
     <ClCompile Include="core\instantiation\classinstatiator.gen.cpp" />
     <ClCompile Include="core\io\filereader.cpp" />
+    <ClCompile Include="core\matrixmath.cpp" />
     <ClCompile Include="core\serialization\json\jsonnode.cpp" />
     <ClCompile Include="core\serialization\json\jsonparser.cpp" />
     <ClCompile Include="core\serialization\objectserializer.cpp" />
+    <ClCompile Include="core\vectormath.cpp" />
     <ClCompile Include="engine\flow\actions\gotoworldflowaction.cpp" />
     <ClCompile Include="engine\flow\flowaction.cpp" />
     <ClCompile Include="engine\flow\flowcondition.cpp" />
@@ -173,12 +175,15 @@
     <ClInclude Include="core\instantiation\classinstantiator.h" />
     <ClInclude Include="core\io\filereader.h" />
     <ClInclude Include="core\math.h" />
+    <ClInclude Include="core\matrixgeneric.hpp" />
+    <ClInclude Include="core\matrixmath.h" />
     <ClInclude Include="core\serialization\json\jsonnode.h" />
     <ClInclude Include="core\serialization\json\jsonparser.h" />
     <ClInclude Include="core\serialization\objectserializer.h" />
     <ClInclude Include="core\signal.hpp" />
     <ClInclude Include="core\singleton.h" />
     <ClInclude Include="core\vectorgeneric.hpp" />
+    <ClInclude Include="core\vectormath.h" />
     <ClInclude Include="engine\flow\actions\gotoworldflowaction.h" />
     <ClInclude Include="engine\flow\flowaction.h" />
     <ClInclude Include="engine\flow\flowcondition.h" />
