@@ -17,9 +17,6 @@
     <ClCompile Include="engine\input\inputevents.cpp">
       <Filter>engine\input</Filter>
     </ClCompile>
-    <ClCompile Include="core\vector2.cpp">
-      <Filter>core</Filter>
-    </ClCompile>
     <ClCompile Include="engine\model\world.cpp">
       <Filter>engine\model</Filter>
     </ClCompile>
@@ -140,9 +137,6 @@
     <ClInclude Include="engine\input\inputevents.h">
       <Filter>engine\input</Filter>
     </ClInclude>
-    <ClInclude Include="core\vector2.h">
-      <Filter>core</Filter>
-    </ClInclude>
     <ClInclude Include="engine\model\world.h">
       <Filter>engine\model</Filter>
     </ClInclude>
@@ -250,6 +244,9 @@
     </ClInclude>
     <ClInclude Include="engine\rendering\graphicswrapper.h">
       <Filter>engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="core\vectorgeneric.hpp">
+      <Filter>core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

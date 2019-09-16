@@ -44,7 +44,7 @@ namespace Monolith
         void Render(RenderingContext& renderingContext) override;
 
     private:
-        void OnMouseClick(EMouseButton mouseButton, Vec2 clickPosition);
+        void OnMouseClick(EMouseButton mouseButton, Vec2f clickPosition);
 
         std::string m_ButtonText;
         EMinesweeperGameState m_GameStateID;

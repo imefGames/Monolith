@@ -4,7 +4,7 @@
     <ClassProperties>
         <ClassPropertyModel>
             <PropertyName>GridSize</PropertyName>
-            <PropertyType>Vec2</PropertyType>
+            <PropertyType>Vec2f</PropertyType>
         </ClassPropertyModel>
     </ClassProperties>
     <ClassMethods>

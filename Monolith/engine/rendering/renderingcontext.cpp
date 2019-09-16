@@ -15,19 +15,19 @@ namespace Monolith
         m_CanvasHeight = windowHeight;
     }
 
-    void RenderingContext::DrawPoint(const Vec2& pixelPosition)
+    void RenderingContext::DrawPoint(const Vec2f& pixelPosition)
     {
     }
 
-    void RenderingContext::DrawCharacter(const Vec2& pixelPosition, s8 character)
+    void RenderingContext::DrawCharacter(const Vec2f& pixelPosition, s8 character)
     {
     }
 
-    void RenderingContext::DrawText(const Vec2& textPosition, const std::string& text)
+    void RenderingContext::DrawText(const Vec2f& textPosition, const std::string& text)
     {
     }
 
-    void RenderingContext::DrawRectangle(const Vec2& topLeftPosition, const Vec2& bottomRightPosition)
+    void RenderingContext::DrawRectangle(const Vec2f& topLeftPosition, const Vec2f& bottomRightPosition)
     {
     }
 }

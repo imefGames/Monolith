@@ -119,7 +119,7 @@ namespace Monolith
                 {
                     POINTS mousePosition = MAKEPOINTS(lParam);
                     s_InputEvents.SetMouseEvent(EMouseInputEvent::Move);
-                    s_InputEvents.SetMousePosition(Vec2{ static_cast<f32>(mousePosition.x), static_cast<f32>(mousePosition.x) });
+                    s_InputEvents.SetMousePosition(Vec2f{ static_cast<f32>(mousePosition.x), static_cast<f32>(mousePosition.x) });
                     break;
                 }
 

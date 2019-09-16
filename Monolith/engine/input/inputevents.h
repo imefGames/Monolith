@@ -17,8 +17,8 @@ namespace Monolith
 
         inline EMouseInputEvent GetMouseEvent() const { return m_MouseEvent; }
         inline void SetMouseEvent(EMouseInputEvent mouseInputEvent) { m_MouseEvent = mouseInputEvent; }
-        inline const Vec2& GetMousePosition() const { return m_MousePosition; }
-        inline void SetMousePosition(const Vec2& position) { m_MousePosition = position; }
+        inline const Vec2f& GetMousePosition() const { return m_MousePosition; }
+        inline void SetMousePosition(const Vec2f& position) { m_MousePosition = position; }
         inline bool GetPressedQuit() const { return m_PressedQuit; }
         inline void SetPressedQuit(bool pressedQuit) { m_PressedQuit = pressedQuit; }
 
@@ -26,7 +26,7 @@ namespace Monolith
 
     private:
         EMouseInputEvent m_MouseEvent;
-        Vec2 m_MousePosition;
+        Vec2f m_MousePosition;
         bool m_PressedQuit;
     };
 }

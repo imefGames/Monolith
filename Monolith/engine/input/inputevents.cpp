@@ -11,8 +11,8 @@ namespace Monolith
     void InputEvents::Reset()
     {
         m_MouseEvent = EMouseInputEvent::None;
-        m_MousePosition.GetX() = 0;
-        m_MousePosition.GetY() = 0;
+        m_MousePosition[0] = 0;
+        m_MousePosition[1] = 0;
         m_PressedQuit = false;
     }
 }

@@ -36,8 +36,8 @@ namespace Monolith
 
     GridEntity::GridEntity(const GridEntityInitData& gridEntityInitData)
         : Entity{ gridEntityInitData }
-        , m_GridSizeX{ static_cast<u32>(gridEntityInitData.GetGridSize().GetX()) }
-        , m_GridSizeY{ static_cast<u32>(gridEntityInitData.GetGridSize().GetY()) }
+        , m_GridSizeX{ static_cast<u32>(gridEntityInitData.GetGridSize()[0]) }
+        , m_GridSizeY{ static_cast<u32>(gridEntityInitData.GetGridSize()[1]) }
         , m_MouseClickSlotID{ u32Max }
     {
         GenerateGrid();
@@ -60,8 +60,8 @@ namespace Monolith
 
     void GridEntity::Render(RenderingContext& renderingContext)
     {
-        Vec2 topLeft{ GetPosition() };
-        Vec2 bottomRight{ GetPosition() + Vec2{ m_GridSizeX + 2.0f, m_GridSizeY + 2.0f } };
+        Vec2f topLeft{ GetPosition() };
+        Vec2f bottomRight{ GetPosition() + Vec2f{ m_GridSizeX + 2.0f, m_GridSizeY + 2.0f } };
         renderingContext.DrawRectangle(topLeft, bottomRight);
 
         for (u32 j = 0; j < m_GridSizeY; ++j)
@@ -74,22 +74,22 @@ namespace Monolith
                 {
                     cellValue = cell.m_Value;
                 }
-                renderingContext.DrawCharacter(topLeft + Vec2{ i + 1.0f, j + 1.0f }, cellValue);
+                renderingContext.DrawCharacter(topLeft + Vec2f{ i + 1.0f, j + 1.0f }, cellValue);
             }
         }
     }
 
-    void GridEntity::OnMouseClick(EMouseButton mouseButton, Vec2 clickPosition)
+    void GridEntity::OnMouseClick(EMouseButton mouseButton, Vec2f clickPosition)
     {
         if (MinesweeperGameSystem::Get()->GetGameState() == EMinesweeperGameState::InGame)
         {
-            Vec2 topLeft{ GetPosition() + Vec2{ 1.0f, 1.0f } };
-            Vec2 bottomRight{ GetPosition() + Vec2{ m_GridSizeX + 1.0f, m_GridSizeY + 1.0f } };
-            if (clickPosition.GetX() >= topLeft.GetX() && clickPosition.GetX() <= bottomRight.GetX() &&
-                clickPosition.GetY() >= topLeft.GetY() && clickPosition.GetY() <= bottomRight.GetY())
+            Vec2f topLeft{ GetPosition() + Vec2f{ 1.0f, 1.0f } };
+            Vec2f bottomRight{ GetPosition() + Vec2f{ m_GridSizeX + 1.0f, m_GridSizeY + 1.0f } };
+            if (clickPosition[0] >= topLeft[0] && clickPosition[0] <= bottomRight[0] &&
+                clickPosition[1] >= topLeft[1] && clickPosition[1] <= bottomRight[1])
             {
-                u32 clickedCellX{ static_cast<u32>(clickPosition.GetX() - topLeft.GetX()) };
-                u32 clickedCellY{ static_cast<u32>(clickPosition.GetY() - topLeft.GetY()) };
+                u32 clickedCellX{ static_cast<u32>(clickPosition[0] - topLeft[0]) };
+                u32 clickedCellY{ static_cast<u32>(clickPosition[1] - topLeft[1]) };
                 RevealCell(clickedCellX, clickedCellY);
                 UpdateGameState();
             }

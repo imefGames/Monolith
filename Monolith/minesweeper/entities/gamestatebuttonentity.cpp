@@ -59,18 +59,18 @@ namespace Monolith
 
     void GameStateButtonEntity::Render(RenderingContext& renderingContext)
     {
-        Vec2 topLeft{ GetPosition() };
-        Vec2 bottomRight{ GetPosition() + Vec2{ 2.0f + m_ButtonText.size(), 3.0f } };
+        Vec2f topLeft{ GetPosition() };
+        Vec2f bottomRight{ GetPosition() + Vec2f{ 2.0f + m_ButtonText.size(), 3.0f } };
         renderingContext.DrawRectangle(topLeft, bottomRight);
-        renderingContext.DrawText(topLeft + Vec2{ 1.0f, 1.0f }, m_ButtonText);
+        renderingContext.DrawText(topLeft + Vec2f{ 1.0f, 1.0f }, m_ButtonText);
     }
 
-    void GameStateButtonEntity::OnMouseClick(EMouseButton mouseButton, Vec2 clickPosition)
+    void GameStateButtonEntity::OnMouseClick(EMouseButton mouseButton, Vec2f clickPosition)
     {
-        Vec2 topLeft{ GetPosition() };
-        Vec2 bottomRight{ GetPosition() + Vec2{ 2.0f + m_ButtonText.size(), 3.0f } };
-        if (clickPosition.GetX() >= topLeft.GetX() && clickPosition.GetX() <= bottomRight.GetX() &&
-            clickPosition.GetY() >= topLeft.GetY() && clickPosition.GetY() <= bottomRight.GetY())
+        Vec2f topLeft{ GetPosition() };
+        Vec2f bottomRight{ GetPosition() + Vec2f{ 2.0f + m_ButtonText.size(), 3.0f } };
+        if (clickPosition[0] >= topLeft[0] && clickPosition[0] <= bottomRight[0] &&
+            clickPosition[1] >= topLeft[1] && clickPosition[1] <= bottomRight[1])
         {
             MinesweeperGameSystem::Get()->SetGameState(m_GameStateID);
         }
