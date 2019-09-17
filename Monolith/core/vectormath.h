@@ -18,6 +18,20 @@ namespace Monolith
                 }
                 return result;
             }
+
+            template <class DataType, u32 VectorSize>
+            VecGeneric<DataType, VectorSize> Normalize(const VecGeneric<DataType, VectorSize>& vector)
+            {
+                VecGeneric<DataType, VectorSize> newVector{ vector };
+                DataType distance{ Math::Sqrt(DotProduct(newVector, newVector)) };
+                for (u32 i = 0; i < VectorSize; ++i)
+                {
+                    newVector[i] /= distance;
+                }
+                return newVector;
+            }
+
+            Vec3f CrossProduct(const Vec3f& vector1, const Vec3f& vector2);
         }
     }
 }

@@ -15,5 +15,7 @@ namespace Monolith
         {
             return (rhs > lhs ? rhs : lhs);
         }
+
+        f32 Sqrt(f32 x);
     }
 }

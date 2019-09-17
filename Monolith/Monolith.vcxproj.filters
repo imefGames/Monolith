@@ -122,6 +122,15 @@
     <ClCompile Include="core\vectormath.cpp">
       <Filter>core</Filter>
     </ClCompile>
+    <ClCompile Include="engine\rendering\shaders\shader.cpp">
+      <Filter>engine\rendering\shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\rendering\camera.cpp">
+      <Filter>engine\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="core\math.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\types.h">
@@ -263,6 +272,12 @@
     <ClInclude Include="core\vectormath.h">
       <Filter>core</Filter>
     </ClInclude>
+    <ClInclude Include="engine\rendering\shaders\shader.h">
+      <Filter>engine\rendering\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\camera.h">
+      <Filter>engine\rendering</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="engine">
@@ -315,6 +330,9 @@
     </Filter>
     <Filter Include="engine\flow\actions">
       <UniqueIdentifier>{e97ca13e-b961-4a6d-88f5-061c51687925}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\rendering\shaders">
+      <UniqueIdentifier>{c3b470e0-8f7f-44ce-9a05-e421f9bbe06f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

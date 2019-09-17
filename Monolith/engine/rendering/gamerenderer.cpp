@@ -43,6 +43,7 @@ namespace Monolith
 
     void GameRenderer::StartFrame(RenderingContext& renderingContext)
     {
+        renderingContext.m_Camera.ComputeViewMatrix();
         m_GraphicsWrapper->BeginFrame();
     }
 

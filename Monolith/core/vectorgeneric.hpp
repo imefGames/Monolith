@@ -23,7 +23,7 @@ namespace Monolith
             u32 maxIndex{ Math::Min(VectorSize, OtherVectorSize) };
             for (u32 i = 0; i < maxIndex; ++i)
             {
-                m_Values[i] = otherVector.m_Values[i];
+                m_Values[i] = otherVector[i];
             }
         }
 
@@ -47,6 +47,17 @@ namespace Monolith
         for (u32 i = 0; i < VectorSize; ++i)
         {
             newVector[i] += lhs[i];
+        }
+        return newVector;
+    }
+
+    template <class DataType, u32 VectorSize>
+    VecGeneric<DataType, VectorSize> operator-(const VecGeneric<DataType, VectorSize>& rhs, const VecGeneric<DataType, VectorSize>& lhs)
+    {
+        VecGeneric<DataType, VectorSize> newVector{ rhs };
+        for (u32 i = 0; i < VectorSize; ++i)
+        {
+            newVector[i] -= lhs[i];
         }
         return newVector;
     }

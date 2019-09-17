@@ -1,5 +1,7 @@
 #pragma once
 
+#include <engine/rendering/camera.h>
+
 #include <vector>
 #include <string>
 
@@ -21,7 +23,6 @@ namespace Monolith
     private:
         void SetWindowSize(u32 windowWidth, u32 windowHeight);
 
-        u32 m_CanvasWidth;
-        u32 m_CanvasHeight;
+        Camera m_Camera;
     };
 }
