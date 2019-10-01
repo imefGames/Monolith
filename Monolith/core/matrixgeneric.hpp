@@ -46,7 +46,7 @@ namespace Monolith
             MatrixGeneric<DataType, VectorSize> newMatrix{};
             for (u32 i = 0; i < VectorSize; ++i)
             {
-                m_Values[(1 + VectorSize) * i] = 1;
+                newMatrix.m_Values[(1 + VectorSize) * i] = 1;
             }
             return newMatrix;
         }

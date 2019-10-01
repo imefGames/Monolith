@@ -4,6 +4,7 @@
 namespace Monolith
 {
     RenderingContext::RenderingContext()
+        : m_GraphicsWrapper{ nullptr }
     {
     }
 

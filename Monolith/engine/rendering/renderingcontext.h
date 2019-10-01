@@ -7,6 +7,8 @@
 
 namespace Monolith
 {
+    class GraphicsWrapper;
+
     class RenderingContext
     {
         friend class GameRenderer;
@@ -14,6 +16,11 @@ namespace Monolith
 
     public:
         RenderingContext();
+
+        inline const GraphicsWrapper* GetGraphicsWrapper() const { return m_GraphicsWrapper; }
+        inline const Mat44f& GetProjectionMatrix() const { return m_ProjectionMatrix; }
+        inline const Mat44f& GetViewMatrix() const { return m_ViewMatrix; }
+        inline const Mat44f& GetWorldMatrix() const { return m_WorldMatrix; }
 
         void DrawPoint(const Vec2f& pixelPosition);
         void DrawCharacter(const Vec2f& pixelPosition, s8 character);
@@ -23,6 +30,10 @@ namespace Monolith
     private:
         void SetWindowSize(u32 windowWidth, u32 windowHeight);
 
+        Mat44f m_ProjectionMatrix;
+        Mat44f m_ViewMatrix;
+        Mat44f m_WorldMatrix;
         Camera m_Camera;
+        GraphicsWrapper* m_GraphicsWrapper;
     };
 }

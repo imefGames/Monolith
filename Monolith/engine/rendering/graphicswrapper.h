@@ -20,7 +20,10 @@ namespace Monolith
         GraphicsWrapper();
         ~GraphicsWrapper();
 
-        bool Init(s32 screenWidth, s32 screenHeight, bool vsync, HWND windowHandle, bool fullscreen, f32 screenDepth, f32 screenNear);
+        inline ID3D11Device* GetDevice() const { return m_Device; }
+        inline ID3D11DeviceContext* GetDeviceContext() const { return m_DeviceContext; }
+
+        bool Init(s32 screenWidth, s32 screenHeight, bool vsync, HWND windowHandle, bool fullscreen);
         void Shutdown();
 
         void BeginFrame();
@@ -39,8 +42,5 @@ namespace Monolith
         ID3D11DepthStencilState* m_DepthStencilState;
         ID3D11DepthStencilView* m_DepthStencilView;
         ID3D11RasterizerState* m_RasterState;
-        D3DXMATRIX m_ProjectionMatrix;
-        D3DXMATRIX m_WorldMatrix;
-        D3DXMATRIX m_orthoMatrix;
     };
 }

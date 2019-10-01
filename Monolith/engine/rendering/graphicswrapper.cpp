@@ -21,7 +21,7 @@ namespace Monolith
     {
     }
 
-    bool GraphicsWrapper::Init(s32 screenWidth, s32 screenHeight, bool vsync, HWND windowHandle, bool fullscreen, f32 screenDepth, f32 screenNear)
+    bool GraphicsWrapper::Init(s32 screenWidth, s32 screenHeight, bool vsync, HWND windowHandle, bool fullscreen)
     {
         HRESULT result;
         IDXGIFactory* factory{ nullptr };
@@ -34,8 +34,6 @@ namespace Monolith
         s32 error{ 0 };
         ID3D11Texture2D* backBufferPtr{ nullptr };
         D3D11_VIEWPORT viewport;
-        f32 fieldOfView{ 0.0f };
-        f32 screenAspect{ 0.0f };
 
         m_VSyncEnabled = vsync;
         result = CreateDXGIFactory(__uuidof(IDXGIFactory), (void**)& factory);
@@ -245,12 +243,6 @@ namespace Monolith
         viewport.TopLeftX = 0.0f;
         viewport.TopLeftY = 0.0f;
         m_DeviceContext->RSSetViewports(1, &viewport);
-
-        fieldOfView = static_cast<f32>(D3DX_PI) / 4.0f;
-        screenAspect = static_cast<f32>(screenWidth) / static_cast<f32>(screenHeight);
-        D3DXMatrixPerspectiveFovLH(&m_ProjectionMatrix, fieldOfView, screenAspect, screenNear, screenDepth);
-        D3DXMatrixIdentity(&m_WorldMatrix);
-        D3DXMatrixOrthoLH(&m_orthoMatrix, (float)screenWidth, (float)screenHeight, screenNear, screenDepth);
 
         return true;
     }

@@ -4,6 +4,8 @@ namespace Monolith
 {
     namespace Math
     {
+        constexpr float PI = 3.1415926536f;
+
         template <class T>
         T Min(T rhs, T lhs)
         {

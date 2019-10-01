@@ -163,6 +163,7 @@
     <ClCompile Include="engine\rendering\graphicswrapper.cpp" />
     <ClCompile Include="engine\rendering\gamerenderer.cpp" />
     <ClCompile Include="engine\rendering\gamerendererinitdata.cpp" />
+    <ClCompile Include="engine\rendering\model.cpp" />
     <ClCompile Include="engine\rendering\renderingcontext.cpp" />
     <ClCompile Include="engine\rendering\shaders\shader.cpp" />
     <ClCompile Include="engine\window\gamewindow.cpp" />
@@ -212,6 +213,7 @@
     <ClInclude Include="engine\rendering\graphicswrapper.h" />
     <ClInclude Include="engine\rendering\gamerenderer.h" />
     <ClInclude Include="engine\rendering\gamerendererinitdata.h" />
+    <ClInclude Include="engine\rendering\model.h" />
     <ClInclude Include="engine\rendering\renderingcontext.h" />
     <ClInclude Include="engine\rendering\shaders\shader.h" />
     <ClInclude Include="engine\window\gamewindow.h" />
@@ -236,6 +238,8 @@
     <None Include="engine\model\data\universeinitdata.cdt" />
     <None Include="engine\model\data\worldinitdata.cdt" />
     <None Include="engine\rendering\gamerendererinitdata.cdt" />
+    <None Include="engine\rendering\shaders\color.ps" />
+    <None Include="engine\rendering\shaders\color.vs" />
     <None Include="gamedata.json" />
     <None Include="minesweeper\entities\gamestatebuttonentity.cdt" />
     <None Include="minesweeper\entities\gridentity.cdt" />
