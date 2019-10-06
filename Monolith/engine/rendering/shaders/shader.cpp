@@ -1,6 +1,7 @@
 #include <precomp.h>
 #include <engine/rendering/shaders/shader.h>
 
+#include <engine/rendering/gamerenderer.h>
 #include <engine/rendering/graphicswrapper.h>
 #include <engine/rendering/renderingcontext.h>
 
@@ -15,9 +16,9 @@ namespace Monolith
     }
 
 
-    void Shader::Init(const RenderingContext& renderingContext)
+    void Shader::Init()
     {
-        ID3D11Device* device{ renderingContext.GetGraphicsWrapper()->GetDevice() };
+        ID3D11Device* device{ GameRenderer::Get()->GetGraphicDeviceData().GetDevice() };
         ID3D10Blob* errorMessage{ nullptr };
         ID3D10Blob* vertexShaderBuffer{ nullptr };
         ID3D10Blob* pixelShaderBuffer{ nullptr };

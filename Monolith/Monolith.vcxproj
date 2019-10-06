@@ -160,6 +160,7 @@
     <ClCompile Include="engine\model\universe.cpp" />
     <ClCompile Include="engine\model\world.cpp" />
     <ClCompile Include="engine\rendering\camera.cpp" />
+    <ClCompile Include="engine\rendering\graphicdevicedata.cpp" />
     <ClCompile Include="engine\rendering\graphicswrapper.cpp" />
     <ClCompile Include="engine\rendering\gamerenderer.cpp" />
     <ClCompile Include="engine\rendering\gamerendererinitdata.cpp" />
@@ -210,6 +211,7 @@
     <ClInclude Include="engine\model\universe.h" />
     <ClInclude Include="engine\model\world.h" />
     <ClInclude Include="engine\rendering\camera.h" />
+    <ClInclude Include="engine\rendering\graphicdevicedata.h" />
     <ClInclude Include="engine\rendering\graphicswrapper.h" />
     <ClInclude Include="engine\rendering\gamerenderer.h" />
     <ClInclude Include="engine\rendering\gamerendererinitdata.h" />

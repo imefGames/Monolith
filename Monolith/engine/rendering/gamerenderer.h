@@ -2,6 +2,7 @@
 
 #include <core/singleton.h>
 #include <engine/model/gamesystem.h>
+#include <engine/rendering/graphicdevicedata.h>
 
 namespace Monolith
 {
@@ -14,6 +15,8 @@ namespace Monolith
     public:
         GameRenderer();
 
+        inline const GraphicDeviceData& GetGraphicDeviceData() const { return m_GraphicDeviceData; }
+
         void InitGraphics(const GameWindowData& gameWindowData);
         void ShutdownGraphics();
         void StartFrame(RenderingContext& inputEvents);
@@ -25,6 +28,7 @@ namespace Monolith
 
     private:
         GraphicsWrapper* m_GraphicsWrapper;
+        GraphicDeviceData m_GraphicDeviceData;
     };
 
     namespace RenderingHelper

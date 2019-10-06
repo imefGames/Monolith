@@ -21,7 +21,7 @@ namespace Monolith
     public:
         Shader();
 
-        void Init(const RenderingContext& renderingContext);
+        void Init();
         void Shutdown();
         void Render(const RenderingContext& renderingContext, s32 indexCount);
 

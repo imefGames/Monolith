@@ -19,7 +19,7 @@ namespace Monolith
     public:
         Model();
 
-        void Init(const RenderingContext& renderingContext);
+        void Init();
         void Shutdown();
         void SetupRender(const RenderingContext& renderingContext);
 

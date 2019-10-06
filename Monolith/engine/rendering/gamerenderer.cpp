@@ -38,6 +38,8 @@ namespace Monolith
     {
         m_GraphicsWrapper = new GraphicsWrapper{};
         m_GraphicsWrapper->Init(gameWindowData.GetScreenWidth(), gameWindowData.GetScreenHeight(), K_VSYNC_ENABLED, gameWindowData.GetWindowHandle(), K_FULL_SCREEN);
+
+        m_GraphicDeviceData.SetupDevice(*m_GraphicsWrapper);
     }
 
     void GameRenderer::ShutdownGraphics()
@@ -62,8 +64,8 @@ namespace Monolith
         Shader s;
         Model m;
 
-        s.Init(renderingContext);
-        m.Init(renderingContext);
+        s.Init();
+        m.Init();
 
         m.SetupRender(renderingContext);
         s.Render(renderingContext, m.GetIndexCount());

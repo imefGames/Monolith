@@ -134,6 +134,9 @@
     <ClCompile Include="engine\rendering\model.cpp">
       <Filter>engine\rendering</Filter>
     </ClCompile>
+    <ClCompile Include="engine\rendering\graphicdevicedata.cpp">
+      <Filter>engine\rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\types.h">
@@ -282,6 +285,9 @@
       <Filter>engine\rendering</Filter>
     </ClInclude>
     <ClInclude Include="engine\rendering\model.h">
+      <Filter>engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\graphicdevicedata.h">
       <Filter>engine\rendering</Filter>
     </ClInclude>
   </ItemGroup>

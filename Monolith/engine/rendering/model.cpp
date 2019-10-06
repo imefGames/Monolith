@@ -1,6 +1,7 @@
 #include <precomp.h>
 #include <engine/rendering/model.h>
 
+#include <engine/rendering/gamerenderer.h>
 #include <engine/rendering/graphicswrapper.h>
 #include <engine/rendering/renderingcontext.h>
 
@@ -14,7 +15,7 @@ namespace Monolith
     {
     }
 
-    void Model::Init(const RenderingContext& renderingContext)
+    void Model::Init()
     {
         m_VertexCount = 3;
         m_IndexCount = 3;
@@ -23,13 +24,13 @@ namespace Monolith
         u32* indices{ new u32[m_IndexCount] };
 
         vertices[0].m_Position = Vec3f{ -1.0f, -1.0f, 0.0f };
-        vertices[0].m_Color = Vec4f{ 0.0f, 1.0f, 0.0f, 1.0f };
+        vertices[0].m_Color = Vec4f{ 1.0f, 0.0f, 0.0f, 1.0f };
 
         vertices[1].m_Position = Vec3f{ 0.0f, 1.0f, 0.0f };
         vertices[1].m_Color = Vec4f{ 0.0f, 1.0f, 0.0f, 1.0f };
 
         vertices[2].m_Position = Vec3f{ 1.0f, -1.0f, 0.0f };
-        vertices[2].m_Color = Vec4f{ 0.0f, 1.0f, 0.0f, 1.0f };
+        vertices[2].m_Color = Vec4f{ 0.0f, 0.0f, 1.0f, 1.0f };
 
         indices[0] = 0;
         indices[1] = 1;
@@ -48,7 +49,7 @@ namespace Monolith
         vertexData.SysMemPitch = 0;
         vertexData.SysMemSlicePitch = 0;
 
-        ID3D11Device* device{ renderingContext.GetGraphicsWrapper()->GetDevice() };
+        ID3D11Device* device{ GameRenderer::Get()->GetGraphicDeviceData().GetDevice() };
         HRESULT result = device->CreateBuffer(&vertexBufferDesc, &vertexData, &m_VertexBuffer);
         if (FAILED(result))
         {
