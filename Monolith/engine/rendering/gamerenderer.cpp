@@ -65,7 +65,18 @@ namespace Monolith
         Model m;
 
         s.Init();
-        m.Init();
+
+        std::vector<Model::VertexType> vertexList;
+        vertexList.emplace_back(Vec3f{ -1.0f, -1.0f, 0.0f }, Vec4f{ 1.0f, 0.0f, 0.0f, 1.0f });
+        vertexList.emplace_back(Vec3f{ 0.0f, 1.0f, 0.0f }, Vec4f{ 0.0f, 1.0f, 0.0f, 1.0f });
+        vertexList.emplace_back(Vec3f{ 1.0f, -1.0f, 0.0f }, Vec4f{ 0.0f, 0.0f, 1.0f, 1.0f  });
+
+        std::vector<u32> indexList;
+        indexList.push_back(0);
+        indexList.push_back(1);
+        indexList.push_back(2);
+
+        m.SetVertexList(vertexList, indexList);
 
         m.SetupRender(renderingContext);
         s.Render(renderingContext, m.GetIndexCount());

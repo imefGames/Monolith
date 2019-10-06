@@ -9,17 +9,19 @@ namespace Monolith
 
     class Model
     {
-    private:
+    public:
         struct VertexType
         {
+            VertexType(const Vec3f& position, const Vec4f& color);
+
             Vec3f m_Position;
             Vec4f m_Color;
         };
 
-    public:
         Model();
 
-        void Init();
+        void SetVertexList(const std::vector<Model::VertexType>& vertexList, const std::vector<u32>& indexList);
+        void CleanBuffers();
         void Shutdown();
         void SetupRender(const RenderingContext& renderingContext);
 

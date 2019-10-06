@@ -7,6 +7,12 @@
 
 namespace Monolith
 {
+    Model::VertexType::VertexType(const Vec3f& position, const Vec4f& color)
+        : m_Position{ position }
+        , m_Color{ color }
+    {
+    }
+
     Model::Model()
         :m_IndexBuffer{ nullptr }
         , m_VertexBuffer{ nullptr }
@@ -15,26 +21,12 @@ namespace Monolith
     {
     }
 
-    void Model::Init()
+    void Model::SetVertexList(const std::vector<Model::VertexType>& vertexList, const std::vector<u32>& indexList)
     {
-        m_VertexCount = 3;
-        m_IndexCount = 3;
+        CleanBuffers();
 
-        VertexType* vertices{ new VertexType[m_VertexCount] };
-        u32* indices{ new u32[m_IndexCount] };
-
-        vertices[0].m_Position = Vec3f{ -1.0f, -1.0f, 0.0f };
-        vertices[0].m_Color = Vec4f{ 1.0f, 0.0f, 0.0f, 1.0f };
-
-        vertices[1].m_Position = Vec3f{ 0.0f, 1.0f, 0.0f };
-        vertices[1].m_Color = Vec4f{ 0.0f, 1.0f, 0.0f, 1.0f };
-
-        vertices[2].m_Position = Vec3f{ 1.0f, -1.0f, 0.0f };
-        vertices[2].m_Color = Vec4f{ 0.0f, 0.0f, 1.0f, 1.0f };
-
-        indices[0] = 0;
-        indices[1] = 1;
-        indices[2] = 2;
+        m_VertexCount = static_cast<s32>(vertexList.size());
+        m_IndexCount = static_cast<s32>(indexList.size());
 
         D3D11_BUFFER_DESC vertexBufferDesc;
         vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
@@ -45,7 +37,7 @@ namespace Monolith
         vertexBufferDesc.StructureByteStride = 0;
 
         D3D11_SUBRESOURCE_DATA vertexData;
-        vertexData.pSysMem = vertices;
+        vertexData.pSysMem = vertexList.data();
         vertexData.SysMemPitch = 0;
         vertexData.SysMemSlicePitch = 0;
 
@@ -65,20 +57,14 @@ namespace Monolith
         indexBufferDesc.StructureByteStride = 0;
 
         D3D11_SUBRESOURCE_DATA indexData;
-        indexData.pSysMem = indices;
+        indexData.pSysMem = indexList.data();
         indexData.SysMemPitch = 0;
         indexData.SysMemSlicePitch = 0;
 
         result = device->CreateBuffer(&indexBufferDesc, &indexData, &m_IndexBuffer);
-        if (FAILED(result))
-        {
-            return;
-        }
-        delete[] vertices;
-        delete[] indices;
     }
 
-    void Model::Shutdown()
+    void Model::CleanBuffers()
     {
         if (m_IndexBuffer != nullptr)
         {
@@ -90,6 +76,11 @@ namespace Monolith
             m_VertexBuffer->Release();
             m_VertexBuffer = nullptr;
         }
+    }
+
+    void Model::Shutdown()
+    {
+        CleanBuffers();
     }
 
     void Model::SetupRender(const RenderingContext& renderingContext)
