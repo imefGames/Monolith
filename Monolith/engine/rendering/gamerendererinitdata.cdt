@@ -2,6 +2,10 @@
     <ClassName>GameRendererInitData</ClassName>
     <ParentClass>GameSystemInitData</ParentClass>
     <ClassProperties>
+        <ClassPropertyModel>
+            <PropertyName>DefaultShader</PropertyName>
+            <PropertyType>ShaderInitData</PropertyType>
+        </ClassPropertyModel>
     </ClassProperties>
     <ClassMethods>
         <ClassMethodModel>

@@ -7,6 +7,7 @@
 namespace Monolith
 {
     class RenderingContext;
+    class ShaderInitData;
 
     class Shader
     {
@@ -21,7 +22,7 @@ namespace Monolith
     public:
         Shader();
 
-        void Init();
+        void Init(const ShaderInitData& defaultShaderInitData);
         void Shutdown();
         void Render(const RenderingContext& renderingContext, s32 indexCount);
 

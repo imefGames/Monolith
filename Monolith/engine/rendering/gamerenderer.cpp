@@ -1,13 +1,14 @@
 #include <precomp.h>
 #include <engine/rendering/gamerenderer.h>
 
+#include <engine/rendering/gamerendererinitdata.h>
 #include <engine/rendering/graphicswrapper.h>
 #include <engine/rendering/renderingcontext.h>
+#include <engine/rendering/shaders/shader.h>
 #include <engine/window/gamewindowdata.h>
 
 
 #include <engine/rendering/model.h>
-#include <engine/rendering/shaders/shader.h>
 
 #include <Windows.h>
 
@@ -19,8 +20,10 @@ namespace Monolith
     const f32 K_SCREEN_NEAR = 0.1f;
     const f32 K_FIELD_OF_VIEW = Math::PI / 4.0f;
 
-    GameRenderer::GameRenderer()
+    GameRenderer::GameRenderer(const GameRendererInitData& initData)
         : m_GraphicsWrapper{ nullptr }
+        , m_DefaultShader{ nullptr }
+        , m_DefaultShaderInitData{ initData.GetDefaultShader() }
     {
     }
 
@@ -40,10 +43,17 @@ namespace Monolith
         m_GraphicsWrapper->Init(gameWindowData.GetScreenWidth(), gameWindowData.GetScreenHeight(), K_VSYNC_ENABLED, gameWindowData.GetWindowHandle(), K_FULL_SCREEN);
 
         m_GraphicDeviceData.SetupDevice(*m_GraphicsWrapper);
+
+        m_DefaultShader = new Shader{};
+        m_DefaultShader->Init(m_DefaultShaderInitData);
     }
 
     void GameRenderer::ShutdownGraphics()
     {
+        m_DefaultShader->Shutdown();
+        delete m_DefaultShader;
+        m_DefaultShader = nullptr;
+
         m_GraphicsWrapper->Shutdown();
         delete m_GraphicsWrapper;
         m_GraphicsWrapper = nullptr;
@@ -58,13 +68,10 @@ namespace Monolith
         renderingContext.m_WorldMatrix = Mat44f::GetIdentity();
         //TODO: get aspect ratio from screen size.
         renderingContext.m_ProjectionMatrix = Math::Matrix::PerspectiveProjection(K_FIELD_OF_VIEW, 800.0f/600.0f, K_SCREEN_NEAR, K_SCREEN_DEPTH);
+        renderingContext.m_DefaultShader = m_DefaultShader;
+        renderingContext.m_CurrentShader = renderingContext.m_DefaultShader;
 
         m_GraphicsWrapper->BeginFrame();
-
-        Shader s;
-        Model m;
-
-        s.Init();
 
         std::vector<Model::VertexType> vertexList;
         vertexList.emplace_back(Vec3f{ -1.0f, -1.0f, 0.0f }, Vec4f{ 1.0f, 0.0f, 0.0f, 1.0f });
@@ -76,19 +83,20 @@ namespace Monolith
         indexList.push_back(1);
         indexList.push_back(2);
 
+        Model m;
         m.SetVertexList(vertexList, indexList);
-
-        m.SetupRender(renderingContext);
-        s.Render(renderingContext, m.GetIndexCount());
+        renderingContext.DrawModel(m);
 
         m.Shutdown();
-        s.Shutdown();
+
     }
 
     void GameRenderer::EndFrame(RenderingContext& renderingContext)
     {
         m_GraphicsWrapper->EndFrame();
         renderingContext.m_GraphicsWrapper = nullptr;
+        renderingContext.m_DefaultShader = nullptr;
+        renderingContext.m_CurrentShader = nullptr;
     }
 
     namespace RenderingHelper

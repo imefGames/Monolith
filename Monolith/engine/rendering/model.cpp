@@ -83,7 +83,7 @@ namespace Monolith
         CleanBuffers();
     }
 
-    void Model::SetupRender(const RenderingContext& renderingContext)
+    void Model::SetupRender(const RenderingContext& renderingContext) const
     {
         unsigned int stride{ sizeof(VertexType) };
         unsigned int offset{ 0 };

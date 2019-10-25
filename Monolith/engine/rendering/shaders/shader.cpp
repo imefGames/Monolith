@@ -16,7 +16,7 @@ namespace Monolith
     }
 
 
-    void Shader::Init()
+    void Shader::Init(const ShaderInitData& defaultShaderInitData)
     {
         ID3D11Device* device{ GameRenderer::Get()->GetGraphicDeviceData().GetDevice() };
         ID3D10Blob* errorMessage{ nullptr };

@@ -1,0 +1,12 @@
+﻿<ClassModel>
+    <ClassName>ShaderInitData</ClassName>
+    <ClassProperties>
+    </ClassProperties>
+    <ClassMethods>
+        <ClassMethodModel>
+            <MethodReturnType>Shader*</MethodReturnType>
+            <MethodName>InstantiateShader</MethodName>
+            <IsConst>true</IsConst>
+        </ClassMethodModel>
+    </ClassMethods>
+</ClassModel>

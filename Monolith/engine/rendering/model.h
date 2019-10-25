@@ -23,7 +23,7 @@ namespace Monolith
         void SetVertexList(const std::vector<Model::VertexType>& vertexList, const std::vector<u32>& indexList);
         void CleanBuffers();
         void Shutdown();
-        void SetupRender(const RenderingContext& renderingContext);
+        void SetupRender(const RenderingContext& renderingContext) const;
 
         inline s32 GetIndexCount() const { return m_IndexCount; }
 

@@ -9,6 +9,7 @@ namespace Monolith
 #pragma region GeneratedCodeSource
     GameRendererInitData::GameRendererInitData()
         : super{}
+        , m_DefaultShader{  }
     {
     }
 
@@ -19,11 +20,12 @@ namespace Monolith
     void GameRendererInitData::LoadObject(const ObjectSerializer& serializer)
     {
         super::LoadObject(serializer);
+        ObjectSerializationHelper::LoadObject(serializer["DefaultShader"], m_DefaultShader);
     }
 #pragma endregion //GeneratedCodeSource
 
     GameSystem* GameRendererInitData::InstantiateGameSystem() const
     {
-        return new GameRenderer();
+        return new GameRenderer(*this);
     }
 }

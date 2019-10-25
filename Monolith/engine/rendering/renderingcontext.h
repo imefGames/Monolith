@@ -8,6 +8,8 @@
 namespace Monolith
 {
     class GraphicsWrapper;
+    class Model;
+    class Shader;
 
     class RenderingContext
     {
@@ -24,8 +26,9 @@ namespace Monolith
 
         void DrawPoint(const Vec2f& pixelPosition);
         void DrawCharacter(const Vec2f& pixelPosition, s8 character);
-        void DrawText(const Vec2f& textPosition, const std::string& text);
+        void DrawString(const Vec2f& textPosition, const std::string& text);
         void DrawRectangle(const Vec2f& topLeftPosition, const Vec2f& bottomRightPosition);
+        void DrawModel(const Model& model);
 
     private:
         void SetWindowSize(u32 windowWidth, u32 windowHeight);
@@ -35,5 +38,7 @@ namespace Monolith
         Mat44f m_WorldMatrix;
         Camera m_Camera;
         GraphicsWrapper* m_GraphicsWrapper;
+        Shader* m_CurrentShader;
+        Shader* m_DefaultShader;
     };
 }

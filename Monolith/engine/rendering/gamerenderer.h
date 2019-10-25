@@ -3,17 +3,20 @@
 #include <core/singleton.h>
 #include <engine/model/gamesystem.h>
 #include <engine/rendering/graphicdevicedata.h>
+#include <engine/rendering/shaders/shaderinitdata.h>
 
 namespace Monolith
 {
-    class RenderingContext;
+    class GameRendererInitData;
     class GameWindowData;
     class GraphicsWrapper;
+    class RenderingContext;
+    class Shader;
 
     class GameRenderer : public GameSystem, public Singleton<GameRenderer>
     {
     public:
-        GameRenderer();
+        GameRenderer(const GameRendererInitData& initData);
 
         inline const GraphicDeviceData& GetGraphicDeviceData() const { return m_GraphicDeviceData; }
 
@@ -29,6 +32,8 @@ namespace Monolith
     private:
         GraphicsWrapper* m_GraphicsWrapper;
         GraphicDeviceData m_GraphicDeviceData;
+        ShaderInitData m_DefaultShaderInitData;
+        Shader* m_DefaultShader;
     };
 
     namespace RenderingHelper
