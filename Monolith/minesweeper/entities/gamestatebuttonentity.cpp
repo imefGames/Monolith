@@ -61,8 +61,8 @@ namespace Monolith
     {
         Vec2f topLeft{ GetPosition() };
         Vec2f bottomRight{ GetPosition() + Vec2f{ 2.0f + m_ButtonText.size(), 3.0f } };
-        renderingContext.DrawRectangle(topLeft, bottomRight);
-        renderingContext.DrawString(topLeft + Vec2f{ 1.0f, 1.0f }, m_ButtonText);
+        renderingContext.DrawRectangle2D(topLeft, bottomRight);
+        renderingContext.DrawText2D(topLeft + Vec2f{ 1.0f, 1.0f }, m_ButtonText);
     }
 
     void GameStateButtonEntity::OnMouseClick(EMouseButton mouseButton, Vec2f clickPosition)

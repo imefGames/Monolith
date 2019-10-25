@@ -17,19 +17,15 @@ namespace Monolith
     {
     }
 
-    void RenderingContext::DrawPoint(const Vec2f& pixelPosition)
+    void RenderingContext::DrawCharacter2D(const Vec2f& pixelPosition, s8 character)
     {
     }
 
-    void RenderingContext::DrawCharacter(const Vec2f& pixelPosition, s8 character)
+    void RenderingContext::DrawText2D(const Vec2f& textPosition, const std::string& text)
     {
     }
 
-    void RenderingContext::DrawString(const Vec2f& textPosition, const std::string& text)
-    {
-    }
-
-    void RenderingContext::DrawRectangle(const Vec2f& topLeftPosition, const Vec2f& bottomRightPosition)
+    void RenderingContext::DrawRectangle2D(const Vec2f& topLeftPosition, const Vec2f& bottomRightPosition)
     {
     }
 

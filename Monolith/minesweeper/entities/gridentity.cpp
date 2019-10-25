@@ -62,7 +62,7 @@ namespace Monolith
     {
         Vec2f topLeft{ GetPosition() };
         Vec2f bottomRight{ GetPosition() + Vec2f{ m_GridSizeX + 2.0f, m_GridSizeY + 2.0f } };
-        renderingContext.DrawRectangle(topLeft, bottomRight);
+        renderingContext.DrawRectangle2D(topLeft, bottomRight);
 
         for (u32 j = 0; j < m_GridSizeY; ++j)
         {
@@ -74,7 +74,7 @@ namespace Monolith
                 {
                     cellValue = cell.m_Value;
                 }
-                renderingContext.DrawCharacter(topLeft + Vec2f{ i + 1.0f, j + 1.0f }, cellValue);
+                renderingContext.DrawCharacter2D(topLeft + Vec2f{ i + 1.0f, j + 1.0f }, cellValue);
             }
         }
     }
