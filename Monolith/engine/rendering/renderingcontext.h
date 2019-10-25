@@ -18,6 +18,7 @@ namespace Monolith
 
     public:
         RenderingContext();
+        ~RenderingContext();
 
         inline const GraphicsWrapper* GetGraphicsWrapper() const { return m_GraphicsWrapper; }
         inline const Mat44f& GetProjectionMatrix() const { return m_ProjectionMatrix; }
@@ -39,5 +40,6 @@ namespace Monolith
         GraphicsWrapper* m_GraphicsWrapper;
         Shader* m_CurrentShader;
         Shader* m_DefaultShader;
+        Model* m_AllPurposeModel;
     };
 }

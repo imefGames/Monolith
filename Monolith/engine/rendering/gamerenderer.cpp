@@ -7,9 +7,6 @@
 #include <engine/rendering/shaders/shader.h>
 #include <engine/window/gamewindowdata.h>
 
-
-#include <engine/rendering/model.h>
-
 #include <Windows.h>
 
 namespace Monolith
@@ -72,23 +69,6 @@ namespace Monolith
         renderingContext.m_CurrentShader = renderingContext.m_DefaultShader;
 
         m_GraphicsWrapper->BeginFrame();
-
-        std::vector<Model::VertexType> vertexList;
-        vertexList.emplace_back(Vec3f{ -1.0f, -1.0f, 0.0f }, Vec4f{ 1.0f, 0.0f, 0.0f, 1.0f });
-        vertexList.emplace_back(Vec3f{ 0.0f, 1.0f, 0.0f }, Vec4f{ 0.0f, 1.0f, 0.0f, 1.0f });
-        vertexList.emplace_back(Vec3f{ 1.0f, -1.0f, 0.0f }, Vec4f{ 0.0f, 0.0f, 1.0f, 1.0f  });
-
-        std::vector<u32> indexList;
-        indexList.push_back(0);
-        indexList.push_back(1);
-        indexList.push_back(2);
-
-        Model m;
-        m.SetVertexList(vertexList, indexList);
-        renderingContext.DrawModel(m);
-
-        m.Shutdown();
-
     }
 
     void GameRenderer::EndFrame(RenderingContext& renderingContext)

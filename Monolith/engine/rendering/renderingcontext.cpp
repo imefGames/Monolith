@@ -10,7 +10,13 @@ namespace Monolith
         : m_GraphicsWrapper{ nullptr }
         , m_CurrentShader{ nullptr }
         , m_DefaultShader{ nullptr }
+        , m_AllPurposeModel{ new Model{} }
     {
+    }
+
+    RenderingContext::~RenderingContext()
+    {
+        m_AllPurposeModel->Shutdown();
     }
 
     void RenderingContext::SetWindowSize(u32 windowWidth, u32 windowHeight)
@@ -27,6 +33,17 @@ namespace Monolith
 
     void RenderingContext::DrawRectangle2D(const Vec2f& topLeftPosition, const Vec2f& bottomRightPosition)
     {
+        std::vector<u32> indexList{ 0, 1, 2, 0, 3, 1 };
+        std::vector<Model::VertexType> vertexList
+        {
+            { Vec3f{ -0.5f, -0.5f, 0.0f }, Vec4f{ 1.0f, 1.0f, 1.0f, 1.0f } } ,
+            { Vec3f{ 0.5f, 0.5f, 0.0f },   Vec4f{ 1.0f, 1.0f, 1.0f, 1.0f } } ,
+            { Vec3f{ 0.5f, -0.5f, 0.0f },  Vec4f{ 1.0f, 1.0f, 1.0f, 1.0f } } ,
+            { Vec3f{ -0.5f, 0.5f, 0.0f },  Vec4f{ 1.0f, 1.0f, 1.0f, 1.0f } }
+        };
+
+        m_AllPurposeModel->SetVertexList(vertexList, indexList);
+        DrawModel(*m_AllPurposeModel);
     }
 
     void RenderingContext::DrawModel(const Model& model)
