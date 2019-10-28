@@ -33,13 +33,14 @@ namespace Monolith
 
     void RenderingContext::DrawRectangle2D(const Vec2f& topLeftPosition, const Vec2f& bottomRightPosition)
     {
+        //TODO: cache vertex buffer to limit allocation.
         std::vector<u32> indexList{ 0, 1, 2, 0, 3, 1 };
         std::vector<Model::VertexType> vertexList
         {
-            { Vec3f{ -0.5f, -0.5f, 0.0f }, Vec4f{ 1.0f, 1.0f, 1.0f, 1.0f } } ,
-            { Vec3f{ 0.5f, 0.5f, 0.0f },   Vec4f{ 1.0f, 1.0f, 1.0f, 1.0f } } ,
-            { Vec3f{ 0.5f, -0.5f, 0.0f },  Vec4f{ 1.0f, 1.0f, 1.0f, 1.0f } } ,
-            { Vec3f{ -0.5f, 0.5f, 0.0f },  Vec4f{ 1.0f, 1.0f, 1.0f, 1.0f } }
+            { Vec3f{ topLeftPosition[0], topLeftPosition[1], 0.0f }, Vec4f{ 1.0f, 1.0f, 1.0f, 1.0f } } ,
+            { Vec3f{ bottomRightPosition[0], bottomRightPosition[1], 0.0f },   Vec4f{ 1.0f, 1.0f, 1.0f, 1.0f } } ,
+            { Vec3f{ bottomRightPosition[0], topLeftPosition[1], 0.0f },  Vec4f{ 1.0f, 1.0f, 1.0f, 1.0f } } ,
+            { Vec3f{ topLeftPosition[0], bottomRightPosition[1], 0.0f },  Vec4f{ 1.0f, 1.0f, 1.0f, 1.0f } }
         };
 
         m_AllPurposeModel->SetVertexList(vertexList, indexList);
