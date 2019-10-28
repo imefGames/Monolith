@@ -30,12 +30,16 @@ namespace Monolith
         void DrawRectangle2D(const Vec2f& topLeftPosition, const Vec2f& bottomRightPosition);
         void DrawModel(const Model& model);
 
+        void SetDrawColor(const Vec4f& color);
+        void ResetDrawColor();
+
     private:
         void SetWindowSize(u32 windowWidth, u32 windowHeight);
 
         Mat44f m_ProjectionMatrix;
         Mat44f m_ViewMatrix;
         Mat44f m_WorldMatrix;
+        Vec4f m_DrawColor;
         Camera m_Camera;
         GraphicsWrapper* m_GraphicsWrapper;
         Shader* m_CurrentShader;

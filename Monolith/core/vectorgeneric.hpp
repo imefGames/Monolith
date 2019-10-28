@@ -62,6 +62,50 @@ namespace Monolith
         return newVector;
     }
 
+    template <class DataType, u32 VectorSize>
+    VecGeneric<DataType, VectorSize> operator+(const VecGeneric<DataType, VectorSize>& rhs, DataType lhs)
+    {
+        VecGeneric<DataType, VectorSize> newVector{ rhs };
+        for (u32 i = 0; i < VectorSize; ++i)
+        {
+            newVector[i] += lhs;
+        }
+        return newVector;
+    }
+
+    template <class DataType, u32 VectorSize>
+    VecGeneric<DataType, VectorSize> operator-(const VecGeneric<DataType, VectorSize>& rhs, DataType lhs)
+    {
+        VecGeneric<DataType, VectorSize> newVector{ rhs };
+        for (u32 i = 0; i < VectorSize; ++i)
+        {
+            newVector[i] -= lhs;
+        }
+        return newVector;
+    }
+
+    template <class DataType, u32 VectorSize>
+    VecGeneric<DataType, VectorSize> operator*(const VecGeneric<DataType, VectorSize>& rhs, DataType lhs)
+    {
+        VecGeneric<DataType, VectorSize> newVector{ rhs };
+        for (u32 i = 0; i < VectorSize; ++i)
+        {
+            newVector[i] *= lhs;
+        }
+        return newVector;
+    }
+
+    template <class DataType, u32 VectorSize>
+    VecGeneric<DataType, VectorSize> operator/(const VecGeneric<DataType, VectorSize>& rhs, DataType lhs)
+    {
+        VecGeneric<DataType, VectorSize> newVector{ rhs };
+        for (u32 i = 0; i < VectorSize; ++i)
+        {
+            newVector[i] /= lhs;
+        }
+        return newVector;
+    }
+
     using Vec2f = VecGeneric<f32, 2>;
     using Vec3f = VecGeneric<f32, 3>;
     using Vec4f = VecGeneric<f32, 4>;

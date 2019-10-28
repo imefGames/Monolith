@@ -11,6 +11,7 @@ namespace Monolith
         , m_CurrentShader{ nullptr }
         , m_DefaultShader{ nullptr }
         , m_AllPurposeModel{ new Model{} }
+        , m_DrawColor{ 1.0f, 1.0f, 1.0f, 1.0f }
     {
     }
 
@@ -37,10 +38,10 @@ namespace Monolith
         std::vector<u32> indexList{ 0, 2, 1, 0, 1, 3 };
         std::vector<Model::VertexType> vertexList
         {
-            { Vec3f{ topLeftPosition[0], topLeftPosition[1], 0.0f }, Vec4f{ 1.0f, 1.0f, 1.0f, 1.0f } } ,
-            { Vec3f{ bottomRightPosition[0], bottomRightPosition[1], 0.0f },   Vec4f{ 1.0f, 1.0f, 1.0f, 1.0f } } ,
-            { Vec3f{ bottomRightPosition[0], topLeftPosition[1], 0.0f },  Vec4f{ 1.0f, 1.0f, 1.0f, 1.0f } } ,
-            { Vec3f{ topLeftPosition[0], bottomRightPosition[1], 0.0f },  Vec4f{ 1.0f, 1.0f, 1.0f, 1.0f } }
+            { Vec3f{ topLeftPosition[0], topLeftPosition[1], 0.0f }, m_DrawColor } ,
+            { Vec3f{ bottomRightPosition[0], bottomRightPosition[1], 0.0f }, m_DrawColor } ,
+            { Vec3f{ bottomRightPosition[0], topLeftPosition[1], 0.0f }, m_DrawColor } ,
+            { Vec3f{ topLeftPosition[0], bottomRightPosition[1], 0.0f }, m_DrawColor }
         };
 
         m_AllPurposeModel->SetVertexList(vertexList, indexList);
@@ -54,5 +55,15 @@ namespace Monolith
             model.SetupRender(*this);
             m_CurrentShader->Render(*this, model.GetIndexCount());
         }
+    }
+
+    void RenderingContext::SetDrawColor(const Vec4f& color)
+    {
+        m_DrawColor = color;
+    }
+
+    void RenderingContext::ResetDrawColor()
+    {
+        m_DrawColor = Vec4f{ 1.0f, 1.0f, 1.0f, 1.0f };
     }
 }
