@@ -20,6 +20,19 @@ namespace Monolith
                 return result;
             }
 
+            Mat44f OrthographicProjection(f32 left, f32 top, f32 right, f32 bottom, f32 screenNear, f32 screenDepth)
+            {
+                Mat44f result;
+                result(0, 0) = 2.0f / (right - left);
+                result(1, 1) = 2.0f / (top - bottom);
+                result(2, 2) = 1.0f / (screenDepth - screenNear);
+                result(0, 3) = -(right + left) / (right - left);
+                result(1, 3) = -(top + bottom) / (top - bottom);
+                result(2, 3) = screenNear / (screenNear - screenDepth);
+                result(3, 3) = 1.0f;
+                return result;
+            }
+
             Mat44f OrthographicProjection(f32 width, f32 height, f32 screenNear, f32 screenDepth)
             {
                 Mat44f result;
