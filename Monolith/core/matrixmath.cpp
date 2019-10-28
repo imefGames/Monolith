@@ -20,6 +20,17 @@ namespace Monolith
                 return result;
             }
 
+            Mat44f OrthographicProjection(f32 width, f32 height, f32 screenNear, f32 screenDepth)
+            {
+                Mat44f result;
+                result(0, 0) = 2.0f / width;
+                result(1, 1) = 2.0f / height;
+                result(2, 2) = 1.0f / (screenDepth - screenNear);
+                result(2, 3) = screenNear / (screenNear - screenDepth);
+                result(3, 3) = 1.0f;
+                return result;
+            }
+
             Mat33f SubMatrix(const Mat44f& mat44, u32 ignoredColumn, u32 ignoredRow)
             {
                 Mat33f newMatrix{};
