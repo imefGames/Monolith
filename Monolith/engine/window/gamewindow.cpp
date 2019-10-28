@@ -107,12 +107,18 @@ namespace Monolith
                 case WM_LBUTTONDOWN:
                 {
                     s_InputEvents.SetMouseEvent(EMouseInputEvent::LClick);
+
+                    POINTS mousePosition = MAKEPOINTS(lParam);
+                    s_InputEvents.SetMousePosition(Vec2f{ static_cast<f32>(mousePosition.x), static_cast<f32>(mousePosition.y) });
                     break;
                 }
 
                 case WM_RBUTTONDOWN:
                 {
                     s_InputEvents.SetMouseEvent(EMouseInputEvent::RClick);
+
+                    POINTS mousePosition = MAKEPOINTS(lParam);
+                    s_InputEvents.SetMousePosition(Vec2f{ static_cast<f32>(mousePosition.x), static_cast<f32>(mousePosition.y) });
                     break;
                 }
 
