@@ -38,10 +38,10 @@ namespace Monolith
         std::vector<u32> indexList{ 0, 2, 1, 0, 1, 3 };
         std::vector<Model::VertexType> vertexList
         {
-            { Vec3f{ topLeftPosition[0], topLeftPosition[1], 0.0f }, m_DrawColor } ,
-            { Vec3f{ bottomRightPosition[0], bottomRightPosition[1], 0.0f }, m_DrawColor } ,
-            { Vec3f{ bottomRightPosition[0], topLeftPosition[1], 0.0f }, m_DrawColor } ,
-            { Vec3f{ topLeftPosition[0], bottomRightPosition[1], 0.0f }, m_DrawColor }
+            { Vec3f{ topLeftPosition[0], topLeftPosition[1], 0.0f }, m_DrawColor, Vec2f{} } ,
+            { Vec3f{ bottomRightPosition[0], bottomRightPosition[1], 0.0f }, m_DrawColor, Vec2f{} } ,
+            { Vec3f{ bottomRightPosition[0], topLeftPosition[1], 0.0f }, m_DrawColor, Vec2f{} } ,
+            { Vec3f{ topLeftPosition[0], bottomRightPosition[1], 0.0f }, m_DrawColor, Vec2f{} }
         };
 
         m_AllPurposeModel->SetVertexList(vertexList, indexList);

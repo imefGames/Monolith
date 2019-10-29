@@ -8,11 +8,12 @@
 namespace Monolith
 {
     Shader::Shader()
+        : m_VertexShader{ nullptr }
+        , m_PixelShader{ nullptr }
+        , m_Layout{ nullptr }
+        , m_MatrixBuffer{ nullptr }
+        , m_SampleState{ nullptr }
     {
-        m_VertexShader = nullptr;
-        m_PixelShader = nullptr;
-        m_Layout = nullptr;
-        m_MatrixBuffer = nullptr;
     }
 
 
@@ -47,7 +48,7 @@ namespace Monolith
             return;
         }
 
-        D3D11_INPUT_ELEMENT_DESC polygonLayout[2];
+        D3D11_INPUT_ELEMENT_DESC polygonLayout[3];
         polygonLayout[0].SemanticName = "POSITION";
         polygonLayout[0].SemanticIndex = 0;
         polygonLayout[0].Format = DXGI_FORMAT_R32G32B32_FLOAT;
@@ -63,6 +64,14 @@ namespace Monolith
         polygonLayout[1].AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT;
         polygonLayout[1].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
         polygonLayout[1].InstanceDataStepRate = 0;
+
+        polygonLayout[2].SemanticName = "TEXCOORD";
+        polygonLayout[2].SemanticIndex = 0;
+        polygonLayout[2].Format = DXGI_FORMAT_R32G32_FLOAT;
+        polygonLayout[2].InputSlot = 0;
+        polygonLayout[2].AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT;
+        polygonLayout[2].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
+        polygonLayout[2].InstanceDataStepRate = 0;
 
         s32 numElements{ sizeof(polygonLayout) / sizeof(polygonLayout[0]) };
         result = device->CreateInputLayout(polygonLayout, numElements, vertexShaderBuffer->GetBufferPointer(), vertexShaderBuffer->GetBufferSize(), &m_Layout);
@@ -84,12 +93,37 @@ namespace Monolith
         matrixBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
         matrixBufferDesc.MiscFlags = 0;
         matrixBufferDesc.StructureByteStride = 0;
-        device->CreateBuffer(&matrixBufferDesc, NULL, &m_MatrixBuffer);
+        result = device->CreateBuffer(&matrixBufferDesc, NULL, &m_MatrixBuffer);
+        if (FAILED(result))
+        {
+            return;
+        }
+
+        D3D11_SAMPLER_DESC samplerDesc;
+        samplerDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+        samplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_WRAP;
+        samplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;
+        samplerDesc.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;
+        samplerDesc.MipLODBias = 0.0f;
+        samplerDesc.MaxAnisotropy = 1;
+        samplerDesc.ComparisonFunc = D3D11_COMPARISON_ALWAYS;
+        samplerDesc.BorderColor[0] = 0;
+        samplerDesc.BorderColor[1] = 0;
+        samplerDesc.BorderColor[2] = 0;
+        samplerDesc.BorderColor[3] = 0;
+        samplerDesc.MinLOD = 0;
+        samplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
+        result = device->CreateSamplerState(&samplerDesc, &m_SampleState);
     }
 
 
     void Shader::Shutdown()
     {
+        if (m_SampleState != nullptr)
+        {
+            m_SampleState->Release();
+            m_SampleState = nullptr;
+        }
         if (m_MatrixBuffer != nullptr)
         {
             m_MatrixBuffer->Release();
@@ -145,6 +179,7 @@ namespace Monolith
         deviceContext->IASetInputLayout(m_Layout);
         deviceContext->VSSetShader(m_VertexShader, NULL, 0);
         deviceContext->PSSetShader(m_PixelShader, NULL, 0);
+        deviceContext->PSSetSamplers(0, 1, &m_SampleState);
         deviceContext->DrawIndexed(indexCount, 0, 0);
     }
 }

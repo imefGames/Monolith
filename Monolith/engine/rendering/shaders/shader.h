@@ -35,5 +35,6 @@ namespace Monolith
         ID3D11PixelShader* m_PixelShader;
         ID3D11InputLayout* m_Layout;
         ID3D11Buffer* m_MatrixBuffer;
+        ID3D11SamplerState* m_SampleState;
     };
 }

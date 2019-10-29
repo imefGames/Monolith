@@ -7,9 +7,10 @@
 
 namespace Monolith
 {
-    Model::VertexType::VertexType(const Vec3f& position, const Vec4f& color)
+    Model::VertexType::VertexType(const Vec3f& position, const Vec4f& color, const Vec2f& texturePosition)
         : m_Position{ position }
         , m_Color{ color }
+        , m_TexturePosition{ texturePosition }
     {
     }
 

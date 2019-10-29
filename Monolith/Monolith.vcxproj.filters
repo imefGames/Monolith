@@ -140,6 +140,9 @@
     <ClCompile Include="engine\rendering\shaders\shaderinitdata.cpp">
       <Filter>engine\rendering\shaders</Filter>
     </ClCompile>
+    <ClCompile Include="engine\rendering\texture.cpp">
+      <Filter>engine\rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\types.h">
@@ -296,6 +299,9 @@
     <ClInclude Include="engine\rendering\shaders\shaderinitdata.h">
       <Filter>engine\rendering\shaders</Filter>
     </ClInclude>
+    <ClInclude Include="engine\rendering\texture.h">
+      <Filter>engine\rendering</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="engine">
@@ -416,6 +422,12 @@
       <Filter>engine\rendering\shaders</Filter>
     </None>
     <None Include="engine\rendering\shaders\shaderinitdata.cdt">
+      <Filter>engine\rendering\shaders</Filter>
+    </None>
+    <None Include="engine\rendering\shaders\texture.vs">
+      <Filter>engine\rendering\shaders</Filter>
+    </None>
+    <None Include="engine\rendering\shaders\texture.ps">
       <Filter>engine\rendering\shaders</Filter>
     </None>
   </ItemGroup>

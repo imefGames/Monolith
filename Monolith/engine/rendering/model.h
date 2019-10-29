@@ -12,10 +12,11 @@ namespace Monolith
     public:
         struct VertexType
         {
-            VertexType(const Vec3f& position, const Vec4f& color);
+            VertexType(const Vec3f& position, const Vec4f& color, const Vec2f& texturePosition);
 
             Vec3f m_Position;
             Vec4f m_Color;
+            Vec2f m_TexturePosition;
         };
 
         Model();
