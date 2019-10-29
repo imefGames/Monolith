@@ -12,6 +12,7 @@ namespace Monolith
     class GraphicsWrapper;
     class RenderingContext;
     class Shader;
+    class Texture;
 
     class GameRenderer : public GameSystem, public Singleton<GameRenderer>
     {
@@ -34,6 +35,7 @@ namespace Monolith
         GraphicDeviceData m_GraphicDeviceData;
         ShaderInitData m_DefaultShaderInitData;
         Shader* m_DefaultShader;
+        Texture* m_Texture;
     };
 
     namespace RenderingHelper

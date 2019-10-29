@@ -10,6 +10,7 @@ namespace Monolith
     class GraphicsWrapper;
     class Model;
     class Shader;
+    class Texture;
 
     class RenderingContext
     {
@@ -33,6 +34,9 @@ namespace Monolith
         void SetDrawColor(const Vec4f& color);
         void ResetDrawColor();
 
+        const Texture* GetTexture() const;
+        void SetTexture(const Texture* texture);
+
     private:
         void SetWindowSize(u32 windowWidth, u32 windowHeight);
 
@@ -45,5 +49,6 @@ namespace Monolith
         Shader* m_CurrentShader;
         Shader* m_DefaultShader;
         Model* m_AllPurposeModel;
+        const Texture* m_CurrentTexture;
     };
 }

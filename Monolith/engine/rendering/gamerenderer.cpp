@@ -4,6 +4,7 @@
 #include <engine/rendering/gamerendererinitdata.h>
 #include <engine/rendering/graphicswrapper.h>
 #include <engine/rendering/renderingcontext.h>
+#include <engine/rendering/texture.h>
 #include <engine/rendering/shaders/shader.h>
 #include <engine/window/gamewindowdata.h>
 
@@ -20,6 +21,7 @@ namespace Monolith
     GameRenderer::GameRenderer(const GameRendererInitData& initData)
         : m_GraphicsWrapper{ nullptr }
         , m_DefaultShader{ nullptr }
+        , m_Texture{ nullptr }
         , m_DefaultShaderInitData{ initData.GetDefaultShader() }
     {
     }
@@ -43,6 +45,9 @@ namespace Monolith
 
         m_DefaultShader = new Shader{};
         m_DefaultShader->Init(m_DefaultShaderInitData);
+
+        m_Texture = new Texture{};
+        m_Texture->Initialize("minesweeper/textures/default.png");
     }
 
     void GameRenderer::ShutdownGraphics()
@@ -54,6 +59,10 @@ namespace Monolith
         m_GraphicsWrapper->Shutdown();
         delete m_GraphicsWrapper;
         m_GraphicsWrapper = nullptr;
+
+        m_Texture->Shutdown();
+        delete m_Texture;
+        m_Texture = nullptr;
     }
 
     void GameRenderer::StartFrame(RenderingContext& renderingContext)
@@ -68,6 +77,7 @@ namespace Monolith
         //renderingContext.m_ProjectionMatrix = Math::Matrix::PerspectiveProjection(K_FIELD_OF_VIEW, 800.0f/600.0f, K_SCREEN_NEAR, K_SCREEN_DEPTH);
         renderingContext.m_DefaultShader = m_DefaultShader;
         renderingContext.m_CurrentShader = renderingContext.m_DefaultShader;
+        renderingContext.SetTexture(m_Texture);
 
         m_GraphicsWrapper->BeginFrame();
     }

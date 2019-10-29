@@ -4,6 +4,7 @@
 #include <engine/rendering/gamerenderer.h>
 #include <engine/rendering/graphicswrapper.h>
 #include <engine/rendering/renderingcontext.h>
+#include <engine/rendering/texture.h>
 
 namespace Monolith
 {
@@ -24,13 +25,13 @@ namespace Monolith
         ID3D10Blob* vertexShaderBuffer{ nullptr };
         ID3D10Blob* pixelShaderBuffer{ nullptr };
 
-        HRESULT result = D3DX11CompileFromFile("engine/rendering/shaders/color.vs", NULL, NULL, "ColorVertexShader", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, NULL, &vertexShaderBuffer, &errorMessage, NULL);
+        HRESULT result = D3DX11CompileFromFile("engine/rendering/shaders/texture.vs", NULL, NULL, "TextureVertexShader", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, NULL, &vertexShaderBuffer, &errorMessage, NULL);
         if (FAILED(result))
         {
             return;
         }
 
-        result = D3DX11CompileFromFile("engine/rendering/shaders/color.ps", NULL, NULL, "ColorPixelShader", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, NULL, &pixelShaderBuffer, &errorMessage, NULL);
+        result = D3DX11CompileFromFile("engine/rendering/shaders/texture.ps", NULL, NULL, "TexturePixelShader", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, NULL, &pixelShaderBuffer, &errorMessage, NULL);
         if (FAILED(result))
         {
             return;
@@ -170,6 +171,10 @@ namespace Monolith
         deviceContext->Unmap(m_MatrixBuffer, 0);
         u32 bufferNumber = 0;
         deviceContext->VSSetConstantBuffers(bufferNumber, 1, &m_MatrixBuffer);
+        if (const Texture* texture = renderingContext.GetTexture())
+        {
+            deviceContext->PSSetShaderResources(0, 1, texture->GetResourceView());
+        }
     }
 
 
