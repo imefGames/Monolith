@@ -1,7 +1,7 @@
 #include <precomp.h>
 #include <engine/rendering/renderingcontext.h>
 
-#include <engine/rendering/model.h>
+#include <engine/rendering/dynamicmodel.h>
 #include <engine/rendering/shaders/shader.h>
 
 namespace Monolith
@@ -10,7 +10,7 @@ namespace Monolith
         : m_GraphicsWrapper{ nullptr }
         , m_CurrentShader{ nullptr }
         , m_DefaultShader{ nullptr }
-        , m_AllPurposeModel{ new Model{} }
+        , m_AllPurposeModel{ new DynamicModel{} }
         , m_CurrentTexture{ nullptr }
         , m_DrawColor{ 1.0f, 1.0f, 1.0f, 1.0f }
     {
@@ -36,17 +36,22 @@ namespace Monolith
 
     void RenderingContext::DrawRectangle2D(const Vec2f& topLeftPosition, const Vec2f& bottomRightPosition)
     {
-        //TODO: cache vertex buffer to limit allocation.
-        std::vector<u32> indexList{ 0, 2, 1, 0, 1, 3 };
-        std::vector<Model::VertexType> vertexList
-        {
-            { Vec3f{ topLeftPosition[0], topLeftPosition[1], 0.0f }, m_DrawColor, Vec2f{ 0.0f, 0.0f } } ,
-            { Vec3f{ bottomRightPosition[0], bottomRightPosition[1], 0.0f }, m_DrawColor, Vec2f{ 1.0f, 1.0f } } ,
-            { Vec3f{ bottomRightPosition[0], topLeftPosition[1], 0.0f }, m_DrawColor, Vec2f{ 1.0f, 0.0f } } ,
-            { Vec3f{ topLeftPosition[0], bottomRightPosition[1], 0.0f }, m_DrawColor, Vec2f{ 0.0f, 1.0f } }
-        };
+        std::vector<u32>& indexList{ m_AllPurposeModel->GetIndexList() };
+        indexList.clear();
+        indexList.push_back(0);
+        indexList.push_back(2);
+        indexList.push_back(1);
+        indexList.push_back(0);
+        indexList.push_back(1);
+        indexList.push_back(3);
 
-        m_AllPurposeModel->SetVertexList(vertexList, indexList);
+        std::vector<Model::VertexType>& vertexList{ m_AllPurposeModel->GetVertexList() };
+        vertexList.clear();
+        vertexList.emplace_back(Vec3f{ topLeftPosition[0], topLeftPosition[1], 0.0f }, m_DrawColor, Vec2f{ 0.0f, 0.0f });
+        vertexList.emplace_back(Vec3f{ bottomRightPosition[0], bottomRightPosition[1], 0.0f }, m_DrawColor, Vec2f{ 1.0f, 1.0f });
+        vertexList.emplace_back(Vec3f{ bottomRightPosition[0], topLeftPosition[1], 0.0f }, m_DrawColor, Vec2f{ 1.0f, 0.0f });
+        vertexList.emplace_back(Vec3f{ topLeftPosition[0], bottomRightPosition[1], 0.0f }, m_DrawColor, Vec2f{ 0.0f, 1.0f });
+        m_AllPurposeModel->RefreshBuffers();
         DrawModel(*m_AllPurposeModel);
     }
 

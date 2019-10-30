@@ -143,6 +143,9 @@
     <ClCompile Include="engine\rendering\texture.cpp">
       <Filter>engine\rendering</Filter>
     </ClCompile>
+    <ClCompile Include="engine\rendering\dynamicmodel.cpp">
+      <Filter>engine\rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\types.h">
@@ -300,6 +303,9 @@
       <Filter>engine\rendering\shaders</Filter>
     </ClInclude>
     <ClInclude Include="engine\rendering\texture.h">
+      <Filter>engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\dynamicmodel.h">
       <Filter>engine\rendering</Filter>
     </ClInclude>
   </ItemGroup>

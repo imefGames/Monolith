@@ -8,6 +8,7 @@
 namespace Monolith
 {
     class GraphicsWrapper;
+    class DynamicModel;
     class Model;
     class Shader;
     class Texture;
@@ -49,7 +50,7 @@ namespace Monolith
         GraphicsWrapper* m_GraphicsWrapper;
         Shader* m_CurrentShader;
         Shader* m_DefaultShader;
-        Model* m_AllPurposeModel;
+        DynamicModel* m_AllPurposeModel;
         const Texture* m_CurrentTexture;
     };
 }
