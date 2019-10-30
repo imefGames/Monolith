@@ -12,7 +12,7 @@ namespace Monolith
         {
             for (DataType& currentValue : m_Values)
             {
-                currentValue = 0.0f;
+                currentValue = static_cast<DataType>(0.0f);
             }
         }
 
@@ -109,4 +109,6 @@ namespace Monolith
     using Vec2f = VecGeneric<f32, 2>;
     using Vec3f = VecGeneric<f32, 3>;
     using Vec4f = VecGeneric<f32, 4>;
+
+    using Vec2u = VecGeneric<u32, 2>;
 }

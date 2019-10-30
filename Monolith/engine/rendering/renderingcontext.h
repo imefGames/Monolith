@@ -44,6 +44,7 @@ namespace Monolith
         Mat44f m_ViewMatrix;
         Mat44f m_WorldMatrix;
         Vec4f m_DrawColor;
+        Vec2u m_WindowSize;
         Camera m_Camera;
         GraphicsWrapper* m_GraphicsWrapper;
         Shader* m_CurrentShader;

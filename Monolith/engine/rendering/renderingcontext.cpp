@@ -23,6 +23,7 @@ namespace Monolith
 
     void RenderingContext::SetWindowSize(u32 windowWidth, u32 windowHeight)
     {
+        m_WindowSize = Vec2u{ windowWidth, windowHeight };
     }
 
     void RenderingContext::DrawCharacter2D(const Vec2f& pixelPosition, s8 character)
