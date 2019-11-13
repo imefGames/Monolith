@@ -12,5 +12,6 @@ float4 TexturePixelShader(PixelInputType input) : SV_TARGET
 {
     float4 textureColor;
     textureColor = shaderTexture.Sample(SampleType, input.tex);
+    textureColor.rgb *= input.color.rgb;
     return textureColor;
 }
