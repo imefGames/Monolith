@@ -61,9 +61,6 @@ namespace Monolith
     void GridEntity::Render(RenderingContext& renderingContext)
     {
         Vec2f topLeft{ GetPosition() };
-        Vec2f bottomRight{ GetPosition() + Vec2f{ m_GridSizeX + 2.0f, m_GridSizeY + 2.0f } };
-        renderingContext.DrawRectangle2D(topLeft, bottomRight);
-
         for (u32 j = 0; j < m_GridSizeY; ++j)
         {
             for (u32 i = 0; i < m_GridSizeX; ++i)
@@ -74,7 +71,10 @@ namespace Monolith
                 {
                     cellValue = cell.m_Value;
                 }
-                renderingContext.DrawCharacter2D(topLeft + Vec2f{ i + 1.0f, j + 1.0f }, cellValue);
+                Vec2f topLeft{ GetPosition() + Vec2f{ i * 16.0f, j * 16.0f } };
+                Vec2f bottomRight{ topLeft + Vec2f{ 16.0f, 16.0f } };
+                renderingContext.DrawRectangle2D(topLeft, bottomRight);
+                renderingContext.DrawCharacter2D(topLeft, cellValue);
             }
         }
     }
@@ -83,13 +83,13 @@ namespace Monolith
     {
         if (MinesweeperGameSystem::Get()->GetGameState() == EMinesweeperGameState::InGame)
         {
-            Vec2f topLeft{ GetPosition() + Vec2f{ 1.0f, 1.0f } };
-            Vec2f bottomRight{ GetPosition() + Vec2f{ m_GridSizeX + 1.0f, m_GridSizeY + 1.0f } };
+            Vec2f topLeft{ GetPosition() };
+            Vec2f bottomRight{ topLeft + Vec2f{ m_GridSizeX * 16.0f, m_GridSizeY * 16.0f } };
             if (clickPosition[0] >= topLeft[0] && clickPosition[0] <= bottomRight[0] &&
                 clickPosition[1] >= topLeft[1] && clickPosition[1] <= bottomRight[1])
             {
-                u32 clickedCellX{ static_cast<u32>(clickPosition[0] - topLeft[0]) };
-                u32 clickedCellY{ static_cast<u32>(clickPosition[1] - topLeft[1]) };
+                u32 clickedCellX{ static_cast<u32>(clickPosition[0] - topLeft[0]) / 16 };
+                u32 clickedCellY{ static_cast<u32>(clickPosition[1] - topLeft[1]) / 16 };
                 RevealCell(clickedCellX, clickedCellY);
                 UpdateGameState();
             }

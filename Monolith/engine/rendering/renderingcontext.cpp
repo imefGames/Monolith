@@ -30,6 +30,8 @@ namespace Monolith
 
     void RenderingContext::DrawCharacter2D(const Vec2f& pixelPosition, s8 character)
     {
+        std::string text{ character };
+        DrawText2D(pixelPosition, text);
     }
 
     void RenderingContext::DrawText2D(const Vec2f& textPosition, const std::string& text)
