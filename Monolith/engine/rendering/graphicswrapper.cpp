@@ -12,8 +12,11 @@ namespace Monolith
         , m_RenderTargetView{ nullptr }
         , m_DepthStencilBuffer{ nullptr }
         , m_DepthStencilState{ nullptr }
+        , m_DepthDisabledStencilState{ nullptr }
         , m_DepthStencilView{ nullptr }
         , m_RasterState{ nullptr }
+        , m_AlphaEnableBlendingState{ nullptr }
+        , m_AlphaDisableBlendingState{ nullptr }
     {
     }
 
@@ -244,6 +247,52 @@ namespace Monolith
         viewport.TopLeftY = 0.0f;
         m_DeviceContext->RSSetViewports(1, &viewport);
 
+        D3D11_DEPTH_STENCIL_DESC depthDisabledStencilDesc;
+        ZeroMemory(&depthDisabledStencilDesc, sizeof(depthDisabledStencilDesc));
+        depthDisabledStencilDesc.DepthEnable = false;
+        depthDisabledStencilDesc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
+        depthDisabledStencilDesc.DepthFunc = D3D11_COMPARISON_LESS;
+        depthDisabledStencilDesc.StencilEnable = true;
+        depthDisabledStencilDesc.StencilReadMask = 0xFF;
+        depthDisabledStencilDesc.StencilWriteMask = 0xFF;
+        depthDisabledStencilDesc.FrontFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
+        depthDisabledStencilDesc.FrontFace.StencilDepthFailOp = D3D11_STENCIL_OP_INCR;
+        depthDisabledStencilDesc.FrontFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
+        depthDisabledStencilDesc.FrontFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
+        depthDisabledStencilDesc.BackFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
+        depthDisabledStencilDesc.BackFace.StencilDepthFailOp = D3D11_STENCIL_OP_DECR;
+        depthDisabledStencilDesc.BackFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
+        depthDisabledStencilDesc.BackFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
+        result = m_Device->CreateDepthStencilState(&depthDisabledStencilDesc, &m_DepthDisabledStencilState);
+        if (FAILED(result))
+        {
+            return false;
+        }
+
+        D3D11_BLEND_DESC blendStateDescription;
+        ZeroMemory(&blendStateDescription, sizeof(D3D11_BLEND_DESC));
+        blendStateDescription.RenderTarget[0].BlendEnable = TRUE;
+        blendStateDescription.RenderTarget[0].SrcBlend = D3D11_BLEND_ONE;
+        blendStateDescription.RenderTarget[0].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;
+        blendStateDescription.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
+        blendStateDescription.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;
+        blendStateDescription.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;
+        blendStateDescription.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
+        blendStateDescription.RenderTarget[0].RenderTargetWriteMask = 0x0f;
+
+        result = m_Device->CreateBlendState(&blendStateDescription, &m_AlphaEnableBlendingState);
+        if (FAILED(result))
+        {
+            return false;
+        }
+
+        blendStateDescription.RenderTarget[0].BlendEnable = FALSE;
+        result = m_Device->CreateBlendState(&blendStateDescription, &m_AlphaDisableBlendingState);
+        if (FAILED(result))
+        {
+            return false;
+        }
+
         return true;
     }
 
@@ -252,6 +301,18 @@ namespace Monolith
         if (m_SwapChain != nullptr)
         {
             m_SwapChain->SetFullscreenState(false, NULL);
+        }
+
+        if (m_AlphaEnableBlendingState)
+        {
+            m_AlphaEnableBlendingState->Release();
+            m_AlphaEnableBlendingState = 0;
+        }
+
+        if (m_AlphaDisableBlendingState)
+        {
+            m_AlphaDisableBlendingState->Release();
+            m_AlphaDisableBlendingState = 0;
         }
 
         if (m_RasterState != nullptr)
@@ -317,6 +378,27 @@ namespace Monolith
 
     void GraphicsWrapper::SetZBufferActive(bool isActive)
     {
-        m_DeviceContext->OMSetDepthStencilState(m_DepthStencilState, isActive ? 1 : 0);
+        if (isActive)
+        {
+            m_DeviceContext->OMSetDepthStencilState(m_DepthStencilState, 1);
+        }
+        else
+        {
+            m_DeviceContext->OMSetDepthStencilState(m_DepthDisabledStencilState, 1);
+        }
+    }
+
+    void GraphicsWrapper::SetAlphaBlendingActive(bool isActive)
+    {
+
+        f32 blendFactor[4]{ 0.0f, 0.0f, 0.0f, 0.0f };
+        if (isActive)
+        {
+            m_DeviceContext->OMSetBlendState(m_AlphaEnableBlendingState, blendFactor, 0xffffffff);
+        }
+        else
+        {
+            m_DeviceContext->OMSetBlendState(m_AlphaDisableBlendingState, blendFactor, 0xffffffff);
+        }
     }
 }

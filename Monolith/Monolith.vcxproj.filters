@@ -146,6 +146,9 @@
     <ClCompile Include="engine\rendering\dynamicmodel.cpp">
       <Filter>engine\rendering</Filter>
     </ClCompile>
+    <ClCompile Include="engine\rendering\font.cpp">
+      <Filter>engine\rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\types.h">
@@ -306,6 +309,9 @@
       <Filter>engine\rendering</Filter>
     </ClInclude>
     <ClInclude Include="engine\rendering\dynamicmodel.h">
+      <Filter>engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\font.h">
       <Filter>engine\rendering</Filter>
     </ClInclude>
   </ItemGroup>

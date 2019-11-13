@@ -2,6 +2,7 @@
 #include <engine/rendering/renderingcontext.h>
 
 #include <engine/rendering/dynamicmodel.h>
+#include <engine/rendering/font.h>
 #include <engine/rendering/shaders/shader.h>
 
 namespace Monolith
@@ -12,6 +13,7 @@ namespace Monolith
         , m_DefaultShader{ nullptr }
         , m_AllPurposeModel{ new DynamicModel{} }
         , m_CurrentTexture{ nullptr }
+        , m_CurrentFont{ nullptr }
         , m_DrawColor{ 1.0f, 1.0f, 1.0f, 1.0f }
     {
     }
@@ -32,6 +34,18 @@ namespace Monolith
 
     void RenderingContext::DrawText2D(const Vec2f& textPosition, const std::string& text)
     {
+        if (m_CurrentFont != nullptr)
+        {
+            const Texture* cachedTexture{ m_CurrentTexture };
+            m_CurrentTexture = m_CurrentFont->GetFontTexture();
+            m_CurrentFont->SetupModel(*m_AllPurposeModel, text, textPosition, m_DrawColor);
+            DrawModel(*m_AllPurposeModel);
+            m_CurrentTexture = cachedTexture;
+        }
+        else
+        {
+            Report::Warning(false, "Requesting Text rendering without a font.");
+        }
     }
 
     void RenderingContext::DrawRectangle2D(const Vec2f& topLeftPosition, const Vec2f& bottomRightPosition)
@@ -82,5 +96,15 @@ namespace Monolith
     void RenderingContext::SetTexture(const Texture* texture)
     {
         m_CurrentTexture = texture;
+    }
+
+    const Font* RenderingContext::GetFont() const
+    {
+        return m_CurrentFont;
+    }
+
+    void RenderingContext::SetFont(const Font* font)
+    {
+        m_CurrentFont = font;
     }
 }

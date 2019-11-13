@@ -1,6 +1,7 @@
 #include <precomp.h>
 #include <engine/rendering/gamerenderer.h>
 
+#include <engine/rendering/font.h>
 #include <engine/rendering/gamerendererinitdata.h>
 #include <engine/rendering/graphicswrapper.h>
 #include <engine/rendering/renderingcontext.h>
@@ -22,6 +23,7 @@ namespace Monolith
         : m_GraphicsWrapper{ nullptr }
         , m_DefaultShader{ nullptr }
         , m_Texture{ nullptr }
+        , m_DefaultFont{ nullptr }
         , m_DefaultShaderInitData{ initData.GetDefaultShader() }
     {
     }
@@ -48,6 +50,9 @@ namespace Monolith
 
         m_Texture = new Texture{};
         m_Texture->Initialize("minesweeper/textures/default.png");
+
+        m_DefaultFont = new Font{};
+        m_DefaultFont->Initialize("minesweeper/textures/defaultFont.png", "minesweeper/textures/defaultFontData.txt");
     }
 
     void GameRenderer::ShutdownGraphics()
@@ -63,6 +68,10 @@ namespace Monolith
         m_Texture->Shutdown();
         delete m_Texture;
         m_Texture = nullptr;
+
+        m_DefaultFont->Shutdown();
+        delete m_DefaultFont;
+        m_DefaultFont = nullptr;
     }
 
     void GameRenderer::StartFrame(RenderingContext& renderingContext)
@@ -78,8 +87,12 @@ namespace Monolith
         renderingContext.m_DefaultShader = m_DefaultShader;
         renderingContext.m_CurrentShader = renderingContext.m_DefaultShader;
         renderingContext.SetTexture(m_Texture);
+        renderingContext.SetFont(m_DefaultFont);
 
         m_GraphicsWrapper->BeginFrame();
+
+        m_GraphicsWrapper->SetZBufferActive(false);
+        m_GraphicsWrapper->SetAlphaBlendingActive(true);
     }
 
     void GameRenderer::EndFrame(RenderingContext& renderingContext)

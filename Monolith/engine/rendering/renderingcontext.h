@@ -9,6 +9,7 @@ namespace Monolith
 {
     class GraphicsWrapper;
     class DynamicModel;
+    class Font;
     class Model;
     class Shader;
     class Texture;
@@ -38,6 +39,9 @@ namespace Monolith
         const Texture* GetTexture() const;
         void SetTexture(const Texture* texture);
 
+        const Font* GetFont() const;
+        void SetFont(const Font* font);
+
     private:
         void SetWindowSize(u32 windowWidth, u32 windowHeight);
 
@@ -52,5 +56,6 @@ namespace Monolith
         Shader* m_DefaultShader;
         DynamicModel* m_AllPurposeModel;
         const Texture* m_CurrentTexture;
+        const Font* m_CurrentFont;
     };
 }

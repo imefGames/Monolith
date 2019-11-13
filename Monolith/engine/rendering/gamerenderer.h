@@ -7,6 +7,7 @@
 
 namespace Monolith
 {
+    class Font;
     class GameRendererInitData;
     class GameWindowData;
     class GraphicsWrapper;
@@ -36,6 +37,7 @@ namespace Monolith
         ShaderInitData m_DefaultShaderInitData;
         Shader* m_DefaultShader;
         Texture* m_Texture;
+        Font* m_DefaultFont;
     };
 
     namespace RenderingHelper

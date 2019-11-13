@@ -30,6 +30,7 @@ namespace Monolith
         void EndFrame();
 
         void SetZBufferActive(bool isActive);
+        void SetAlphaBlendingActive(bool isActive);
 
     private:
         bool m_VSyncEnabled;
@@ -40,7 +41,10 @@ namespace Monolith
         ID3D11RenderTargetView* m_RenderTargetView;
         ID3D11Texture2D* m_DepthStencilBuffer;
         ID3D11DepthStencilState* m_DepthStencilState;
+        ID3D11DepthStencilState* m_DepthDisabledStencilState;
         ID3D11DepthStencilView* m_DepthStencilView;
         ID3D11RasterizerState* m_RasterState;
+        ID3D11BlendState* m_AlphaEnableBlendingState;
+        ID3D11BlendState* m_AlphaDisableBlendingState;
     };
 }
