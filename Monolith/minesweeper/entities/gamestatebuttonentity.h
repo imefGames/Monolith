@@ -47,6 +47,7 @@ namespace Monolith
         void OnMouseClick(EMouseButton mouseButton, Vec2f clickPosition);
 
         std::string m_ButtonText;
+        Vec2f m_ButtonSize;
         EMinesweeperGameState m_GameStateID;
         u32 m_MouseClickSlotID;
     };

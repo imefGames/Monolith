@@ -3,6 +3,7 @@
 
 #include <core/serialization/objectserializer.h>
 #include <engine/input/inputprocessor.h>
+#include <engine/rendering/font.h>
 #include <engine/rendering/renderingcontext.h>
 #include <minesweeper/systems/minesweepergamesystem.h>
 
@@ -37,6 +38,7 @@ namespace Monolith
 
     GameStateButtonEntity::GameStateButtonEntity(const GameStateButtonEntityInitData& gameStateButtonEntityInitData)
         : Entity{ gameStateButtonEntityInitData }
+        , m_ButtonSize{}
         , m_ButtonText{ gameStateButtonEntityInitData.GetButtonText() }
         , m_GameStateID{ static_cast<EMinesweeperGameState>(gameStateButtonEntityInitData.GetGameStateID()) }
         , m_MouseClickSlotID{ u32Max }
@@ -59,16 +61,21 @@ namespace Monolith
 
     void GameStateButtonEntity::Render(RenderingContext& renderingContext)
     {
+        if (const Font* currentFont = renderingContext.GetFont())
+        {
+            m_ButtonSize = currentFont->GetTextSize(m_ButtonText);
+        }
+
         Vec2f topLeft{ GetPosition() };
-        Vec2f bottomRight{ GetPosition() + Vec2f{ 2.0f + m_ButtonText.size(), 3.0f } };
+        Vec2f bottomRight{ GetPosition() + m_ButtonSize };
         renderingContext.DrawRectangle2D(topLeft, bottomRight);
-        renderingContext.DrawText2D(topLeft + Vec2f{ 1.0f, 1.0f }, m_ButtonText);
+        renderingContext.DrawText2D(topLeft, m_ButtonText);
     }
 
     void GameStateButtonEntity::OnMouseClick(EMouseButton mouseButton, Vec2f clickPosition)
     {
         Vec2f topLeft{ GetPosition() };
-        Vec2f bottomRight{ GetPosition() + Vec2f{ 2.0f + m_ButtonText.size(), 3.0f } };
+        Vec2f bottomRight{ GetPosition() + m_ButtonSize };
         if (clickPosition[0] >= topLeft[0] && clickPosition[0] <= bottomRight[0] &&
             clickPosition[1] >= topLeft[1] && clickPosition[1] <= bottomRight[1])
         {

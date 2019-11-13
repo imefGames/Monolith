@@ -13,6 +13,17 @@ namespace Monolith
     {
     }
 
+    Vec2f Font::GetTextSize(const std::string& text) const
+    {
+        Vec2f size{ 0.0f, m_FontHeight };
+        u32 charNumber{ static_cast<u32>(text.size()) };
+        for (s8 currentChar : text)
+        {
+            size[0] += FindFontCharacter(currentChar).m_PixelWidth;
+        }
+        return size;
+    }
+
     void Font::Initialize(const std::string& textureFileName, const std::string& fontInfoFileName)
     {
         m_Texture = new Texture{};

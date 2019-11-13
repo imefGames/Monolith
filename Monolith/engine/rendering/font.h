@@ -13,6 +13,7 @@ namespace Monolith
         Font();
 
         inline const Texture* GetFontTexture() const { return m_Texture; }
+        Vec2f GetTextSize(const std::string& text) const;
 
         void Initialize(const std::string& textureFileName, const std::string& fontInfoFileName);
         void Shutdown();
