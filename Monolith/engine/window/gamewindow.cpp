@@ -81,8 +81,9 @@ namespace Monolith
 
     void GameWindow::SetupRenderingContext(RenderingContext& renderingContext)
     {
-        //TODO: get from window size.
-        renderingContext.SetWindowSize(800, 600);
+        RECT clientRectangle;
+        GetClientRect(m_WindowHandle, &clientRectangle);
+        renderingContext.SetWindowSize(clientRectangle.right, clientRectangle.bottom);
     }
 
     namespace GameWindowHelperInternal

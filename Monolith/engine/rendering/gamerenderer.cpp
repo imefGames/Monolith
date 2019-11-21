@@ -82,7 +82,8 @@ namespace Monolith
         renderingContext.m_ViewMatrix = renderingContext.m_Camera.GetViewMatrix();
         renderingContext.m_WorldMatrix = Mat44f::GetIdentity();
         //TODO: get aspect ratio from screen size.
-        renderingContext.m_ProjectionMatrix = Math::Matrix::OrthographicProjection(0.0f, 0.0f, 800.0f, 600.0f, K_SCREEN_NEAR, K_SCREEN_DEPTH);
+        const Vec2u& windowSize{ renderingContext.GetWindowSize() };
+        renderingContext.m_ProjectionMatrix = Math::Matrix::OrthographicProjection(0.0f, 0.0f, static_cast<f32>(windowSize[0]), static_cast<f32>(windowSize[1]), K_SCREEN_NEAR, K_SCREEN_DEPTH);
         //renderingContext.m_ProjectionMatrix = Math::Matrix::PerspectiveProjection(K_FIELD_OF_VIEW, 800.0f/600.0f, K_SCREEN_NEAR, K_SCREEN_DEPTH);
         renderingContext.m_DefaultShader = m_DefaultShader;
         renderingContext.m_CurrentShader = renderingContext.m_DefaultShader;
