@@ -171,7 +171,7 @@ namespace Monolith
         deviceContext->Unmap(m_MatrixBuffer, 0);
         u32 bufferNumber = 0;
         deviceContext->VSSetConstantBuffers(bufferNumber, 1, &m_MatrixBuffer);
-        if (const Texture* texture = renderingContext.GetTexture())
+        if (const Texture* texture = renderingContext.GetTexture().GetTexture())
         {
             deviceContext->PSSetShaderResources(0, 1, texture->GetResourceView());
         }

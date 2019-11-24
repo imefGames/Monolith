@@ -3,6 +3,7 @@
 #include <core/singleton.h>
 #include <engine/model/gamesystem.h>
 #include <engine/rendering/graphicdevicedata.h>
+#include <engine/rendering/textureloader.h>
 #include <engine/rendering/shaders/shaderinitdata.h>
 
 namespace Monolith
@@ -13,13 +14,14 @@ namespace Monolith
     class GraphicsWrapper;
     class RenderingContext;
     class Shader;
-    class Texture;
+    class TextureHandle;
 
     class GameRenderer : public GameSystem, public Singleton<GameRenderer>
     {
     public:
         GameRenderer(const GameRendererInitData& initData);
 
+        inline TextureLoader& GetTextureLoader() { return m_TextureLoader; }
         inline const GraphicDeviceData& GetGraphicDeviceData() const { return m_GraphicDeviceData; }
 
         void InitGraphics(const GameWindowData& gameWindowData);
@@ -32,11 +34,12 @@ namespace Monolith
         void OnShutdown() override;
 
     private:
+        TextureLoader m_TextureLoader;
         GraphicsWrapper* m_GraphicsWrapper;
         GraphicDeviceData m_GraphicDeviceData;
         ShaderInitData m_DefaultShaderInitData;
         Shader* m_DefaultShader;
-        Texture* m_Texture;
+        TextureHandle* m_DefaultTexture;
         Font* m_DefaultFont;
     };
 

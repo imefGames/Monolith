@@ -2,15 +2,21 @@
 #include <engine/rendering/font.h>
 
 #include <engine/rendering/dynamicmodel.h>
-#include <engine/rendering/texture.h>
 #include <fstream>
 
 namespace Monolith
 {
-    Font::Font()
-        : m_Texture{ nullptr }
+    Font::Font(const std::string& textureFileName, const std::string& fontInfoFileName)
+        : m_Texture{ textureFileName }
         , m_FontHeight{ 16.0f }
     {
+        InitializeFontInfo(fontInfoFileName);
+    }
+
+    Font::~Font()
+    {
+        m_Texture.Release();
+        m_FontCharacters.clear();
     }
 
     Vec2f Font::GetTextSize(const std::string& text) const
@@ -22,25 +28,6 @@ namespace Monolith
             size[0] += FindFontCharacter(currentChar).m_PixelWidth;
         }
         return size;
-    }
-
-    void Font::Initialize(const std::string& textureFileName, const std::string& fontInfoFileName)
-    {
-        m_Texture = new Texture{};
-        m_Texture->Initialize(textureFileName);
-        InitializeFontInfo(fontInfoFileName);
-    }
-
-    void Font::Shutdown()
-    {
-        if (m_Texture != nullptr)
-        {
-            m_Texture->Shutdown();
-            delete m_Texture;
-            m_Texture = nullptr;
-        }
-
-        m_FontCharacters.clear();
     }
 
     void Font::SetupModel(DynamicModel& model, const std::string& displayedText, const Vec2f& textPosition, const Vec4f& drawColor) const

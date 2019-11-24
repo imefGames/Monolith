@@ -1,22 +1,21 @@
 #pragma once
 
 #include <vector>
+#include <engine/rendering/texturehandle.h>
 
 namespace Monolith
 {
-    class Texture;
     class DynamicModel;
 
     class Font
     {
     public:
-        Font();
+        Font(const std::string& textureFileName, const std::string& fontInfoFileName);
+        ~Font();
 
-        inline const Texture* GetFontTexture() const { return m_Texture; }
+        inline const TextureHandle& GetFontTexture() const { return m_Texture; }
         Vec2f GetTextSize(const std::string& text) const;
 
-        void Initialize(const std::string& textureFileName, const std::string& fontInfoFileName);
-        void Shutdown();
         void SetupModel(DynamicModel& model, const std::string& displayedText, const Vec2f& textPosition, const Vec4f& drawColor) const;
 
     private:
@@ -34,7 +33,7 @@ namespace Monolith
 
         static constexpr u32 K_MAX_CHAR_INDEX{ 256 };
 
-        Texture* m_Texture;
+        TextureHandle m_Texture;
         std::vector<FontCharacter> m_FontCharacters;
         f32 m_FontHeight;
     };

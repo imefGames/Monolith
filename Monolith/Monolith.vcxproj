@@ -171,6 +171,8 @@
     <ClCompile Include="engine\rendering\shaders\shader.cpp" />
     <ClCompile Include="engine\rendering\shaders\shaderinitdata.cpp" />
     <ClCompile Include="engine\rendering\texture.cpp" />
+    <ClCompile Include="engine\rendering\texturehandle.cpp" />
+    <ClCompile Include="engine\rendering\textureloader.cpp" />
     <ClCompile Include="engine\window\gamewindow.cpp" />
     <ClCompile Include="engine\window\gamewindowdata.cpp" />
     <ClCompile Include="main.cpp" />
@@ -226,6 +228,8 @@
     <ClInclude Include="engine\rendering\shaders\shader.h" />
     <ClInclude Include="engine\rendering\shaders\shaderinitdata.h" />
     <ClInclude Include="engine\rendering\texture.h" />
+    <ClInclude Include="engine\rendering\texturehandle.h" />
+    <ClInclude Include="engine\rendering\textureloader.h" />
     <ClInclude Include="engine\window\gamewindow.h" />
     <ClInclude Include="engine\window\gamewindowdata.h" />
     <ClInclude Include="minesweeper\entities\gamestatebuttonentity.h" />

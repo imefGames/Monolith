@@ -1,6 +1,7 @@
 #pragma once
 
 #include <engine/rendering/camera.h>
+#include <engine/rendering/texturehandle.h>
 
 #include <vector>
 #include <string>
@@ -12,7 +13,6 @@ namespace Monolith
     class Font;
     class Model;
     class Shader;
-    class Texture;
 
     class RenderingContext
     {
@@ -37,8 +37,8 @@ namespace Monolith
         void SetDrawColor(const Vec4f& color);
         void ResetDrawColor();
 
-        const Texture* GetTexture() const;
-        void SetTexture(const Texture* texture);
+        const TextureHandle& GetTexture() const;
+        void SetTexture(const TextureHandle& texture);
 
         const Font* GetFont() const;
         void SetFont(const Font* font);
@@ -56,7 +56,7 @@ namespace Monolith
         Shader* m_CurrentShader;
         Shader* m_DefaultShader;
         DynamicModel* m_AllPurposeModel;
-        const Texture* m_CurrentTexture;
+        TextureHandle m_CurrentTexture;
         const Font* m_CurrentFont;
     };
 }

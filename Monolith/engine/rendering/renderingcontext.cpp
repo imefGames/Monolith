@@ -12,7 +12,7 @@ namespace Monolith
         , m_CurrentShader{ nullptr }
         , m_DefaultShader{ nullptr }
         , m_AllPurposeModel{ new DynamicModel{} }
-        , m_CurrentTexture{ nullptr }
+        , m_CurrentTexture{}
         , m_CurrentFont{ nullptr }
         , m_DrawColor{ 1.0f, 1.0f, 1.0f, 1.0f }
     {
@@ -38,7 +38,7 @@ namespace Monolith
     {
         if (m_CurrentFont != nullptr)
         {
-            const Texture* cachedTexture{ m_CurrentTexture };
+            TextureHandle cachedTexture{ m_CurrentTexture };
             m_CurrentTexture = m_CurrentFont->GetFontTexture();
             m_CurrentFont->SetupModel(*m_AllPurposeModel, text, textPosition, m_DrawColor);
             DrawModel(*m_AllPurposeModel);
@@ -90,12 +90,12 @@ namespace Monolith
         m_DrawColor = Vec4f{ 1.0f, 1.0f, 1.0f, 1.0f };
     }
 
-    const Texture* RenderingContext::GetTexture() const
+    const TextureHandle& RenderingContext::GetTexture() const
     {
         return m_CurrentTexture;
     }
 
-    void RenderingContext::SetTexture(const Texture* texture)
+    void RenderingContext::SetTexture(const TextureHandle& texture)
     {
         m_CurrentTexture = texture;
     }

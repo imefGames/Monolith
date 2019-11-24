@@ -149,6 +149,12 @@
     <ClCompile Include="engine\rendering\font.cpp">
       <Filter>engine\rendering</Filter>
     </ClCompile>
+    <ClCompile Include="engine\rendering\textureloader.cpp">
+      <Filter>engine\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\rendering\texturehandle.cpp">
+      <Filter>engine\rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\types.h">
@@ -312,6 +318,12 @@
       <Filter>engine\rendering</Filter>
     </ClInclude>
     <ClInclude Include="engine\rendering\font.h">
+      <Filter>engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\texturehandle.h">
+      <Filter>engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\textureloader.h">
       <Filter>engine\rendering</Filter>
     </ClInclude>
   </ItemGroup>
