@@ -2,6 +2,7 @@
 
 #include <engine/model/entity.h>
 #include <engine/model/data/entityinitdata.h>
+#include <engine/rendering/texturehandle.h>
 #include <string>
 
 namespace Monolith
@@ -50,5 +51,6 @@ namespace Monolith
         Vec2f m_ButtonSize;
         EMinesweeperGameState m_GameStateID;
         u32 m_MouseClickSlotID;
+        TextureHandle m_ButtonTexture;
     };
 }

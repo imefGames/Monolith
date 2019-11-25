@@ -2,6 +2,7 @@
 
 #include <engine/model/entity.h>
 #include <engine/model/data/entityinitdata.h>
+#include <engine/rendering/texturehandle.h>
 #include <vector>
 
 namespace Monolith
@@ -57,5 +58,8 @@ namespace Monolith
         u32 m_MouseClickSlotID;
         std::vector<CellStatus> m_Cells;
         CellStatus m_NullCell;
+        TextureHandle m_UnknownCellTexture;
+        TextureHandle m_KnownCellTexture;
+        TextureHandle m_BombCellTexture;
     };
 }

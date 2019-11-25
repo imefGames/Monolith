@@ -48,6 +48,7 @@ namespace Monolith
     void GameStateButtonEntity::Init()
     {
         m_MouseClickSlotID = InputProcessor::Get()->GetMouseClickedSignal().Connect(this, &GameStateButtonEntity::OnMouseClick);
+        m_ButtonTexture = TextureHandle{ "minesweeper/textures/button.png" };
     }
 
     void GameStateButtonEntity::Shutdown()
@@ -68,8 +69,11 @@ namespace Monolith
 
         Vec2f topLeft{ GetPosition() };
         Vec2f bottomRight{ GetPosition() + m_ButtonSize };
+        renderingContext.SetTexture(m_ButtonTexture);
         renderingContext.DrawRectangle2D(topLeft, bottomRight);
+        renderingContext.SetDrawColor(Vec4f{ 0.0f, 0.0f, 0.0f, 0.0f });
         renderingContext.DrawText2D(topLeft, m_ButtonText);
+        renderingContext.ResetDrawColor();
     }
 
     void GameStateButtonEntity::OnMouseClick(EMouseButton mouseButton, Vec2f clickPosition)

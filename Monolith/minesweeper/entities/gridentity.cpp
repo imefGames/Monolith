@@ -47,10 +47,16 @@ namespace Monolith
     void GridEntity::Init()
     {
         m_MouseClickSlotID = InputProcessor::Get()->GetMouseClickedSignal().Connect(this, &GridEntity::OnMouseClick);
+        m_UnknownCellTexture = TextureHandle{ "minesweeper/textures/tileUnknown.png" };
+        m_KnownCellTexture = TextureHandle{ "minesweeper/textures/tileKnown.png" };
+        m_BombCellTexture = TextureHandle{ "minesweeper/textures/tileBomb.png" };
     }
 
     void GridEntity::Shutdown()
     {
+        m_BombCellTexture.Release();
+        m_KnownCellTexture.Release();
+        m_UnknownCellTexture.Release();
         InputProcessor::Get()->GetMouseClickedSignal().Disconnect(m_MouseClickSlotID);
     }
 
@@ -65,16 +71,39 @@ namespace Monolith
         {
             for (u32 i = 0; i < m_GridSizeX; ++i)
             {
-                s8 cellValue{ -80 };
+                s8 cellValue{ 0 };
                 GridEntity::CellStatus& cell{ GetCell(i, j) };
-                if (cell.m_visible || MinesweeperGameSystem::Get()->GetGameState() != EMinesweeperGameState::InGame)
+                if (cell.m_visible || cell.m_Value == '*' && MinesweeperGameSystem::Get()->GetGameState() != EMinesweeperGameState::InGame)
                 {
                     cellValue = cell.m_Value;
                 }
                 Vec2f topLeft{ GetPosition() + Vec2f{ i * 16.0f, j * 16.0f } };
                 Vec2f bottomRight{ topLeft + Vec2f{ 16.0f, 16.0f } };
+
+                if (cell.m_visible)
+                {
+                    renderingContext.SetTexture(m_KnownCellTexture);
+                }
+                else
+                {
+                    renderingContext.SetTexture(m_UnknownCellTexture);
+                }
                 renderingContext.DrawRectangle2D(topLeft, bottomRight);
-                renderingContext.DrawCharacter2D(topLeft, cellValue);
+
+                if (cellValue != 0)
+                {
+                    if (cellValue == '*')
+                    {
+                        renderingContext.SetTexture(m_BombCellTexture);
+                        renderingContext.DrawRectangle2D(topLeft, bottomRight);
+                    }
+                    else
+                    {
+                        renderingContext.SetDrawColor(Vec4f{ 0.0f, 0.0f, 0.0f, 0.0f });
+                        renderingContext.DrawCharacter2D(topLeft + Vec2f{ 4.0f, 3.0f }, cellValue);
+                        renderingContext.ResetDrawColor();
+                    }
+                }
             }
         }
     }
