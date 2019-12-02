@@ -1,17 +1,14 @@
 ﻿<ClassModel>
-    <ClassName>EntityInitData</ClassName>
+    <ClassName>CameraEntityInitData</ClassName>
+    <ParentClass>EntityInitData</ParentClass>
     <ClassProperties>
-        <ClassPropertyModel>
-            <PropertyName>Position</PropertyName>
-            <PropertyType>Vec4f</PropertyType>
-        </ClassPropertyModel>
     </ClassProperties>
     <ClassMethods>
         <ClassMethodModel>
             <MethodReturnType>Entity*</MethodReturnType>
             <MethodName>InstantiateEntity</MethodName>
             <IsConst>true</IsConst>
-            <IsVirtual>true</IsVirtual>
+            <IsOverride>true</IsOverride>
         </ClassMethodModel>
     </ClassMethods>
 </ClassModel>

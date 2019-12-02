@@ -23,6 +23,7 @@ namespace Monolith
         RenderingContext();
         ~RenderingContext();
 
+        inline Camera& GetCamera() { return m_Camera; }
         inline const GraphicsWrapper* GetGraphicsWrapper() const { return m_GraphicsWrapper; }
         inline const Mat44f& GetProjectionMatrix() const { return m_ProjectionMatrix; }
         inline const Mat44f& GetViewMatrix() const { return m_ViewMatrix; }

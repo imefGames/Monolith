@@ -155,6 +155,9 @@
     <ClCompile Include="engine\rendering\texturehandle.cpp">
       <Filter>engine\rendering</Filter>
     </ClCompile>
+    <ClCompile Include="minesweeper\entities\cameraentity.cpp">
+      <Filter>minesweeper\entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\types.h">
@@ -326,6 +329,9 @@
     <ClInclude Include="engine\rendering\textureloader.h">
       <Filter>engine\rendering</Filter>
     </ClInclude>
+    <ClInclude Include="minesweeper\entities\cameraentity.h">
+      <Filter>minesweeper\entities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="engine">
@@ -453,6 +459,9 @@
     </None>
     <None Include="engine\rendering\shaders\texture.ps">
       <Filter>engine\rendering\shaders</Filter>
+    </None>
+    <None Include="minesweeper\entities\cameraentity.cdt">
+      <Filter>minesweeper\entities</Filter>
     </None>
   </ItemGroup>
 </Project>

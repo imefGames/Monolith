@@ -35,20 +35,41 @@ namespace Monolith
     {
         void LoadObject(const JSonNode& node, s32& loadedS32)
         {
-            //Not ideal, this copies the string view to a temporary string.
-            loadedS32 = std::stol(node.GetContentBuffer().data());
+            if (!node.GetContentBuffer().empty())
+            {
+                //Not ideal, this copies the string view to a temporary string.
+                loadedS32 = std::stol(node.GetContentBuffer().data());
+            }
+            else
+            {
+                loadedS32 = 0;
+            }
         }
 
         void LoadObject(const JSonNode& node, u32& loadedU32)
         {
-            //Not ideal, this copies the string view to a temporary string.
-            loadedU32 = std::stoul(node.GetContentBuffer().data());
+            if (!node.GetContentBuffer().empty())
+            {
+                //Not ideal, this copies the string view to a temporary string.
+                loadedU32 = std::stoul(node.GetContentBuffer().data());
+            }
+            else
+            {
+                loadedU32 = 0;
+            }
         }
 
         void LoadObject(const JSonNode& node, f32& loadedF32)
         {
-            //Not ideal, this copies the string view to a temporary string.
-            loadedF32 = std::stof(node.GetContentBuffer().data());
+            if (!node.GetContentBuffer().empty())
+            {
+                //Not ideal, this copies the string view to a temporary string.
+                loadedF32 = std::stof(node.GetContentBuffer().data());
+            }
+            else
+            {
+                loadedF32 = 0.0f;
+            }
         }
 
         void LoadObject(const JSonNode& node, std::string& loadedString)

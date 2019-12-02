@@ -68,7 +68,7 @@ namespace Monolith
         }
 
         Vec2f topLeft{ GetPosition() };
-        Vec2f bottomRight{ GetPosition() + m_ButtonSize };
+        Vec2f bottomRight{ Vec2f{ GetPosition() } +m_ButtonSize };
         renderingContext.SetTexture(m_ButtonTexture);
         renderingContext.DrawRectangle2D(topLeft, bottomRight);
         renderingContext.SetDrawColor(Vec4f{ 0.0f, 0.0f, 0.0f, 0.0f });
@@ -79,7 +79,7 @@ namespace Monolith
     void GameStateButtonEntity::OnMouseClick(EMouseButton mouseButton, Vec2f clickPosition)
     {
         Vec2f topLeft{ GetPosition() };
-        Vec2f bottomRight{ GetPosition() + m_ButtonSize };
+        Vec2f bottomRight{ Vec2f{ GetPosition() } + m_ButtonSize };
         if (clickPosition[0] >= topLeft[0] && clickPosition[0] <= bottomRight[0] &&
             clickPosition[1] >= topLeft[1] && clickPosition[1] <= bottomRight[1])
         {

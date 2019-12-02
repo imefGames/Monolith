@@ -17,6 +17,7 @@
 #include <engine/model/data/worldinitdata.h>
 #include <engine/rendering/gamerendererinitdata.h>
 #include <engine/rendering/shaders/shaderinitdata.h>
+#include <minesweeper/entities/cameraentity.h>
 #include <minesweeper/entities/gamestatebuttonentity.h>
 #include <minesweeper/entities/gridentity.h>
 #include <minesweeper/flow/gamestateflowcondition.h>
@@ -48,6 +49,7 @@ namespace Monolith
         m_ClassInstantiators[2938514964] = ClassInstantiatorInternal::InstantiateClass<WorldInitData>;
         m_ClassInstantiators[1580459700] = ClassInstantiatorInternal::InstantiateClass<GameRendererInitData>;
         m_ClassInstantiators[2251754154] = ClassInstantiatorInternal::InstantiateClass<ShaderInitData>;
+        m_ClassInstantiators[1707974903] = ClassInstantiatorInternal::InstantiateClass<CameraEntityInitData>;
         m_ClassInstantiators[1442012994] = ClassInstantiatorInternal::InstantiateClass<GameStateButtonEntityInitData>;
         m_ClassInstantiators[3695653038] = ClassInstantiatorInternal::InstantiateClass<GridEntityInitData>;
         m_ClassInstantiators[2476956763] = ClassInstantiatorInternal::InstantiateClass<GameStateFlowConditionData>;

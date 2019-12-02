@@ -176,6 +176,7 @@
     <ClCompile Include="engine\window\gamewindow.cpp" />
     <ClCompile Include="engine\window\gamewindowdata.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="minesweeper\entities\cameraentity.cpp" />
     <ClCompile Include="minesweeper\entities\gamestatebuttonentity.cpp" />
     <ClCompile Include="minesweeper\entities\gridentity.cpp" />
     <ClCompile Include="minesweeper\flow\gamestateflowcondition.cpp" />
@@ -232,6 +233,7 @@
     <ClInclude Include="engine\rendering\textureloader.h" />
     <ClInclude Include="engine\window\gamewindow.h" />
     <ClInclude Include="engine\window\gamewindowdata.h" />
+    <ClInclude Include="minesweeper\entities\cameraentity.h" />
     <ClInclude Include="minesweeper\entities\gamestatebuttonentity.h" />
     <ClInclude Include="minesweeper\entities\gridentity.h" />
     <ClInclude Include="minesweeper\flow\gamestateflowcondition.h" />
@@ -258,6 +260,7 @@
     <None Include="engine\rendering\shaders\texture.ps" />
     <None Include="engine\rendering\shaders\texture.vs" />
     <None Include="gamedata.json" />
+    <None Include="minesweeper\entities\cameraentity.cdt" />
     <None Include="minesweeper\entities\gamestatebuttonentity.cdt" />
     <None Include="minesweeper\entities\gridentity.cdt" />
     <None Include="minesweeper\flow\gamestateflowcondition.cdt" />

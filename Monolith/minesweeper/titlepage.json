@@ -1,6 +1,13 @@
 {
     "Entities": [
         {
+            "ClassID": 1707974903,
+            "Position": {
+                "X": 0,
+                "Z": 10
+            }
+        },
+        {
             "ClassID": 1442012994,
             "Position": {
                 "X": 1,

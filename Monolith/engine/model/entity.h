@@ -10,8 +10,8 @@ namespace Monolith
     public:
         Entity(const EntityInitData& entityInitData);
 
-        inline Vec2f GetPosition() const { return m_Position; }
-        inline void SetPosition(Vec2f newValue) { m_Position = newValue; }
+        inline const Vec4f& GetPosition() const { return m_Position; }
+        inline void SetPosition(const Vec4f& newValue) { m_Position = newValue; }
 
         virtual void Init();
         virtual void Shutdown();
@@ -19,6 +19,6 @@ namespace Monolith
         virtual void Render(RenderingContext& renderingContext);
 
     private:
-        Vec2f m_Position;
+        Vec4f m_Position;
     };
 }

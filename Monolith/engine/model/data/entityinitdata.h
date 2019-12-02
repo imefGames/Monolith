@@ -15,15 +15,15 @@ namespace Monolith
 
         void LoadObject(const ObjectSerializer& serializer) override;
 
-        Vec2f GetPosition() const { return m_Position; }
-        void SetPosition(Vec2f newValue) { m_Position = newValue; }
+        Vec4f GetPosition() const { return m_Position; }
+        void SetPosition(Vec4f newValue) { m_Position = newValue; }
 
         virtual Entity* InstantiateEntity() const;
 
     private:
         using super = Object;
 
-        Vec2f m_Position;
+        Vec4f m_Position;
     };
 #pragma endregion //GeneratedCodeHeader
 }

@@ -77,7 +77,7 @@ namespace Monolith
                 {
                     cellValue = cell.m_Value;
                 }
-                Vec2f topLeft{ GetPosition() + Vec2f{ i * 16.0f, j * 16.0f } };
+                Vec2f topLeft{ GetPosition() + Vec4f{ i * 16.0f, j * 16.0f } };
                 Vec2f bottomRight{ topLeft + Vec2f{ 16.0f, 16.0f } };
 
                 if (cell.m_visible)
