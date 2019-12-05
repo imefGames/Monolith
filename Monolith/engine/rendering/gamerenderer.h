@@ -3,6 +3,7 @@
 #include <core/singleton.h>
 #include <engine/model/gamesystem.h>
 #include <engine/rendering/graphicdevicedata.h>
+#include <engine/rendering/renderpass.h>
 #include <engine/rendering/textureloader.h>
 #include <engine/rendering/shaders/shaderinitdata.h>
 
@@ -26,14 +27,16 @@ namespace Monolith
 
         void InitGraphics(const GameWindowData& gameWindowData);
         void ShutdownGraphics();
-        void StartFrame(RenderingContext& inputEvents);
-        void EndFrame(RenderingContext& inputEvents);
+        void StartFrame(RenderingContext& renderingContext);
+        void RenderAllPasses(RenderingContext& renderingContext);
+        void EndFrame(RenderingContext& renderingContext);
 
     protected:
         void OnInit() override;
         void OnShutdown() override;
 
     private:
+        std::vector<RenderPass*> m_RenderPasses;
         TextureLoader m_TextureLoader;
         GraphicsWrapper* m_GraphicsWrapper;
         GraphicDeviceData m_GraphicDeviceData;
@@ -45,8 +48,9 @@ namespace Monolith
 
     namespace RenderingHelper
     {
-        void StartFrame(RenderingContext& inputEvents);
-        void EndFrame(RenderingContext& inputEvents);
+        void StartFrame(RenderingContext& renderingContext);
+        void RenderAllPasses(RenderingContext& renderingContext);
+        void EndFrame(RenderingContext& renderingContext);
         void InitGraphics(const GameWindowData& gameWindowData);
         void ShutdownGraphics();
     }

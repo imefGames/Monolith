@@ -30,6 +30,7 @@ namespace Monolith
 
     namespace JSonHelper
     {
+        void LoadObject(const JSonNode& node, bool& loadedBool);
         void LoadObject(const JSonNode& node, s32& loadedS32);
         void LoadObject(const JSonNode& node, u32& loadedU32);
         void LoadObject(const JSonNode& node, f32& loadedF32);

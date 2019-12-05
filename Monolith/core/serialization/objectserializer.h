@@ -45,6 +45,7 @@ namespace Monolith
             }
         }
 
+        void LoadObject(const ObjectSerializer& serializer, bool& loadedBool);
         void LoadObject(const ObjectSerializer& serializer, s32& loadedS32);
         void LoadObject(const ObjectSerializer& serializer, u32& loadedU32);
         void LoadObject(const ObjectSerializer& serializer, f32& loadedF32);

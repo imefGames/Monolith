@@ -33,6 +33,11 @@ namespace Monolith
 
     namespace JSonHelper
     {
+        void LoadObject(const JSonNode& node, bool& loadedBool)
+        {
+            loadedBool = node.GetContentBuffer() == "true";
+        }
+
         void LoadObject(const JSonNode& node, s32& loadedS32)
         {
             if (!node.GetContentBuffer().empty())

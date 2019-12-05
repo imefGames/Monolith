@@ -18,6 +18,7 @@ namespace Monolith
     {
         friend class GameRenderer;
         friend class GameWindow;
+        friend class RenderPass;
 
     public:
         RenderingContext();

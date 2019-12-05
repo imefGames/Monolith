@@ -1,0 +1,32 @@
+﻿<ClassModel>
+    <ClassName>RenderPassInitData</ClassName>
+    <ClassProperties>
+        <ClassPropertyModel>
+            <PropertyName>RenderPassID</PropertyName>
+            <PropertyDefaultValue>0</PropertyDefaultValue>
+            <PropertyType>u32</PropertyType>
+        </ClassPropertyModel>
+        <ClassPropertyModel>
+            <PropertyName>ProjectionMatrixType</PropertyName>
+            <PropertyDefaultValue>0</PropertyDefaultValue>
+            <PropertyType>u32</PropertyType>
+        </ClassPropertyModel>
+        <ClassPropertyModel>
+            <PropertyName>ZBufferActive</PropertyName>
+            <PropertyDefaultValue>true</PropertyDefaultValue>
+            <PropertyType>bool</PropertyType>
+        </ClassPropertyModel>
+        <ClassPropertyModel>
+            <PropertyName>AlphaBlendingActive</PropertyName>
+            <PropertyDefaultValue>false</PropertyDefaultValue>
+            <PropertyType>bool</PropertyType>
+        </ClassPropertyModel>
+    </ClassProperties>
+    <ClassMethods>
+        <ClassMethodModel>
+            <MethodReturnType>RenderPass*</MethodReturnType>
+            <MethodName>InstantiateRenderPass</MethodName>
+            <IsConst>true</IsConst>
+        </ClassMethodModel>
+    </ClassMethods>
+</ClassModel>

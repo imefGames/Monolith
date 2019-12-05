@@ -6,6 +6,11 @@
             <PropertyName>DefaultShader</PropertyName>
             <PropertyType>ShaderInitData</PropertyType>
         </ClassPropertyModel>
+        <ClassPropertyModel>
+            <PropertyName>RenderPasses</PropertyName>
+            <PropertyType>RenderPassInitDataArray</PropertyType>
+            <NoAccessors>true</NoAccessors>
+        </ClassPropertyModel>
     </ClassProperties>
     <ClassMethods>
         <ClassMethodModel>
@@ -13,6 +18,11 @@
             <MethodName>InstantiateGameSystem</MethodName>
             <IsConst>true</IsConst>
             <IsOverride>true</IsOverride>
+        </ClassMethodModel>
+        <ClassMethodModel>
+            <MethodReturnType>RenderPassInitDataOutputArray</MethodReturnType>
+            <MethodName>GetRenderPasses</MethodName>
+            <IsConst>true</IsConst>
         </ClassMethodModel>
     </ClassMethods>
 </ClassModel>

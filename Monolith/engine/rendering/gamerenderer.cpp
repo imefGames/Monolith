@@ -15,9 +15,6 @@ namespace Monolith
 {
     const bool K_FULL_SCREEN = false;
     const bool K_VSYNC_ENABLED = true;
-    const f32 K_SCREEN_DEPTH = 1000.0f;
-    const f32 K_SCREEN_NEAR = 0.1f;
-    const f32 K_FIELD_OF_VIEW = Math::PI / 4.0f;
 
     GameRenderer::GameRenderer(const GameRendererInitData& initData)
         : m_GraphicsWrapper{ nullptr }
@@ -26,6 +23,11 @@ namespace Monolith
         , m_DefaultFont{ nullptr }
         , m_DefaultShaderInitData{ initData.GetDefaultShader() }
     {
+        m_RenderPasses.reserve(initData.GetRenderPasses().size());
+        for (const RenderPassInitData& renderPassData : initData.GetRenderPasses())
+        {
+            m_RenderPasses.push_back(renderPassData.InstantiateRenderPass());
+        }
     }
 
     void GameRenderer::OnInit()
@@ -54,6 +56,12 @@ namespace Monolith
 
     void GameRenderer::ShutdownGraphics()
     {
+        for (RenderPass* renderPass : m_RenderPasses)
+        {
+            delete renderPass;
+        }
+        m_RenderPasses.clear();
+
         m_DefaultShader->Shutdown();
         delete m_DefaultShader;
         m_DefaultShader = nullptr;
@@ -78,18 +86,20 @@ namespace Monolith
         renderingContext.m_Camera.ComputeViewMatrix();
         renderingContext.m_ViewMatrix = renderingContext.m_Camera.GetViewMatrix();
         renderingContext.m_WorldMatrix = Mat44f::GetIdentity();
-        const Vec2u& windowSize{ renderingContext.GetWindowSize() };
-        renderingContext.m_ProjectionMatrix = Math::Matrix::OrthographicProjection(0.0f, 0.0f, static_cast<f32>(windowSize[0]), static_cast<f32>(windowSize[1]), K_SCREEN_NEAR, K_SCREEN_DEPTH);
-        //renderingContext.m_ProjectionMatrix = Math::Matrix::PerspectiveProjection(K_FIELD_OF_VIEW, 800.0f/600.0f, K_SCREEN_NEAR, K_SCREEN_DEPTH);
         renderingContext.m_DefaultShader = m_DefaultShader;
         renderingContext.m_CurrentShader = renderingContext.m_DefaultShader;
         renderingContext.SetTexture(*m_DefaultTexture);
         renderingContext.SetFont(m_DefaultFont);
 
         m_GraphicsWrapper->BeginFrame();
+    }
 
-        m_GraphicsWrapper->SetZBufferActive(false);
-        m_GraphicsWrapper->SetAlphaBlendingActive(true);
+    void GameRenderer::RenderAllPasses(RenderingContext& renderingContext)
+    {
+        for (RenderPass* renderPass : m_RenderPasses)
+        {
+            renderPass->Render(renderingContext);
+        }
     }
 
     void GameRenderer::EndFrame(RenderingContext& renderingContext)
@@ -108,6 +118,15 @@ namespace Monolith
             if (gameRenderer != nullptr)
             {
                 gameRenderer->StartFrame(renderingContext);
+            }
+        }
+
+        void RenderAllPasses(RenderingContext& renderingContext)
+        {
+            GameRenderer* gameRenderer{ GameRenderer::Get() };
+            if (gameRenderer != nullptr)
+            {
+                gameRenderer->RenderAllPasses(renderingContext);
             }
         }
 

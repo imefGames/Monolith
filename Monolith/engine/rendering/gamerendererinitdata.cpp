@@ -10,6 +10,7 @@ namespace Monolith
     GameRendererInitData::GameRendererInitData()
         : super{}
         , m_DefaultShader{  }
+        , m_RenderPasses{  }
     {
     }
 
@@ -21,11 +22,17 @@ namespace Monolith
     {
         super::LoadObject(serializer);
         ObjectSerializationHelper::LoadObject(serializer["DefaultShader"], m_DefaultShader);
+        ObjectSerializationHelper::LoadObject(serializer["RenderPasses"], m_RenderPasses);
     }
 #pragma endregion //GeneratedCodeSource
 
     GameSystem* GameRendererInitData::InstantiateGameSystem() const
     {
         return new GameRenderer(*this);
+    }
+
+    RenderPassInitDataOutputArray GameRendererInitData::GetRenderPasses() const
+    {
+        return m_RenderPasses;
     }
 }

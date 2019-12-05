@@ -63,7 +63,15 @@
             "ClassID": 4168157516
         },
         {
-            "ClassID": 1580459700
+            "ClassID": 1580459700,
+            "RenderPasses": [
+                {
+                    "RenderPassID": 1,
+                    "ProjectionMatrixType": 1,
+                    "ZBufferActive": "false",
+                    "AlphaBlendingActive": "true"
+                }
+            ]
         },
         {
             "ClassID": 4271893737

@@ -158,6 +158,9 @@
     <ClCompile Include="minesweeper\entities\cameraentity.cpp">
       <Filter>minesweeper\entities</Filter>
     </ClCompile>
+    <ClCompile Include="engine\rendering\renderpass.cpp">
+      <Filter>engine\rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\types.h">
@@ -332,6 +335,9 @@
     <ClInclude Include="minesweeper\entities\cameraentity.h">
       <Filter>minesweeper\entities</Filter>
     </ClInclude>
+    <ClInclude Include="engine\rendering\renderpass.h">
+      <Filter>engine\rendering</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="engine">
@@ -462,6 +468,9 @@
     </None>
     <None Include="minesweeper\entities\cameraentity.cdt">
       <Filter>minesweeper\entities</Filter>
+    </None>
+    <None Include="engine\rendering\renderpass.cdt">
+      <Filter>engine\rendering</Filter>
     </None>
   </ItemGroup>
 </Project>

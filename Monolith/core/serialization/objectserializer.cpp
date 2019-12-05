@@ -20,6 +20,11 @@ namespace Monolith
 
     namespace ObjectSerializationHelper
     {
+        void LoadObject(const ObjectSerializer& serializer, bool& loadedBool)
+        {
+            JSonHelper::LoadObject(serializer.GetNode(), loadedBool);
+        }
+
         void LoadObject(const ObjectSerializer& serializer, s32& loadedS32)
         {
             JSonHelper::LoadObject(serializer.GetNode(), loadedS32);

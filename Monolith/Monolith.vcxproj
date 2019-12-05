@@ -168,6 +168,7 @@
     <ClCompile Include="engine\rendering\gamerendererinitdata.cpp" />
     <ClCompile Include="engine\rendering\model.cpp" />
     <ClCompile Include="engine\rendering\renderingcontext.cpp" />
+    <ClCompile Include="engine\rendering\renderpass.cpp" />
     <ClCompile Include="engine\rendering\shaders\shader.cpp" />
     <ClCompile Include="engine\rendering\shaders\shaderinitdata.cpp" />
     <ClCompile Include="engine\rendering\texture.cpp" />
@@ -226,6 +227,7 @@
     <ClInclude Include="engine\rendering\gamerendererinitdata.h" />
     <ClInclude Include="engine\rendering\model.h" />
     <ClInclude Include="engine\rendering\renderingcontext.h" />
+    <ClInclude Include="engine\rendering\renderpass.h" />
     <ClInclude Include="engine\rendering\shaders\shader.h" />
     <ClInclude Include="engine\rendering\shaders\shaderinitdata.h" />
     <ClInclude Include="engine\rendering\texture.h" />
@@ -254,6 +256,7 @@
     <None Include="engine\model\data\universeinitdata.cdt" />
     <None Include="engine\model\data\worldinitdata.cdt" />
     <None Include="engine\rendering\gamerendererinitdata.cdt" />
+    <None Include="engine\rendering\renderpass.cdt" />
     <None Include="engine\rendering\shaders\color.ps" />
     <None Include="engine\rendering\shaders\color.vs" />
     <None Include="engine\rendering\shaders\shaderinitdata.cdt" />
