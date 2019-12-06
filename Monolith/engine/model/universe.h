@@ -19,7 +19,6 @@ namespace Monolith
         void Init(const UniverseInitData& universeInitData);
         void Shutdown();
         void Update(f32 deltaTime);
-        void Render(RenderingContext& renderingContext);
 
         void GoToWorld(const std::string& destinationWorld);
 

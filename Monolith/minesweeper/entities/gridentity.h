@@ -38,7 +38,7 @@ namespace Monolith
         void Init() override;
         void Shutdown() override;
         void Update(f32 deltaTime) override;
-        void Render(RenderingContext& renderingContext) override;
+        void Render(RenderingContext& renderingContext);
 
     private:
         struct CellStatus
@@ -55,7 +55,8 @@ namespace Monolith
 
         u32 m_GridSizeX;
         u32 m_GridSizeY;
-        u32 m_MouseClickSlotID;
+        SlotID m_MouseClickSlotID;
+        SlotID m_RenderCallbackSlotID;
         std::vector<CellStatus> m_Cells;
         CellStatus m_NullCell;
         TextureHandle m_UnknownCellTexture;

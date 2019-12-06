@@ -9,6 +9,7 @@
 #include <engine/rendering/shaders/shader.h>
 #include <engine/window/gamewindowdata.h>
 
+#include <algorithm>
 #include <Windows.h>
 
 namespace Monolith
@@ -81,10 +82,7 @@ namespace Monolith
     {
         m_TextureLoader.LoadPendingTextures();
 
-        renderingContext.m_Camera.SetFromPosition(Vec4f{ 0.0f, 0.0f, -10.0f });
         renderingContext.m_GraphicsWrapper = m_GraphicsWrapper;
-        renderingContext.m_Camera.ComputeViewMatrix();
-        renderingContext.m_ViewMatrix = renderingContext.m_Camera.GetViewMatrix();
         renderingContext.m_WorldMatrix = Mat44f::GetIdentity();
         renderingContext.m_DefaultShader = m_DefaultShader;
         renderingContext.m_CurrentShader = renderingContext.m_DefaultShader;
@@ -108,6 +106,13 @@ namespace Monolith
         renderingContext.m_GraphicsWrapper = nullptr;
         renderingContext.m_DefaultShader = nullptr;
         renderingContext.m_CurrentShader = nullptr;
+    }
+
+    RenderPass* GameRenderer::FindRenderPass(ERenderPass renderPassID) const
+    {
+        auto findByType{ [renderPassID](RenderPass* renderPass) { return renderPass->GetRenderPassID() == renderPassID; } };
+        auto foundIt{ std::find_if(m_RenderPasses.begin(), m_RenderPasses.end(), findByType) };
+        return (foundIt != m_RenderPasses.end() ? *foundIt : nullptr);
     }
 
     namespace RenderingHelper

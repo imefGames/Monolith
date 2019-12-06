@@ -21,8 +21,4 @@ namespace Monolith
     void Entity::Update(f32 deltaTime)
     {
     }
-
-    void Entity::Render(RenderingContext& renderingContext)
-    {
-    }
 }

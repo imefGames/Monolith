@@ -58,19 +58,6 @@ namespace Monolith
         }
     }
 
-    void Universe::Render(RenderingContext& renderingContext)
-    {
-        for (GameSystem* currentSystem : m_Systems)
-        {
-            currentSystem->Render(renderingContext);
-        }
-
-        if (m_CurrentWorld != nullptr)
-        {
-            m_CurrentWorld->Render(renderingContext);
-        }
-    }
-
     void Universe::GoToWorld(const std::string& destinationWorld)
     {
         if (m_CurrentWorld != nullptr)

@@ -16,7 +16,6 @@ namespace Monolith
         virtual void Init();
         virtual void Shutdown();
         virtual void Update(f32 deltaTime);
-        virtual void Render(RenderingContext& renderingContext);
 
     private:
         Vec4f m_Position;

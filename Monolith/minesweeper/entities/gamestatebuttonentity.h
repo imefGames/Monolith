@@ -42,7 +42,7 @@ namespace Monolith
         void Init() override;
         void Shutdown() override;
         void Update(f32 deltaTime) override;
-        void Render(RenderingContext& renderingContext) override;
+        void Render(RenderingContext& renderingContext);
 
     private:
         void OnMouseClick(EMouseButton mouseButton, Vec2f clickPosition);
@@ -50,7 +50,8 @@ namespace Monolith
         std::string m_ButtonText;
         Vec2f m_ButtonSize;
         EMinesweeperGameState m_GameStateID;
-        u32 m_MouseClickSlotID;
+        SlotID m_MouseClickSlotID;
+        SlotID m_RenderCallbackSlotID;
         TextureHandle m_ButtonTexture;
     };
 }

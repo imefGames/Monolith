@@ -1,5 +1,6 @@
 #pragma once
 
+#include <core/signal.hpp>
 #include <engine/model/object.h>
 
 namespace Monolith
@@ -54,9 +55,13 @@ namespace Monolith
     public:
         RenderPass(const RenderPassInitData& passData);
 
+        inline ERenderPass GetRenderPassID() const { return m_RenderPass; }
+        inline Signal<RenderingContext&>& GetRenderPassSignal() { return m_RenderPassSignal; }
+
         void Render(RenderingContext& renderingContext);
 
     private:
+        Signal<RenderingContext&> m_RenderPassSignal;
         ERenderPass m_RenderPass;
         ERenderPassProjection m_ProjectionMatrixType;
         bool m_ZBufferActive;

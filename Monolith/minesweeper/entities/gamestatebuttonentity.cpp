@@ -4,6 +4,7 @@
 #include <core/serialization/objectserializer.h>
 #include <engine/input/inputprocessor.h>
 #include <engine/rendering/font.h>
+#include <engine/rendering/gamerenderer.h>
 #include <engine/rendering/renderingcontext.h>
 #include <minesweeper/systems/minesweepergamesystem.h>
 
@@ -42,11 +43,13 @@ namespace Monolith
         , m_ButtonText{ gameStateButtonEntityInitData.GetButtonText() }
         , m_GameStateID{ static_cast<EMinesweeperGameState>(gameStateButtonEntityInitData.GetGameStateID()) }
         , m_MouseClickSlotID{ u32Max }
+        , m_RenderCallbackSlotID{ u32Max }
     {
     }
 
     void GameStateButtonEntity::Init()
     {
+        m_RenderCallbackSlotID = GameRenderer::Get()->RegisterRenderCallback(ERenderPass::GUI, this, &GameStateButtonEntity::Render);
         m_MouseClickSlotID = InputProcessor::Get()->GetMouseClickedSignal().Connect(this, &GameStateButtonEntity::OnMouseClick);
         m_ButtonTexture = TextureHandle{ "minesweeper/textures/button.png" };
     }
@@ -54,6 +57,7 @@ namespace Monolith
     void GameStateButtonEntity::Shutdown()
     {
         InputProcessor::Get()->GetMouseClickedSignal().Disconnect(m_MouseClickSlotID);
+        GameRenderer::Get()->UnregisterRenderCallback(ERenderPass::GUI, m_RenderCallbackSlotID);
     }
 
     void GameStateButtonEntity::Update(f32 deltaTime)

@@ -31,11 +31,32 @@ namespace Monolith
         void RenderAllPasses(RenderingContext& renderingContext);
         void EndFrame(RenderingContext& renderingContext);
 
+        template <class T>
+        SlotID RegisterRenderCallback(ERenderPass renderPass, T* instance, void (T::* functionPointer)(RenderingContext&))
+        {
+            SlotID slotID{ 0 };
+            if (RenderPass* foundPass = FindRenderPass(renderPass))
+            {
+                slotID = foundPass->GetRenderPassSignal().Connect(instance, functionPointer);
+            }
+            return slotID;
+        }
+
+        void UnregisterRenderCallback(ERenderPass renderPass, SlotID renderSlotID)
+        {
+            if (RenderPass* foundPass = FindRenderPass(renderPass))
+            {
+                foundPass->GetRenderPassSignal().Disconnect(renderSlotID);
+            }
+        }
+
     protected:
         void OnInit() override;
         void OnShutdown() override;
 
     private:
+        RenderPass* FindRenderPass(ERenderPass renderPassID) const;
+
         std::vector<RenderPass*> m_RenderPasses;
         TextureLoader m_TextureLoader;
         GraphicsWrapper* m_GraphicsWrapper;

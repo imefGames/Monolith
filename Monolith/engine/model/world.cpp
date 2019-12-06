@@ -40,12 +40,4 @@ namespace Monolith
             currentEntity->Update(deltaTime);
         }
     }
-
-    void World::Render(RenderingContext& renderingContext)
-    {
-        for (Entity* currentEntity : m_Entities)
-        {
-            currentEntity->Render(renderingContext);
-        }
-    }
 }

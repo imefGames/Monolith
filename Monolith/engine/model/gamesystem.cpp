@@ -17,9 +17,4 @@ namespace Monolith
     {
         OnUpdate(deltaTime);
     }
-
-    void GameSystem::Render(RenderingContext& renderingContext)
-    {
-        OnRender(renderingContext);
-    }
 }

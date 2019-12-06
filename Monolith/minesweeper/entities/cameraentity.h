@@ -30,8 +30,9 @@ namespace Monolith
 
         void Init() override;
         void Shutdown() override;
-        void Render(RenderingContext& renderingContext) override;
+        void Render(RenderingContext& renderingContext);
 
     private:
+        SlotID m_RenderCallbackSlotID;
     };
 }

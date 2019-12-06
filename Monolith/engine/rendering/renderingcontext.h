@@ -31,6 +31,8 @@ namespace Monolith
         inline const Mat44f& GetWorldMatrix() const { return m_WorldMatrix; }
         inline const Vec2u& GetWindowSize() const { return m_WindowSize; }
 
+        inline void SetViewMatrix(const Mat44f& viewMatrix) { m_ViewMatrix = viewMatrix; }
+
         void DrawCharacter2D(const Vec2f& pixelPosition, s8 character);
         void DrawText2D(const Vec2f& textPosition, const std::string& text);
         void DrawRectangle2D(const Vec2f& topLeftPosition, const Vec2f& bottomRightPosition);

@@ -2,7 +2,6 @@
 #include <engine/rendering/renderpass.h>
 
 #include <core/serialization/objectserializer.h>
-#include <engine/model/universe.h>
 #include <engine/rendering/graphicswrapper.h>
 #include <engine/rendering/renderingcontext.h>
 
@@ -65,6 +64,8 @@ namespace Monolith
             case ERenderPassProjection::Orthographic:
             {
                 renderingContext.m_ProjectionMatrix = Math::Matrix::OrthographicProjection(0.0f, 0.0f, static_cast<f32>(windowSize[0]), static_cast<f32>(windowSize[1]), K_SCREEN_NEAR, K_SCREEN_DEPTH);
+                renderingContext.m_ViewMatrix = Mat44f::GetIdentity();
+                renderingContext.m_ViewMatrix(2, 3) = 1;
                 break;
             }
             default:
@@ -78,8 +79,6 @@ namespace Monolith
         graphicsWrapper->SetZBufferActive(m_ZBufferActive);
         graphicsWrapper->SetAlphaBlendingActive(m_AlphaBlendingActive);
 
-
-        //TODO: allow entities & systems to register to pass rather than parse all renderable classes.
-        Universe::Get()->Render(renderingContext);
+        m_RenderPassSignal.Emit(renderingContext);
     }
 }

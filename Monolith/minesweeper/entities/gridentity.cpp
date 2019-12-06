@@ -3,6 +3,7 @@
 
 #include <core/serialization/objectserializer.h>
 #include <engine/input/inputprocessor.h>
+#include <engine/rendering/gamerenderer.h>
 #include <engine/rendering/renderingcontext.h>
 #include <minesweeper/systems/minesweepergamesystem.h>
 #include <stdlib.h>
@@ -39,6 +40,7 @@ namespace Monolith
         , m_GridSizeX{ static_cast<u32>(gridEntityInitData.GetGridSize()[0]) }
         , m_GridSizeY{ static_cast<u32>(gridEntityInitData.GetGridSize()[1]) }
         , m_MouseClickSlotID{ u32Max }
+        , m_RenderCallbackSlotID{ u32Max }
     {
         GenerateGrid();
         m_NullCell.m_visible = true;
@@ -46,6 +48,7 @@ namespace Monolith
 
     void GridEntity::Init()
     {
+        m_RenderCallbackSlotID = GameRenderer::Get()->RegisterRenderCallback(ERenderPass::GUI, this, &GridEntity::Render);
         m_MouseClickSlotID = InputProcessor::Get()->GetMouseClickedSignal().Connect(this, &GridEntity::OnMouseClick);
         m_UnknownCellTexture = TextureHandle{ "minesweeper/textures/tileUnknown.png" };
         m_KnownCellTexture = TextureHandle{ "minesweeper/textures/tileKnown.png" };
@@ -58,6 +61,7 @@ namespace Monolith
         m_KnownCellTexture.Release();
         m_UnknownCellTexture.Release();
         InputProcessor::Get()->GetMouseClickedSignal().Disconnect(m_MouseClickSlotID);
+        GameRenderer::Get()->UnregisterRenderCallback(ERenderPass::GUI, m_RenderCallbackSlotID);
     }
 
     void GridEntity::Update(f32 deltaTime)

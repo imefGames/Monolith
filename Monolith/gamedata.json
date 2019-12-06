@@ -66,6 +66,12 @@
             "ClassID": 1580459700,
             "RenderPasses": [
                 {
+                    "RenderPassID": 0,
+                    "ProjectionMatrixType": 0,
+                    "ZBufferActive": "true",
+                    "AlphaBlendingActive": "false"
+                },
+                {
                     "RenderPassID": 1,
                     "ProjectionMatrixType": 1,
                     "ZBufferActive": "false",
